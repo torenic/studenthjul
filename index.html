@@ -1,21 +1,335 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
 <head>
-<title>Studenthjul</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studenthjul og spørsmålshjul</title>
+<style>
+:root{
+  --blue:#00509e;
+  --dark:#002d62;
+  --light:#d9ecff;
+  --mid:#7db8e8;
+  --used:#b8b8b8;
+  --green:#dff3df;
+  --red:#c00000;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f5f8;color:#111}
+header{background:linear-gradient(135deg,var(--blue),var(--dark));color:white;text-align:center;padding:18px}
+header h1{margin:0;font-size:32px}
+header p{margin:6px 0 0;font-size:17px}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding:14px;background:white;box-shadow:0 2px 8px #0002;position:sticky;top:0;z-index:20}
+button{border:0;border-radius:14px;padding:15px 22px;font-size:21px;background:var(--blue);color:white;min-width:160px;cursor:pointer}
+button:active{transform:scale(.97)}
+button.green{background:#2f7d32}
+button.red{background:#a00000}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}
+.panel{background:white;border-radius:20px;padding:18px;text-align:center;box-shadow:0 4px 14px #0002}
+.panel h2{margin:0 0 10px;color:var(--dark);font-size:28px}
+.wheelwrap{position:relative;width:min(43vw,520px);height:min(43vw,520px);margin:0 auto}
+canvas{width:100%;height:100%;border-radius:50%}
+.pointer{position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-top:45px solid var(--red);z-index:5}
+.result{min-height:38px;font-size:26px;font-weight:bold;color:var(--dark);margin-top:10px}
+.box{margin:0 20px 20px;background:white;border-radius:18px;padding:24px;font-size:28px;line-height:1.35;box-shadow:0 4px 14px #0002}
+.answer{background:var(--green)}
+.hidden{display:none}
+.status{text-align:center;font-size:18px;font-weight:bold;color:#2f7d32;min-height:28px;padding-top:8px}
+@media(max-width:900px){
+  .stage{grid-template-columns:1fr}
+  .wheelwrap{width:min(86vw,520px);height:min(86vw,520px)}
+  .box{font-size:25px}
+  button{font-size:19px;min-width:145px}
+}
+</style>
 </head>
 <body>
 
-<h1>Studenthjul fungerer!</h1>
+<header>
+  <h1>Studenthjul og spørsmålshjul</h1>
+  <p>Velg tilfeldig student, velg tilfeldig spørsmål og vis svar</p>
+</header>
 
-<button onclick="test()">Trykk her</button>
+<div class="buttons">
+  <button id="studentBtn">Velg student</button>
+  <button id="questionBtn">Velg spørsmål</button>
+  <button id="answerBtn" class="green">Svar</button>
+  <button id="resetBtn" class="red">Resett økt</button>
+</div>
 
-<p id="resultat"></p>
+<div class="status" id="status">Programmet er klart.</div>
+
+<section class="stage">
+  <div class="panel">
+    <h2>Studenthjul</h2>
+    <div class="wheelwrap">
+      <div class="pointer"></div>
+      <canvas id="studentCanvas" width="520" height="520"></canvas>
+    </div>
+    <div class="result" id="studentResult"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Spørsmålshjul</h2>
+    <div class="wheelwrap">
+      <div class="pointer"></div>
+      <canvas id="questionCanvas" width="520" height="520"></canvas>
+    </div>
+    <div class="result" id="questionResult"></div>
+  </div>
+</section>
+
+<div id="questionText" class="box hidden"></div>
+<div id="answerText" class="box answer hidden"></div>
 
 <script>
-function test() {
-    document.getElementById("resultat").innerHTML =
-        "JavaScript virker!";
+(function(){
+"use strict";
+
+var names=[
+"Anna","Bjørn","Clara","David","Emma","Fredrik","Guro","Henrik","Ingrid","Jonas",
+"Kari","Lars","Mina","Nora","Oskar","Pernille","Rasmus","Sara","Thomas","Una",
+"Vilde","William","Ylva","Øystein","Åse","Navn 26","Navn 27","Navn 28","Navn 29","Navn 30"
+];
+
+var questions=[
+"Hva er forskjellen på kraft og moment?",
+"Hva betyr likevekt i statikk?",
+"Hva er friksjonskraft?",
+"Hva er et fri-legeme-diagram?",
+"Hva er skjærkraft i en bjelke?",
+"Hva er bøyemoment?",
+"Hvor er normalspenningen null ved ren bøying?",
+"Hva er forskjellen på strekk og trykk?",
+"Hva betyr elastisk deformasjon?",
+"Hva betyr plastisk deformasjon?",
+"Hva er Hookes lov?",
+"Hva er sikkerhetsfaktor?",
+"Hva er en aksling?",
+"Hva er et lager?",
+"Hva brukes en kile til?",
+"Hva er forskjellen på glidelager og rullelager?",
+"Hva er en skrueforbindelse?",
+"Hva betyr forspenning i bolt?",
+"Hva er tannhjulsoverføring?",
+"Hva er utveksling?",
+"Hva er remdrift?",
+"Hva er kjededrift?",
+"Hva er virkningsgrad?",
+"Hva betyr toleranse?",
+"Hva er pasning?",
+"Hva er et ledd i en mekanisme?",
+"Hva er en fireleddsmekanisme?",
+"Hva er Grashofs kriterium?",
+"Hva er utmatting?",
+"Hva er knekk?"
+];
+
+var answers=[
+"Kraft virker langs en linje. Moment er kraft ganger arm og skaper rotasjon.",
+"Likevekt betyr at summen av krefter er null og summen av momenter er null.",
+"Friksjonskraft er motstandskraften mellom flater i kontakt.",
+"Et fri-legeme-diagram isolerer ett legeme og viser alle ytre krefter.",
+"Skjærkraft er en indre kraft som prøver å skyve tverrsnitt i forhold til hverandre.",
+"Bøyemoment er et indre moment som bøyer bjelken.",
+"I nøytralaksen.",
+"Strekk forlenger materialet. Trykk forkorter materialet.",
+"Materialet går tilbake til opprinnelig form når lasten fjernes.",
+"Materialet får varig formendring.",
+"Spenning er proporsjonal med tøyning i elastisk område.",
+"Sikkerhetsfaktor er kapasitet delt på belastning.",
+"En aksling er en roterende maskindel som bærer komponenter eller overfører moment.",
+"Et lager støtter akselen og reduserer friksjon.",
+"En kile overfører moment mellom aksel og nav.",
+"Glidelager har glidende kontakt. Rullelager har kuler eller ruller.",
+"En løsbar forbindelse der bolt eller skrue klemmer deler sammen.",
+"Bolten strekkes slik at delene klemmes sammen.",
+"Overføring av rotasjon og moment mellom aksler ved hjelp av tannhjul.",
+"Forholdet mellom inn- og utgående hastighet eller tannantall.",
+"Kraftoverføring mellom hjul ved hjelp av rem.",
+"Kraftoverføring med kjede og kjedehjul.",
+"Nyttig effekt delt på tilført effekt.",
+"Tillatt avvik fra nominell dimensjon.",
+"Forholdet mellom hull og aksel etter toleranser.",
+"En forbindelse som tillater bestemt relativ bevegelse.",
+"En mekanisme med fire stive ledd koblet sammen.",
+"Et kriterium for rotasjonsmulighet i fireleddsmekanismer.",
+"Skade som oppstår ved gjentatte belastninger over tid.",
+"Stabilitetssvikt der en trykkbelastet stav bøyer ut sideveis."
+];
+
+var usedStudents=[];
+var usedQuestions=[];
+var selectedQuestion=-1;
+var spinning=false;
+var studentAngle=0;
+var questionAngle=0;
+
+var studentCanvas=document.getElementById("studentCanvas");
+var questionCanvas=document.getElementById("questionCanvas");
+var studentCtx=studentCanvas.getContext("2d");
+var questionCtx=questionCanvas.getContext("2d");
+
+function el(id){return document.getElementById(id);}
+function status(t){el("status").textContent=t;}
+
+function pickUnused(total,used){
+  var open=[];
+  for(var i=0;i<total;i++){
+    if(used.indexOf(i)===-1){open.push(i);}
+  }
+  if(open.length===0){return -1;}
+  return open[Math.floor(Math.random()*open.length)];
 }
+
+function drawWheel(ctx,labels,used,angle){
+  var size=520;
+  var r=size/2;
+  var n=labels.length;
+  var slice=2*Math.PI/n;
+
+  ctx.clearRect(0,0,size,size);
+  ctx.save();
+  ctx.translate(r,r);
+  ctx.rotate(angle);
+
+  for(var i=0;i<n;i++){
+    var start=i*slice;
+    var end=start+slice;
+
+    ctx.beginPath();
+    ctx.moveTo(0,0);
+    ctx.arc(0,0,r-5,start,end);
+    ctx.closePath();
+
+    ctx.fillStyle = used.indexOf(i)>=0 ? "#b8b8b8" : (i%2===0 ? "#d9ecff" : "#7db8e8");
+    ctx.fill();
+
+    ctx.strokeStyle="white";
+    ctx.lineWidth=2;
+    ctx.stroke();
+
+    ctx.save();
+    ctx.rotate(start+slice/2);
+    ctx.textAlign="right";
+    ctx.fillStyle="#111";
+    ctx.font=n>22 ? "15px Arial" : "18px Arial";
+    ctx.fillText(labels[i],r-20,6);
+    ctx.restore();
+  }
+
+  ctx.restore();
+
+  ctx.beginPath();
+  ctx.arc(r,r,24,0,Math.PI*2);
+  ctx.fillStyle="white";
+  ctx.fill();
+  ctx.strokeStyle="#333";
+  ctx.lineWidth=2;
+  ctx.stroke();
+}
+
+function redraw(){
+  drawWheel(studentCtx,names,usedStudents,studentAngle);
+  var qlabels=[];
+  for(var i=0;i<questions.length;i++){qlabels.push(String(i+1));}
+  drawWheel(questionCtx,qlabels,usedQuestions,questionAngle);
+}
+
+function spin(type){
+  if(spinning){return;}
+  spinning=true;
+
+  var total=type==="student" ? names.length : questions.length;
+  var used=type==="student" ? usedStudents : usedQuestions;
+  var chosen=pickUnused(total,used);
+
+  if(chosen<0){
+    alert("Alt er brukt. Trykk Resett økt.");
+    spinning=false;
+    return;
+  }
+
+  var startAngle=type==="student" ? studentAngle : questionAngle;
+  var slice=2*Math.PI/total;
+  var target=(3*Math.PI/2)-(chosen*slice+slice/2);
+  var finalAngle=target+(7*2*Math.PI);
+  var duration=2600;
+  var startTime=null;
+
+  status("Hjulet snurrer ...");
+
+  function animate(time){
+    if(!startTime){startTime=time;}
+    var p=Math.min((time-startTime)/duration,1);
+    var ease=1-Math.pow(1-p,3);
+    var current=startAngle+ease*(finalAngle-startAngle);
+
+    if(type==="student"){
+      drawWheel(studentCtx,names,usedStudents,current);
+    }else{
+      var qlabels=[];
+      for(var i=0;i<questions.length;i++){qlabels.push(String(i+1));}
+      drawWheel(questionCtx,qlabels,usedQuestions,current);
+    }
+
+    if(p<1){
+      requestAnimationFrame(animate);
+    }else{
+      if(type==="student"){
+        studentAngle=finalAngle%(2*Math.PI);
+        usedStudents.push(chosen);
+        el("studentResult").textContent="Valgt student: "+names[chosen];
+        status("Student valgt.");
+      }else{
+        questionAngle=finalAngle%(2*Math.PI);
+        usedQuestions.push(chosen);
+        selectedQuestion=chosen;
+        el("questionResult").textContent="Valgt spørsmål: "+(chosen+1);
+        el("questionText").innerHTML="<b>Spørsmål "+(chosen+1)+":</b><br>"+questions[chosen];
+        el("questionText").className="box";
+        el("answerText").className="box answer hidden";
+        status("Spørsmål valgt.");
+      }
+      spinning=false;
+      redraw();
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+function showAnswer(){
+  if(selectedQuestion<0){
+    alert("Velg spørsmål først.");
+    return;
+  }
+  el("answerText").innerHTML="<b>Svar:</b><br>"+answers[selectedQuestion];
+  el("answerText").className="box answer";
+  status("Svar vises.");
+}
+
+function resetSession(){
+  usedStudents=[];
+  usedQuestions=[];
+  selectedQuestion=-1;
+  studentAngle=0;
+  questionAngle=0;
+  el("studentResult").textContent="";
+  el("questionResult").textContent="";
+  el("questionText").className="box hidden";
+  el("answerText").className="box answer hidden";
+  redraw();
+  status("Økten er resatt.");
+}
+
+el("studentBtn").addEventListener("click",function(){spin("student");});
+el("questionBtn").addEventListener("click",function(){spin("question");});
+el("answerBtn").addEventListener("click",showAnswer);
+el("resetBtn").addEventListener("click",resetSession);
+
+redraw();
+})();
 </script>
 
 </body>
