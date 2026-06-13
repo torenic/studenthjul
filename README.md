@@ -3,7 +3,7 @@
 Et enkelt verktøy for aktiv læring i undervisning.
 
 Dekker pedagogisk teknikk "No Hands" 
-Læerings strategi "Bevis for læring"
+Lærings strategi "Bevis for læring"
 
 Verktøyet kan brukes til:
 
