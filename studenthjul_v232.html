@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studenthjul V2.3.2</title>
+<style>
+:root{
+  --blue:#00509e;
+  --dark:#002d62;
+  --red:#a00000;
+  --green:#2f7d32;
+  --select:#d9ecff;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f2f5f8;color:#111}
+header{background:linear-gradient(135deg,var(--blue),var(--dark));color:white;text-align:center;padding:18px}
+h1{margin:0;font-size:32px}
+header p{margin:6px 0 0;font-size:17px}
+.nav,.buttons,.selectRow{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  background:white;
+  box-shadow:0 2px 8px #0002
+}
+.selectRow{padding-bottom:6px}
+.buttons{padding-top:6px}
+button{
+  border:0;
+  border-radius:14px;
+  padding:14px 20px;
+  font-size:20px;
+  background:var(--blue);
+  color:white;
+  min-width:150px;
+  cursor:pointer
+}
+button.dark{background:var(--dark)}
+button.green{background:var(--green)}
+button.red{background:var(--red)}
+select.bankSelect{
+  background:var(--select);
+  color:#002d62;
+  border:2px solid #7db8e8;
+  border-radius:14px;
+  padding:13px 16px;
+  font-size:20px;
+  font-weight:bold;
+  min-width:310px;
+  max-width:420px
+}
+.tab{display:none}
+.tab.active{display:block}
+.admin,.panel,.box{background:white;border-radius:20px;margin:20px;padding:18px;box-shadow:0 4px 14px #0002}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+label{font-weight:bold}
+input,select,textarea{width:100%;font-size:18px;padding:10px;border:1px solid #bbb;border-radius:10px}
+textarea{min-height:160px;font-family:Arial,sans-serif}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}
+.panel{text-align:center;margin:0}
+.panel h2{color:var(--dark);font-size:28px;margin:0 0 10px}
+.wheelwrap{position:relative;width:min(43vw,520px);height:min(43vw,520px);margin:auto}
+canvas{width:100%;height:100%;border-radius:50%}
+.pointer{
+  position:absolute;
+  top:-2px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:34px solid var(--red);
+  z-index:5
+}
+.result{font-size:25px;font-weight:bold;color:var(--dark);min-height:35px;margin-top:10px}
+.answer{background:#dff3df}
+.hidden{display:none}
+.help{background:#eef5ff;border-left:6px solid var(--blue);padding:12px;margin:12px 0;font-size:17px}
+@media(max-width:900px){
+.grid,.grid3,.stage{grid-template-columns:1fr}
+.wheelwrap{width:min(86vw,520px);height:min(86vw,520px)}
+button{font-size:18px;min-width:130px}
+select.bankSelect{font-size:18px;min-width:260px;max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Studenthjul og spørsmålshjul V2.3.2</h1>
+<p>Klassebank og spørsmålsbank på egen linje</p>
+</header>
+
+<div class="nav">
+<button class="dark" onclick="showTab('teach')">Undervisning</button>
+<button class="dark" onclick="showTab('classes')">Klassebank</button>
+<button class="dark" onclick="showTab('questions')">Spørsmålsbank</button>
+</div>
+
+<div id="teach" class="tab active">
+
+<div class="selectRow">
+<select id="classSelect" class="bankSelect" onchange="loadClass()"></select>
+<select id="questionSelect" class="bankSelect" onchange="loadQuestions()"></select>
+</div>
+
+<div class="buttons">
+<button id="studentBtn">Velg student</button>
+<button id="questionBtn">Velg spørsmål</button>
+<button id="answerBtn" class="green">Svar</button>
+<button id="resetBtn" class="red">Resett økt</button>
+</div>
+
+<section class="stage">
+<div class="panel">
+<h2>Studenthjul</h2>
+<div class="wheelwrap">
+<div class="pointer"></div>
+<canvas id="studentCanvas" width="520" height="520"></canvas>
+</div>
+<div id="studentResult" class="result"></div>
+</div>
+
+<div class="panel">
+<h2>Spørsmålshjul</h2>
+<div class="wheelwrap">
+<div class="pointer"></div>
+<canvas id="questionCanvas" width="520" height="520"></canvas>
+</div>
+<div id="questionResult" class="result"></div>
+</div>
+</section>
+
+<div id="questionText" class="box hidden"></div>
+<div id="answerText" class="box answer hidden"></div>
+</div>
+
+<div id="classes" class="tab">
+<div class="admin">
+<h2>Klassebank</h2>
+<div class="help">
+Manuell registrering: skriv klassenavn på formen <b>Maskin 25 A</b>.<br>
+Excel senere: kolonne 1 = klassetilhørighet, kolonne 2 = klassegruppe, kolonne 3 = student fornavn.
+</div>
+<label>Klassenavn</label>
+<input id="className" placeholder="Maskin 25 A">
+<br><br>
+<label>Studenter</label>
+<textarea id="classStudents" placeholder="Anne&#10;Bjørn&#10;Clara"></textarea>
+<div class="buttons">
+<button class="green" onclick="saveClass()">Lagre klassebank</button>
+<button class="red" onclick="deleteClass()">Slett valgt klassebank</button>
+</div>
+</div>
+</div>
+
+<div id="questions" class="tab">
+<div class="admin">
+<h2>Spørsmålsbank</h2>
+<div class="help">
+Spørsmålsbank vises på formen <b>TEK1210 M1 Krefter</b>.<br>
+Excel senere: kolonne 1 = emne, kolonne 2 = modul, kolonne 3 = tema, kolonne 4 = spørsmål, kolonne 5 = svar.
+</div>
+<div class="grid3">
+<div><label>Emne</label><input id="course" placeholder="TEK1210"></div>
+<div><label>Modul</label><input id="module" placeholder="M1"></div>
+<div><label>Tema</label><input id="topic" placeholder="Krefter"></div>
+</div>
+<br>
+<label>Spørsmål</label>
+<textarea id="questionLines" placeholder="Hva er en kraft?&#10;Hva er en normalkraft?&#10;Hva er en snorkraft?"></textarea>
+<br><br>
+<label>Svar</label>
+<textarea id="answerLines" placeholder="En kraft kan endre et objekts fart, posisjon eller form.&#10;En normalkraft virker vinkelrett på kontaktflaten.&#10;En snorkraft virker langs snora."></textarea>
+<div class="buttons">
+<button class="green" onclick="saveQuestionBank()">Lagre spørsmålsbank</button>
+<button class="red" onclick="deleteQuestionBank()">Slett valgt spørsmålsbank</button>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var MAX=30;
+var names=[], questions=[], answers=[];
+var usedStudents=[], usedQuestions=[];
+var selectedQuestion=-1, spinning=false;
+var studentAngle=0, questionAngle=0;
+
+var sc=document.getElementById("studentCanvas");
+var qc=document.getElementById("questionCanvas");
+var sctx=sc.getContext("2d");
+var qctx=qc.getContext("2d");
+
+function el(id){return document.getElementById(id);}
+
+window.showTab=function(id){
+document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+el(id).classList.add("active");
+drawAll();
+};
+
+function getClasses(){return JSON.parse(localStorage.getItem("classes_v232")||"[]");}
+function setClasses(x){localStorage.setItem("classes_v232",JSON.stringify(x));}
+function getQBanks(){return JSON.parse(localStorage.getItem("qbanks_v232")||"[]");}
+function setQBanks(x){localStorage.setItem("qbanks_v232",JSON.stringify(x));}
+
+function qName(b){
+return (b.course||"EMNE")+" "+(b.module||"M1")+" "+(b.topic||"Tema");
+}
+
+function modNo(m){
+var r=String(m||"").match(/\d+/);
+return r?parseInt(r[0],10):999;
+}
+
+function sortData(){
+setClasses(getClasses().sort(function(a,b){
+return a.name.localeCompare(b.name,"no",{numeric:true});
+}));
+setQBanks(getQBanks().sort(function(a,b){
+var x=(a.course||"").localeCompare((b.course||""),"no",{numeric:true});
+if(x!==0)return x;
+var y=modNo(a.module)-modNo(b.module);
+if(y!==0)return y;
+return (a.topic||"").localeCompare((b.topic||""),"no",{numeric:true});
+}));
+}
+
+function refreshLists(){
+sortData();
+var cs=el("classSelect");
+var qs=el("questionSelect");
+cs.innerHTML="";
+qs.innerHTML="";
+
+getClasses().forEach(function(b,i){
+var o=document.createElement("option");
+o.value=i;
+o.textContent=b.name;
+cs.appendChild(o);
+});
+
+getQBanks().forEach(function(b,i){
+var o=document.createElement("option");
+o.value=i;
+o.textContent=qName(b);
+qs.appendChild(o);
+});
+}
+
+window.saveClass=function(){
+var name=el("className").value.trim();
+if(!name){alert("Skriv klassenavn.");return;}
+
+var list=el("classStudents").value
+.split(/\n/)
+.map(function(x){return x.trim();})
+.filter(Boolean)
+.slice(0,MAX);
+
+var banks=getClasses();
+var idx=banks.findIndex(function(b){return b.name===name;});
+var obj={name:name,students:list};
+
+if(idx>=0){banks[idx]=obj;}else{banks.push(obj);}
+
+setClasses(banks);
+refreshLists();
+
+var newIndex=getClasses().findIndex(function(b){return b.name===name;});
+el("classSelect").value=newIndex;
+loadClass();
+showTab("teach");
+};
+
+window.saveQuestionBank=function(){
+var course=el("course").value.trim().toUpperCase();
+var module=el("module").value.trim().toUpperCase();
+var topic=el("topic").value.trim();
+
+if(!course||!module||!topic){
+alert("Skriv emne, modul og tema.");
+return;
+}
+
+var qs=el("questionLines").value
+.split(/\n/)
+.map(function(x){return x.trim();})
+.filter(Boolean)
+.slice(0,MAX);
+
+var ans=el("answerLines").value
+.split(/\n/)
+.map(function(x){return x.trim();})
+.filter(Boolean)
+.slice(0,MAX);
+
+if(qs.length!==ans.length){
+alert("Antall spørsmål og svar må være likt.\n\nSpørsmål: "+qs.length+"\nSvar: "+ans.length);
+return;
+}
+
+if(qs.length===0){
+alert("Legg inn minst ett spørsmål og ett svar.");
+return;
+}
+
+var banks=getQBanks();
+var idx=banks.findIndex(function(b){
+return b.course===course && b.module===module && b.topic===topic;
+});
+
+var obj={course:course,module:module,topic:topic,questions:qs,answers:ans};
+
+if(idx>=0){banks[idx]=obj;}else{banks.push(obj);}
+
+setQBanks(banks);
+refreshLists();
+
+var newIndex=getQBanks().findIndex(function(b){
+return b.course===course && b.module===module && b.topic===topic;
+});
+
+el("questionSelect").value=newIndex;
+loadQuestions();
+showTab("teach");
+};
+
+window.deleteClass=function(){
+var i=parseInt(el("classSelect").value);
+var b=getClasses();
+if(isNaN(i)||!b[i]){alert("Ingen klassebank valgt.");return;}
+
+if(confirm("Slette "+b[i].name+"?")){
+b.splice(i,1);
+setClasses(b);
+names=[];
+refreshLists();
+resetSession();
+}
+};
+
+window.deleteQuestionBank=function(){
+var i=parseInt(el("questionSelect").value);
+var b=getQBanks();
+if(isNaN(i)||!b[i]){alert("Ingen spørsmålsbank valgt.");return;}
+
+if(confirm("Slette "+qName(b[i])+"?")){
+b.splice(i,1);
+setQBanks(b);
+questions=[];
+answers=[];
+refreshLists();
+resetSession();
+}
+};
+
+window.loadClass=function(){
+var b=getClasses()[parseInt(el("classSelect").value)];
+if(!b){return;}
+
+names=b.students||[];
+el("className").value=b.name;
+el("classStudents").value=names.join("\n");
+resetSession();
+};
+
+window.loadQuestions=function(){
+var b=getQBanks()[parseInt(el("questionSelect").value)];
+if(!b){return;}
+
+questions=b.questions||[];
+answers=b.answers||[];
+
+el("course").value=b.course||"";
+el("module").value=b.module||"";
+el("topic").value=b.topic||"";
+el("questionLines").value=questions.join("\n");
+el("answerLines").value=answers.join("\n");
+
+resetSession();
+};
+
+function emptyIndexes(list){
+var e=[];
+for(var i=0;i<MAX;i++){
+if(!list[i])e.push(i);
+}
+return e;
+}
+
+function padded(list){
+var p=[];
+for(var i=0;i<MAX;i++){
+p.push(list[i]||"");
+}
+return p;
+}
+
+function pick(list,used){
+var open=[];
+for(var i=0;i<MAX;i++){
+if(list[i] && used.indexOf(i)===-1)open.push(i);
+}
+if(open.length===0)return -1;
+return open[Math.floor(Math.random()*open.length)];
+}
+
+function drawWheel(ctx,labels,used,empty,angle,isQ){
+var size=520;
+var r=size/2;
+var slice=2*Math.PI/MAX;
+
+ctx.clearRect(0,0,size,size);
+ctx.save();
+ctx.translate(r,r);
+ctx.rotate(angle);
+
+for(var i=0;i<MAX;i++){
+var start=i*slice;
+var end=start+slice;
+
+ctx.beginPath();
+ctx.moveTo(0,0);
+ctx.arc(0,0,r-5,start,end);
+ctx.closePath();
+
+ctx.fillStyle=(empty.indexOf(i)>=0||used.indexOf(i)>=0)?"#b8b8b8":(i%2===0?"#d9ecff":"#7db8e8");
+ctx.fill();
+
+ctx.strokeStyle="white";
+ctx.lineWidth=2;
+ctx.stroke();
+
+ctx.save();
+ctx.rotate(start+slice/2);
+ctx.textAlign="right";
+ctx.fillStyle="#111";
+ctx.font="15px Arial";
+ctx.fillText(empty.indexOf(i)>=0?"":(isQ?String(i+1):labels[i]),r-20,6);
+ctx.restore();
+}
+
+ctx.restore();
+
+ctx.beginPath();
+ctx.arc(r,r,24,0,Math.PI*2);
+ctx.fillStyle="white";
+ctx.fill();
+ctx.strokeStyle="#333";
+ctx.lineWidth=2;
+ctx.stroke();
+}
+
+function drawAll(){
+drawWheel(sctx,padded(names),usedStudents,emptyIndexes(names),studentAngle,false);
+drawWheel(qctx,padded(questions),usedQuestions,emptyIndexes(questions),questionAngle,true);
+}
+
+function spin(type){
+if(spinning)return;
+spinning=true;
+
+var list=type==="student"?names:questions;
+var used=type==="student"?usedStudents:usedQuestions;
+var chosen=pick(list,used);
+
+if(chosen<0){
+alert("Alt er brukt, eller bank mangler.");
+spinning=false;
+return;
+}
+
+var start=type==="student"?studentAngle:questionAngle;
+var slice=2*Math.PI/MAX;
+var target=(3*Math.PI/2)-(chosen*slice+slice/2);
+var finalA=target+(7*2*Math.PI);
+var duration=2500;
+var startTime=null;
+
+function anim(t){
+if(!startTime)startTime=t;
+
+var p=Math.min((t-startTime)/duration,1);
+var ease=1-Math.pow(1-p,3);
+var cur=start+ease*(finalA-start);
+
+if(type==="student"){
+drawWheel(sctx,padded(names),usedStudents,emptyIndexes(names),cur,false);
+}else{
+drawWheel(qctx,padded(questions),usedQuestions,emptyIndexes(questions),cur,true);
+}
+
+if(p<1){
+requestAnimationFrame(anim);
+}else{
+if(type==="student"){
+studentAngle=finalA%(2*Math.PI);
+usedStudents.push(chosen);
+el("studentResult").textContent="Valgt student: "+names[chosen];
+}else{
+questionAngle=finalA%(2*Math.PI);
+usedQuestions.push(chosen);
+selectedQuestion=chosen;
+el("questionResult").textContent="Valgt spørsmål: "+(chosen+1);
+el("questionText").innerHTML="<b>Spørsmål "+(chosen+1)+":</b><br>"+questions[chosen];
+el("questionText").className="box";
+el("answerText").className="box answer hidden";
+}
+spinning=false;
+drawAll();
+}
+}
+
+requestAnimationFrame(anim);
+}
+
+function showAnswer(){
+if(selectedQuestion<0){
+alert("Velg spørsmål først.");
+return;
+}
+
+el("answerText").innerHTML="<b>Svar:</b><br>"+answers[selectedQuestion];
+el("answerText").className="box answer";
+}
+
+function resetSession(){
+usedStudents=[];
+usedQuestions=[];
+selectedQuestion=-1;
+studentAngle=0;
+questionAngle=0;
+
+el("studentResult").textContent="";
+el("questionResult").textContent="";
+el("questionText").className="box hidden";
+el("answerText").className="box answer hidden";
+
+drawAll();
+}
+
+function demo(){
+if(getClasses().length===0){
+setClasses([
+{name:"Design 24 A",students:["Anne","Bjørn","Clara"]},
+{name:"Design 25 A",students:["Student 1","Student 2","Student 3"]},
+{name:"Maskin 24 A",students:["Anna","Bjørn","Clara","David","Emma","Fredrik","Guro","Henrik","Ingrid","Jonas"]},
+{name:"Maskin 24 B",students:["Lars","Mina","Nora","Oskar","Pernille","Rasmus"]},
+{name:"Maskin 25 A",students:["Student 1","Student 2","Student 3"]}
+]);
+}
+
+if(getQBanks().length===0){
+setQBanks([
+{course:"TEK1210",module:"M1",topic:"Krefter",questions:["Hva er en kraft?","Hva er en normalkraft?","Hva er en snorkraft?"],answers:["En kraft kan endre et objekts fart, posisjon eller form.","En normalkraft virker vinkelrett på kontaktflaten.","En snorkraft virker langs snora."]},
+{course:"TEK1210",module:"M2",topic:"Moment",questions:["Hva er moment?","Hva er momentarm?"],answers:["Moment er kraft ganger arm.","Momentarm er vinkelrett avstand fra punkt til kraftens virkelinje."]},
+{course:"MASG2103",module:"M1",topic:"Aksler",questions:["Hva er en aksel?","Hva er et kilespor?"],answers:["En aksel overfører moment.","Et kilespor er et spor i aksel eller nav for en kile."]},
+{course:"MASG2104",module:"M1",topic:"Produksjon",questions:["Hva er produksjonsmetoder?","Hva menes med bearbeiding?"],answers:["Metoder for å fremstille produkter.","Å endre form, dimensjon eller overflate."]}
+]);
+}
+}
+
+el("studentBtn").addEventListener("click",function(){spin("student");});
+el("questionBtn").addEventListener("click",function(){spin("question");});
+el("answerBtn").addEventListener("click",showAnswer);
+el("resetBtn").addEventListener("click",resetSession);
+
+demo();
+refreshLists();
+
+if(getClasses().length>0){
+el("classSelect").value=0;
+loadClass();
+}
+
+if(getQBanks().length>0){
+el("questionSelect").value=0;
+loadQuestions();
+}
+
+drawAll();
+
+})();
+</script>
+</body>
+</html>
