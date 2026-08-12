@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studenthjul V2.3.3</title>
+
+<style>
+:root{
+  --blue:#00509e;
+  --dark:#002d62;
+  --red:#a00000;
+  --green:#2f7d32;
+  --select:#d9ecff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f2f5f8;
+  color:#111;
+}
+
+header{
+  background:linear-gradient(135deg,var(--blue),var(--dark));
+  color:white;
+  text-align:center;
+  padding:18px;
+}
+
+h1{
+  margin:0;
+  font-size:32px;
+}
+
+header p{
+  margin:6px 0 0;
+  font-size:17px;
+}
+
+/* Raden med klasse og spørsmålsbank */
+.selectRow{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  padding:14px 14px 6px;
+  background:white;
+  box-shadow:0 2px 8px #0002;
+}
+
+/* Knapper */
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  padding:6px 14px 14px;
+  background:white;
+  box-shadow:0 2px 8px #0002;
+}
+
+button{
+  border:0;
+  border-radius:14px;
+  padding:14px 20px;
+  font-size:20px;
+  background:var(--blue);
+  color:white;
+  min-width:150px;
+  cursor:pointer;
+}
+
+button.green{
+  background:var(--green);
+}
+
+button.red{
+  background:var(--red);
+}
+
+button:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+}
+
+/* Nedtrekksmenyer */
+select.bankSelect{
+  background:var(--select);
+  color:#002d62;
+  border:2px solid #7db8e8;
+  border-radius:14px;
+  padding:13px 16px;
+  font-size:20px;
+  font-weight:bold;
+  min-width:310px;
+  max-width:430px;
+}
+
+/* Hjulområdet */
+.stage{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  padding:20px;
+}
+
+.panel{
+  background:white;
+  border-radius:20px;
+  padding:18px;
+  box-shadow:0 4px 14px #0002;
+  text-align:center;
+  margin:0;
+}
+
+.panel h2{
+  color:var(--dark);
+  font-size:28px;
+  margin:0 0 10px;
+}
+
+.wheelwrap{
+  position:relative;
+  width:min(43vw,520px);
+  height:min(43vw,520px);
+  margin:auto;
+}
+
+canvas{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.pointer{
+  position:absolute;
+  top:-2px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:15px solid transparent;
+  border-right:15px solid transparent;
+  border-top:34px solid var(--red);
+  z-index:5;
+}
+
+.result{
+  font-size:25px;
+  font-weight:bold;
+  color:var(--dark);
+  min-height:35px;
+  margin-top:10px;
+}
+
+.box{
+  background:white;
+  border-radius:20px;
+  margin:0 20px 20px;
+  padding:18px;
+  box-shadow:0 4px 14px #0002;
+  font-size:20px;
+}
+
+.answer{
+  background:#dff3df;
+}
+
+.hidden{
+  display:none;
+}
+
+/* Statusmelding ved innlasting av CSV */
+#dataStatus{
+  text-align:center;
+  font-size:15px;
+  padding:5px 10px;
+  background:white;
+  color:#555;
+}
+
+#dataStatus.error{
+  color:#a00000;
+  font-weight:bold;
+}
+
+#dataStatus.ok{
+  color:#2f7d32;
+}
+
+/* iPad / mobil */
+@media(max-width:900px){
+
+  .stage{
+    grid-template-columns:1fr;
+  }
+
+  .wheelwrap{
+    width:min(86vw,520px);
+    height:min(86vw,520px);
+  }
+
+  button{
+    font-size:18px;
+    min-width:130px;
+  }
+
+  select.bankSelect{
+    font-size:18px;
+    min-width:260px;
+    max-width:100%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Studenthjul og spørsmålshjul V2.3.3</h1>
+  <p>Klasse og spørsmålsbank</p>
+</header>
+
+<!--
+De tidligere knappene:
+Undervisning
+Klassebank
+Spørsmålsbank
+er nå fjernet.
+-->
+
+<div class="selectRow">
+
+  <select
+    id="classSelect"
+    class="bankSelect"
+    onchange="loadClass()">
+    <option>Laster studentliste...</option>
+  </select>
+
+  <select
+    id="questionSelect"
+    class="bankSelect"
+    onchange="loadQuestions()">
+  </select>
+
+</div>
+
+<div class="buttons">
+
+  <button id="studentBtn">
+    Velg student
+  </button>
+
+  <button id="questionBtn">
+    Velg spørsmål
+  </button>
+
+  <button
+    id="answerBtn"
+    class="green">
+    Svar
+  </button>
+
+  <button
+    id="resetBtn"
+    class="red">
+    Resett økt
+  </button>
+
+</div>
+
+<div id="dataStatus">
+  Leser studenter.csv ...
+</div>
+
+<section class="stage">
+
+  <div class="panel">
+
+    <h2>Studenthjul</h2>
+
+    <div class="wheelwrap">
+      <div class="pointer"></div>
+
+      <canvas
+        id="studentCanvas"
+        width="520"
+        height="520">
+      </canvas>
+    </div>
+
+    <div
+      id="studentResult"
+      class="result">
+    </div>
+
+  </div>
+
+  <div class="panel">
+
+    <h2>Spørsmålshjul</h2>
+
+    <div class="wheelwrap">
+      <div class="pointer"></div>
+
+      <canvas
+        id="questionCanvas"
+        width="520"
+        height="520">
+      </canvas>
+    </div>
+
+    <div
+      id="questionResult"
+      class="result">
+    </div>
+
+  </div>
+
+</section>
+
+<div
+  id="questionText"
+  class="box hidden">
+</div>
+
+<div
+  id="answerText"
+  class="box answer hidden">
+</div>
+
+<script>
+
+(function(){
+
+"use strict";
+
+var MAX = 30;
+
+/*
+=================================================
+STUDENTDATA FRA GITHUB
+=================================================
+
+Programmet prøver først:
+
+studenter.csv
+
+Hvis den ikke finnes prøver det:
+
+data/studenter.csv
+
+Du kan derfor ha studenter.csv i samme mappe
+som HTML-filen på GitHub.
+*/
+
+var STUDENT_CSV_PATHS = [
+  "studenter.csv",
+  "data/studenter.csv"
+];
+
+/*
+Data som brukes av hjulene
+*/
+
+var classBanks = [];
+
+var names = [];
+var questions = [];
+var answers = [];
+
+var usedStudents = [];
+var usedQuestions = [];
+
+var selectedQuestion = -1;
+
+var spinning = false;
+
+var studentAngle = 0;
+var questionAngle = 0;
+
+/*
+Canvas
+*/
+
+var sc = document.getElementById("studentCanvas");
+var qc = document.getElementById("questionCanvas");
+
+var sctx = sc.getContext("2d");
+var qctx = qc.getContext("2d");
+
+function el(id){
+  return document.getElementById(id);
+}/*
+=================================================
+CSV-FUNKSJONER
+=================================================
+*/
+
+/*
+Fjerner eventuelt BOM-tegn som Excel noen ganger
+legger først i CSV-filen.
+*/
+
+function cleanText(text){
+
+  if(text.charCodeAt(0) === 0xFEFF){
+    text = text.slice(1);
+  }
+
+  return text;
+}
+
+
+/*
+Finn ut om Excel har brukt semikolon eller komma.
+Norsk Excel bruker ofte semikolon.
+*/
+
+function detectDelimiter(firstLine){
+
+  var semicolonCount =
+    (firstLine.match(/;/g) || []).length;
+
+  var commaCount =
+    (firstLine.match(/,/g) || []).length;
+
+  return semicolonCount > commaCount ? ";" : ",";
+}
+
+
+/*
+CSV-parser som også håndterer tekst i anførselstegn.
+*/
+
+function parseCSVLine(line, delimiter){
+
+  var result = [];
+  var current = "";
+  var inQuotes = false;
+
+  for(var i=0; i<line.length; i++){
+
+    var ch = line[i];
+
+    if(ch === '"'){
+
+      if(
+        inQuotes &&
+        line[i+1] === '"'
+      ){
+        current += '"';
+        i++;
+      }
+      else{
+        inQuotes = !inQuotes;
+      }
+
+    }
+    else if(
+      ch === delimiter &&
+      !inQuotes
+    ){
+
+      result.push(current.trim());
+      current = "";
+
+    }
+    else{
+
+      current += ch;
+
+    }
+
+  }
+
+  result.push(current.trim());
+
+  return result;
+}
+
+
+/*
+Normaliser kolonnenavn.
+
+Eksempel:
+"Fornavn " -> "fornavn"
+"Studieprogram" -> "studieprogram"
+*/
+
+function normalizeHeader(text){
+
+  return String(text || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g,"");
+}
+
+
+/*
+Les hele CSV-filen.
+*/
+
+function parseStudentCSV(text){
+
+  text = cleanText(text);
+
+  var lines = text
+    .split(/\r?\n/)
+    .filter(function(line){
+      return line.trim() !== "";
+    });
+
+  if(lines.length < 2){
+
+    throw new Error(
+      "CSV-filen inneholder ingen studentdata."
+    );
+
+  }
+
+  var delimiter =
+    detectDelimiter(lines[0]);
+
+  var headers =
+    parseCSVLine(lines[0],delimiter)
+    .map(normalizeHeader);
+
+  /*
+  Vi støtter følgende struktur:
+
+  Emne
+  Studieprogram
+  Kull
+  Gruppe
+  Fornavn
+  Etternavn
+  */
+
+  var index = {};
+
+  headers.forEach(function(header,i){
+    index[header] = i;
+  });
+
+
+  /*
+  Fornavn er nødvendig.
+  */
+
+  if(index.fornavn === undefined){
+
+    throw new Error(
+      "Fant ikke kolonnen 'Fornavn' i studenter.csv."
+    );
+
+  }
+
+
+  var rows = [];
+
+  for(var r=1; r<lines.length; r++){
+
+    var cells =
+      parseCSVLine(lines[r],delimiter);
+
+    function value(column){
+
+      if(index[column] === undefined){
+        return "";
+      }
+
+      return String(
+        cells[index[column]] || ""
+      ).trim();
+
+    }
+
+    var row = {
+
+      emne:
+        value("emne"),
+
+      studieprogram:
+        value("studieprogram"),
+
+      kull:
+        value("kull"),
+
+      gruppe:
+        value("gruppe"),
+
+      fornavn:
+        value("fornavn"),
+
+      etternavn:
+        value("etternavn")
+
+    };
+
+
+    if(row.fornavn){
+
+      rows.push(row);
+
+    }
+
+  }
+
+  return rows;
+}
+
+
+/*
+=================================================
+LAG KLASSEBANKER FRA CSV
+=================================================
+*/
+
+function buildClassBanks(rows){
+
+  var groups = {};
+
+  rows.forEach(function(student){
+
+    var program =
+      student.studieprogram || "Klasse";
+
+    var kull =
+      student.kull || "";
+
+    var gruppe =
+      student.gruppe || "";
+
+
+    /*
+    Selve klassen identifiseres av:
+
+    Studieprogram + Kull + Gruppe
+
+    Eksempel:
+    Maskin 2024 A
+    */
+
+    var key =
+      program + "|" +
+      kull + "|" +
+      gruppe;
+
+
+    if(!groups[key]){
+
+      groups[key] = {
+
+        studieprogram:program,
+        kull:kull,
+        gruppe:gruppe,
+        students:[]
+
+      };
+
+    }
+
+
+    /*
+    Hjulet viser foreløpig fornavn.
+
+    Hvis to personer har samme fornavn,
+    viser vi også første bokstav i etternavnet.
+    Dette behandles litt senere.
+    */
+
+    groups[key].students.push({
+
+      first:student.fornavn,
+      last:student.etternavn
+
+    });
+
+  });
+
+
+  var banks = [];
+
+
+  Object.keys(groups).forEach(function(key){
+
+    var group = groups[key];
+
+
+    /*
+    Finn forekomster av samme fornavn.
+    */
+
+    var firstNameCount = {};
+
+    group.students.forEach(function(student){
+
+      var n =
+        student.first.toLowerCase();
+
+      firstNameCount[n] =
+        (firstNameCount[n] || 0) + 1;
+
+    });
+
+
+    var studentNames =
+      group.students.map(function(student){
+
+        var sameName =
+          firstNameCount[
+            student.first.toLowerCase()
+          ] > 1;
+
+        if(
+          sameName &&
+          student.last
+        ){
+
+          return student.first +
+            " " +
+            student.last.charAt(0) +
+            ".";
+
+        }
+
+        return student.first;
+
+      });
+
+
+    /*
+    Fjern eventuelle helt identiske dubletter.
+    */
+
+    studentNames =
+      studentNames.filter(
+        function(name,index,array){
+
+          return array.indexOf(name) === index;
+
+        }
+      );
+
+
+    /*
+    Maksimum 30 studenter pr. hjul,
+    som i tidligere versjon.
+    */
+
+    studentNames =
+      studentNames.slice(0,MAX);
+
+
+    /*
+    Vis kull med to siffer.
+
+    2024 -> 24
+    2025 -> 25
+    */
+
+    var displayKull =
+      String(group.kull || "");
+
+    if(displayKull.length === 4){
+
+      displayKull =
+        displayKull.slice(2);
+
+    }
+
+
+    var displayName =
+      [
+        group.studieprogram,
+        displayKull,
+        group.gruppe
+      ]
+      .filter(Boolean)
+      .join(" ");
+
+
+    banks.push({
+
+      name:displayName,
+      students:studentNames
+
+    });
+
+  });
+
+
+  /*
+  Sorter alfabetisk og numerisk.
+  */
+
+  banks.sort(function(a,b){
+
+    return a.name.localeCompare(
+      b.name,
+      "no",
+      {numeric:true}
+    );
+
+  });
+
+
+  return banks;
+}
+
+
+/*
+=================================================
+LAST STUDENTER.CSV
+=================================================
+*/
+
+async function loadStudentCSV(){
+
+  var lastError = null;
+
+
+  for(
+    var i=0;
+    i<STUDENT_CSV_PATHS.length;
+    i++
+  ){
+
+    var path =
+      STUDENT_CSV_PATHS[i];
+
+    try{
+
+      /*
+      Cache bust gjør at GitHub-endringer
+      blir hentet raskere etter at du har
+      erstattet CSV-filen.
+      */
+
+      var url =
+        path +
+        "?v=" +
+        Date.now();
+
+
+      var response =
+        await fetch(url);
+
+
+      if(!response.ok){
+
+        throw new Error(
+          "HTTP " +
+          response.status
+        );
+
+      }
+
+
+      var text =
+        await response.text();
+
+
+      var rows =
+        parseStudentCSV(text);
+
+
+      classBanks =
+        buildClassBanks(rows);
+
+
+      if(classBanks.length === 0){
+
+        throw new Error(
+          "Ingen klasser ble funnet."
+        );
+
+      }
+
+
+      refreshClassList();
+
+
+      el("dataStatus").textContent =
+        "Studentliste lastet: " +
+        rows.length +
+        " studenter / " +
+        classBanks.length +
+        " klasser";
+
+
+      el("dataStatus").className =
+        "ok";
+
+
+      return;
+
+    }
+    catch(error){
+
+      lastError = error;
+
+      console.log(
+        "Kunne ikke lese " +
+        path,
+        error
+      );
+
+    }
+
+  }
+
+
+  /*
+  Begge filplasseringene feilet.
+  */
+
+  el("classSelect").innerHTML =
+    "<option>Studentliste mangler</option>";
+
+
+  el("dataStatus").textContent =
+    "Kunne ikke lese studenter.csv. " +
+    (lastError ?
+      lastError.message :
+      "");
+
+
+  el("dataStatus").className =
+    "error";
+
+
+  names = [];
+
+  drawAll();
+}
+
+
+/*
+Lag nedtrekksmenyen for klasse.
+*/
+
+function refreshClassList(){
+
+  var select =
+    el("classSelect");
+
+  select.innerHTML = "";
+
+
+  classBanks.forEach(
+    function(bank,index){
+
+      var option =
+        document.createElement("option");
+
+      option.value =
+        index;
+
+      option.textContent =
+        bank.name;
+
+      select.appendChild(option);
+
+    }
+  );
+
+
+  if(classBanks.length > 0){
+
+    select.value = 0;
+
+    loadClass();
+
+  }
+
+}
+
+
+/*
+Last valgt klasse inn i studenthjulet.
+*/
+
+window.loadClass =
+function(){
+
+  var index =
+    parseInt(
+      el("classSelect").value,
+      10
+    );
+
+
+  var bank =
+    classBanks[index];
+
+
+  if(!bank){
+
+    names = [];
+
+    drawAll();
+
+    return;
+  }
+
+
+  names =
+    bank.students || [];
+
+
+  resetSession();
+
+};
+
+
+/*
+=================================================
+SPØRSMÅLSBANK
+=================================================
+
+Denne lar vi foreløpig ligge internt.
+
+I neste steg kobler vi denne til
+egen spørsmål.csv.
+*/
+
+var questionBanks = [
+
+  {
+    course:"TEK1210",
+    module:"M1",
+    topic:"Krefter",
+
+    questions:[
+      "Hva er en kraft?",
+      "Hva er en normalkraft?",
+      "Hva er en snorkraft?"
+    ],
+
+    answers:[
+      "En kraft kan endre et objekts fart, posisjon eller form.",
+      "En normalkraft virker vinkelrett på kontaktflaten.",
+      "En snorkraft virker langs snora."
+    ]
+  },
+
+  {
+    course:"TEK1210",
+    module:"M2",
+    topic:"Moment",
+
+    questions:[
+      "Hva er moment?",
+      "Hva er momentarm?"
+    ],
+
+    answers:[
+      "Moment er kraft ganger arm.",
+      "Momentarm er vinkelrett avstand fra punkt til kraftens virkelinje."
+    ]
+  },
+
+  {
+    course:"MASG2103",
+    module:"M1",
+    topic:"Aksler",
+
+    questions:[
+      "Hva er en aksel?",
+      "Hva er et kilespor?"
+    ],
+
+    answers:[
+      "En aksel overfører moment.",
+      "Et kilespor er et spor i aksel eller nav for en kile."
+    ]
+  },
+
+  {
+    course:"MASG2104",
+    module:"M1",
+    topic:"Produksjon",
+
+    questions:[
+      "Hva er produksjonsmetoder?",
+      "Hva menes med bearbeiding?"
+    ],
+
+    answers:[
+      "Metoder for å fremstille produkter.",
+      "Å endre form, dimensjon eller overflate."
+    ]
+  }
+
+];
+
+
+function questionBankName(bank){
+
+  return (
+    bank.course +
+    " " +
+    bank.module +
+    " " +
+    bank.topic
+  );
+
+}
+
+
+/*
+Sorter spørsmålsbank etter emne og modul.
+*/
+
+function moduleNumber(module){
+
+  var result =
+    String(module || "")
+    .match(/\d+/);
+
+  return result ?
+    parseInt(result[0],10) :
+    999;
+}
+
+
+function refreshQuestionList(){
+
+  questionBanks.sort(
+    function(a,b){
+
+      var courseSort =
+        a.course.localeCompare(
+          b.course,
+          "no",
+          {numeric:true}
+        );
+
+      if(courseSort !== 0){
+        return courseSort;
+      }
+
+
+      var moduleSort =
+        moduleNumber(a.module) -
+        moduleNumber(b.module);
+
+
+      if(moduleSort !== 0){
+        return moduleSort;
+      }
+
+
+      return a.topic.localeCompare(
+        b.topic,
+        "no",
+        {numeric:true}
+      );
+
+    }
+  );
+
+
+  var select =
+    el("questionSelect");
+
+  select.innerHTML = "";
+
+
+  questionBanks.forEach(
+    function(bank,index){
+
+      var option =
+        document.createElement("option");
+
+      option.value =
+        index;
+
+      option.textContent =
+        questionBankName(bank);
+
+      select.appendChild(option);
+
+    }
+  );
+
+
+  if(questionBanks.length > 0){
+
+    select.value = 0;
+
+    loadQuestions();
+
+  }
+
+}
+
+
+window.loadQuestions =
+function(){
+
+  var index =
+    parseInt(
+      el("questionSelect").value,
+      10
+    );
+
+
+  var bank =
+    questionBanks[index];
+
+
+  if(!bank){
+    return;
+  }
+
+
+  questions =
+    bank.questions || [];
+
+  answers =
+    bank.answers || [];
+
+
+  resetSession();
+
+};/*
+=================================================
+HJULFUNKSJONER
+=================================================
+*/
+
+function emptyIndexes(list){
+
+  var empty = [];
+
+  for(var i=0; i<MAX; i++){
+
+    if(!list[i]){
+      empty.push(i);
+    }
+
+  }
+
+  return empty;
+}
+
+
+function padded(list){
+
+  var result = [];
+
+  for(var i=0; i<MAX; i++){
+
+    result.push(
+      list[i] || ""
+    );
+
+  }
+
+  return result;
+}
+
+
+/*
+Velg tilfeldig element som ikke allerede
+er brukt i denne økten.
+*/
+
+function pick(list,used){
+
+  var open = [];
+
+  for(var i=0; i<MAX; i++){
+
+    if(
+      list[i] &&
+      used.indexOf(i) === -1
+    ){
+
+      open.push(i);
+
+    }
+
+  }
+
+
+  if(open.length === 0){
+    return -1;
+  }
+
+
+  return open[
+    Math.floor(
+      Math.random() *
+      open.length
+    )
+  ];
+
+}
+
+
+/*
+=================================================
+TEGN HJUL
+=================================================
+*/
+
+function drawWheel(
+  ctx,
+  labels,
+  used,
+  empty,
+  angle,
+  isQuestion
+){
+
+  var size = 520;
+  var radius = size / 2;
+
+  var slice =
+    2 * Math.PI / MAX;
+
+
+  ctx.clearRect(
+    0,
+    0,
+    size,
+    size
+  );
+
+
+  ctx.save();
+
+  ctx.translate(
+    radius,
+    radius
+  );
+
+  ctx.rotate(angle);
+
+
+  for(var i=0; i<MAX; i++){
+
+    var start =
+      i * slice;
+
+    var end =
+      start + slice;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      0,
+      0
+    );
+
+    ctx.arc(
+      0,
+      0,
+      radius - 5,
+      start,
+      end
+    );
+
+    ctx.closePath();
+
+
+    /*
+    Tomme og brukte felt blir grå.
+    */
+
+    if(
+      empty.indexOf(i) >= 0 ||
+      used.indexOf(i) >= 0
+    ){
+
+      ctx.fillStyle =
+        "#b8b8b8";
+
+    }
+    else{
+
+      ctx.fillStyle =
+        i % 2 === 0 ?
+        "#d9ecff" :
+        "#7db8e8";
+
+    }
+
+
+    ctx.fill();
+
+
+    ctx.strokeStyle =
+      "white";
+
+    ctx.lineWidth =
+      2;
+
+    ctx.stroke();
+
+
+    /*
+    Tekst / nummer
+    */
+
+    ctx.save();
+
+    ctx.rotate(
+      start +
+      slice / 2
+    );
+
+    ctx.textAlign =
+      "right";
+
+    ctx.fillStyle =
+      "#111";
+
+    ctx.font =
+      "15px Arial";
+
+
+    var wheelText = "";
+
+
+    if(
+      empty.indexOf(i) < 0
+    ){
+
+      if(isQuestion){
+
+        wheelText =
+          String(i+1);
+
+      }
+      else{
+
+        wheelText =
+          labels[i];
+
+      }
+
+    }
+
+
+    ctx.fillText(
+      wheelText,
+      radius - 20,
+      6
+    );
+
+
+    ctx.restore();
+
+  }
+
+
+  ctx.restore();
+
+
+  /*
+  Hvit sirkel i sentrum
+  */
+
+  ctx.beginPath();
+
+  ctx.arc(
+    radius,
+    radius,
+    24,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fillStyle =
+    "white";
+
+  ctx.fill();
+
+
+  ctx.strokeStyle =
+    "#333";
+
+  ctx.lineWidth =
+    2;
+
+  ctx.stroke();
+
+}
+
+
+/*
+Tegn begge hjul.
+*/
+
+function drawAll(){
+
+  drawWheel(
+    sctx,
+    padded(names),
+    usedStudents,
+    emptyIndexes(names),
+    studentAngle,
+    false
+  );
+
+
+  drawWheel(
+    qctx,
+    padded(questions),
+    usedQuestions,
+    emptyIndexes(questions),
+    questionAngle,
+    true
+  );
+
+}
+
+
+/*
+=================================================
+SPINN HJUL
+=================================================
+*/
+
+function spin(type){
+
+  if(spinning){
+    return;
+  }
+
+
+  spinning = true;
+
+
+  var list =
+    type === "student" ?
+    names :
+    questions;
+
+
+  var used =
+    type === "student" ?
+    usedStudents :
+    usedQuestions;
+
+
+  var chosen =
+    pick(list,used);
+
+
+  if(chosen < 0){
+
+    alert(
+      "Alt er brukt, eller bank mangler."
+    );
+
+    spinning = false;
+
+    return;
+  }
+
+
+  var start =
+    type === "student" ?
+    studentAngle :
+    questionAngle;
+
+
+  var slice =
+    2 * Math.PI / MAX;
+
+
+  /*
+  Pekeren står på toppen.
+
+  chosen plasseres under pekeren.
+  */
+
+  var target =
+    (3 * Math.PI / 2) -
+    (
+      chosen * slice +
+      slice / 2
+    );
+
+
+  /*
+  7 hele rotasjoner.
+  */
+
+  var finalAngle =
+    target +
+    (7 * 2 * Math.PI);
+
+
+  var duration =
+    2500;
+
+
+  var startTime =
+    null;
+
+
+  function animate(time){
+
+    if(!startTime){
+      startTime = time;
+    }
+
+
+    var progress =
+      Math.min(
+        (time-startTime) /
+        duration,
+        1
+      );
+
+
+    /*
+    Myk retardasjon.
+    */
+
+    var ease =
+      1 -
+      Math.pow(
+        1-progress,
+        3
+      );
+
+
+    var currentAngle =
+      start +
+      ease *
+      (
+        finalAngle -
+        start
+      );
+
+
+    if(type === "student"){
+
+      drawWheel(
+        sctx,
+        padded(names),
+        usedStudents,
+        emptyIndexes(names),
+        currentAngle,
+        false
+      );
+
+    }
+    else{
+
+      drawWheel(
+        qctx,
+        padded(questions),
+        usedQuestions,
+        emptyIndexes(questions),
+        currentAngle,
+        true
+      );
+
+    }
+
+
+    if(progress < 1){
+
+      requestAnimationFrame(
+        animate
+      );
+
+    }
+    else{
+
+      /*
+      Studenten er valgt.
+      */
+
+      if(type === "student"){
+
+        studentAngle =
+          finalAngle %
+          (2*Math.PI);
+
+
+        usedStudents.push(
+          chosen
+        );
+
+
+        el(
+          "studentResult"
+        ).textContent =
+          "Valgt student: " +
+          names[chosen];
+
+      }
+
+
+      /*
+      Spørsmålet er valgt.
+      */
+
+      else{
+
+        questionAngle =
+          finalAngle %
+          (2*Math.PI);
+
+
+        usedQuestions.push(
+          chosen
+        );
+
+
+        selectedQuestion =
+          chosen;
+
+
+        el(
+          "questionResult"
+        ).textContent =
+          "Valgt spørsmål: " +
+          (chosen+1);
+
+
+        el(
+          "questionText"
+        ).innerHTML =
+          "<b>Spørsmål " +
+          (chosen+1) +
+          ":</b><br>" +
+          questions[chosen];
+
+
+        el(
+          "questionText"
+        ).className =
+          "box";
+
+
+        el(
+          "answerText"
+        ).className =
+          "box answer hidden";
+
+      }
+
+
+      spinning = false;
+
+      drawAll();
+
+    }
+
+  }
+
+
+  requestAnimationFrame(
+    animate
+  );
+
+}
+
+
+/*
+=================================================
+VIS SVAR
+=================================================
+*/
+
+function showAnswer(){
+
+  if(selectedQuestion < 0){
+
+    alert(
+      "Velg spørsmål først."
+    );
+
+    return;
+  }
+
+
+  el(
+    "answerText"
+  ).innerHTML =
+    "<b>Svar:</b><br>" +
+    answers[
+      selectedQuestion
+    ];
+
+
+  el(
+    "answerText"
+  ).className =
+    "box answer";
+
+}
+
+
+/*
+=================================================
+RESETT ØKT
+=================================================
+*/
+
+function resetSession(){
+
+  usedStudents = [];
+  usedQuestions = [];
+
+  selectedQuestion =
+    -1;
+
+
+  studentAngle =
+    0;
+
+  questionAngle =
+    0;
+
+
+  el(
+    "studentResult"
+  ).textContent =
+    "";
+
+
+  el(
+    "questionResult"
+  ).textContent =
+    "";
+
+
+  el(
+    "questionText"
+  ).className =
+    "box hidden";
+
+
+  el(
+    "answerText"
+  ).className =
+    "box answer hidden";
+
+
+  drawAll();
+
+}
+
+
+/*
+=================================================
+KNAPPER
+=================================================
+*/
+
+el(
+  "studentBtn"
+).addEventListener(
+  "click",
+  function(){
+
+    spin("student");
+
+  }
+);
+
+
+el(
+  "questionBtn"
+).addEventListener(
+  "click",
+  function(){
+
+    spin("question");
+
+  }
+);
+
+
+el(
+  "answerBtn"
+).addEventListener(
+  "click",
+  showAnswer
+);
+
+
+el(
+  "resetBtn"
+).addEventListener(
+  "click",
+  resetSession
+);
+
+
+/*
+=================================================
+START PROGRAMMET
+=================================================
+*/
+
+/*
+Spørsmålsbanken kan lastes med en gang.
+*/
+
+refreshQuestionList();
+
+
+/*
+Studentdata lastes automatisk fra GitHub.
+*/
+
+loadStudentCSV();
+
+
+/*
+Tegn tomme hjul mens data lastes.
+*/
+
+drawAll();
+
+
+})();
+
+</script>
+
+</body>
+</html>
