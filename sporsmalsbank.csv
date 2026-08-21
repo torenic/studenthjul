@@ -190,149 +190,203 @@
 188;TEK1210;M6;Festemidler;Hva kan brukes i plast i stedet for gjenger direkte i plasten?;En metallinnsats med gjenger;En gjenget metallhylse;En innsats som tar opp gjengekreftene;En større skrue direkte i plasten
 189;TEK1210;M6;Festemidler;Hvorfor brukes en metallhylse eller gjengeinnsats i plast?;Den gir slitesterke gjenger og bedre lastoverføring;Den reduserer belastningen på plastgjengene;Den gir en sterkere skrueforbindelse;Den gjør plasten mykere
 190;TEK1210;M6;Festemidler;Hva er viktig ved valg av festemetode?;Materiale, belastning, miljø, montering og demontering;Materiale og forventet belastning;Hvordan forbindelsen skal brukes;Bare festemiddelets pris
-192;;;;;;;;
-193;;;;;;;;
-194;;;;;;;;
-195;;;;;;;;
-196;;;;;;;;
-197;;;;;;;;
-198;;;;;;;;
-199;;;;;;;;
-200;;;;;;;;
-201;;;;;;;;
-202;;;;;;;;
-203;;;;;;;;
-204;;;;;;;;
-205;;;;;;;;
-206;;;;;;;;
-207;;;;;;;;
-208;;;;;;;;
-209;;;;;;;;
-210;;;;;;;;
-211;;;;;;;;
-212;;;;;;;;
-213;;;;;;;;
-214;;;;;;;;
-215;;;;;;;;
-216;;;;;;;;
-217;;;;;;;;
-218;;;;;;;;
-219;;;;;;;;
-220;;;;;;;;
-221;;;;;;;;
-222;;;;;;;;
-223;;;;;;;;
-224;;;;;;;;
-225;;;;;;;;
-226;;;;;;;;
-227;;;;;;;;
-228;;;;;;;;
-229;;;;;;;;
-230;;;;;;;;
-231;;;;;;;;
-232;;;;;;;;
-233;;;;;;;;
-234;;;;;;;;
-235;;;;;;;;
-236;;;;;;;;
-237;;;;;;;;
-238;;;;;;;;
-239;;;;;;;;
-240;;;;;;;;
-241;;;;;;;;
-242;;;;;;;;
-243;;;;;;;;
-244;;;;;;;;
-245;;;;;;;;
-246;;;;;;;;
-247;;;;;;;;
-248;;;;;;;;
-249;;;;;;;;
-250;;;;;;;;
-251;;;;;;;;
-252;;;;;;;;
-253;;;;;;;;
-254;;;;;;;;
-255;;;;;;;;
-256;;;;;;;;
-257;;;;;;;;
-258;;;;;;;;
-259;;;;;;;;
-260;;;;;;;;
-261;;;;;;;;
-262;;;;;;;;
-263;;;;;;;;
-264;;;;;;;;
-265;;;;;;;;
-266;;;;;;;;
-267;;;;;;;;
-268;;;;;;;;
-269;;;;;;;;
-270;;;;;;;;
-271;;;;;;;;
-272;;;;;;;;
-273;;;;;;;;
-274;;;;;;;;
-275;;;;;;;;
-276;;;;;;;;
-277;;;;;;;;
-278;;;;;;;;
-279;;;;;;;;
-280;;;;;;;;
-281;;;;;;;;
-282;;;;;;;;
-283;;;;;;;;
-284;;;;;;;;
-285;;;;;;;;
-286;;;;;;;;
-287;;;;;;;;
-288;;;;;;;;
-289;;;;;;;;
-290;;;;;;;;
-291;;;;;;;;
-292;;;;;;;;
-293;;;;;;;;
-294;;;;;;;;
-295;;;;;;;;
-296;;;;;;;;
-297;;;;;;;;
-298;;;;;;;;
-299;;;;;;;;
-300;;;;;;;;
-301;;;;;;;;
-302;;;;;;;;
-303;;;;;;;;
-304;;;;;;;;
-305;;;;;;;;
-306;;;;;;;;
-307;;;;;;;;
-308;;;;;;;;
-309;;;;;;;;
-310;;;;;;;;
-311;;;;;;;;
-312;;;;;;;;
-313;;;;;;;;
-314;;;;;;;;
-315;;;;;;;;
-316;;;;;;;;
-317;;;;;;;;
-318;;;;;;;;
-319;;;;;;;;
-320;;;;;;;;
-321;;;;;;;;
-322;;;;;;;;
-323;;;;;;;;
-324;;;;;;;;
-325;;;;;;;;
-326;;;;;;;;
-327;;;;;;;;
-328;;;;;;;;
-329;;;;;;;;
-330;;;;;;;;
-331;;;;;;;;
-332;;;;;;;;
-333;;;;;;;;
-334;;;;;;;;
-335;;;;;;;;
-336;;;;;;;;
-337;;;;;;;;
+191;TEK1210;M7;Lagere og føringer;Hva er hovedoppgaven til et lager?;Å støtte og styre relativ bevegelse med lav friksjon;Å støtte roterende deler;Å redusere friksjon;Å låse akselen mot rotasjon
+192;TEK1210;M7;Lagere og føringer;Hva er et rullelager?;Et lager med rullende elementer mellom ringene;Et lager med kuler eller ruller;Et lager med rullende kontakt;Et lager uten bevegelige deler
+193;TEK1210;M7;Lagere og føringer;Hva er et glidelager?;Et lager der flatene glir relativt mot hverandre;Et lager med glidende kontakt;Et lager uten rullende elementer;Et lager med stålkuler
+194;TEK1210;M7;Lagere og føringer;Hva er en radial lagerlast?;En last vinkelrett på akselens akse;En last på tvers av akselen;En sideveis lagerlast;En last langs akselen
+195;TEK1210;M7;Lagere og føringer;Hva er en aksial lagerlast?;En last parallelt med akselens akse;En last langs akselen;En kraft i akselretningen;En kraft vinkelrett på akselen
+196;TEK1210;M7;Lagere og føringer;Hva kjennetegner et sporkulelager?;Det kan ta radiallast og moderat aksiallast;Det kan ta radial- og aksiallast;Det er et allsidig kulelager;Det kan bare ta aksiallast
+197;TEK1210;M7;Lagere og føringer;Når er kulelager ofte et godt valg?;Ved moderate laster og relativt høye hastigheter;Ved moderate laster og høy hastighet;Når lav friksjon er ønskelig;Bare ved svært store støtlaster
+198;TEK1210;M7;Lagere og føringer;Hvorfor tåler rullelager ofte større radiallast enn kulelager?;Rullene gir større kontaktflate;Lasten fordeles over større kontakt;Rullene har linjekontakt;Rullene har mindre kontaktareal
+199;TEK1210;M7;Lagere og føringer;Hva kjennetegner et sylindrisk rullelager?;Høy kapasitet for radiallast;Det tåler stor radiallast;Det bruker sylindriske ruller;Det er primært et aksiallager
+200;TEK1210;M7;Lagere og føringer;Hva er en fordel med nålelager?;Stor radial bæreevne med liten radial byggehøyde;Høy lastkapasitet på liten plass;Det har tynne lange ruller;Det tåler bare aksiallast
+201;TEK1210;M7;Lagere og føringer;Når er nålelager spesielt aktuelt?;Når radial plass er begrenset;Når liten diameter er viktig;Ved kompakte konstruksjoner;Når stor radial plass er ønskelig
+202;TEK1210;M7;Lagere og føringer;Hva kjennetegner et konisk rullelager?;Det kan ta både store radial- og aksiallaster;Det tar kombinerte laster;Det har koniske ruller;Det kan bare ta radiallast
+203;TEK1210;M7;Lagere og føringer;Hvorfor monteres koniske rullelager ofte parvis?;For å ta aksiallast i begge retninger;For å støtte akselen begge veier;For å håndtere kombinerte laster;For å halvere lagerets diameter
+204;TEK1210;M7;Lagere og føringer;Hvilket lager er aktuelt ved stor kombinert last?;Konisk rullelager;Lager for radial- og aksiallast;Rullelager;Et rent aksialkulelager
+205;TEK1210;M7;Lagere og føringer;Hvordan påvirker økt last valg av lager?;Større last krever høyere dynamisk bæretall;Lagerets lastkapasitet må økes;Et kraftigere lager må vurderes;Lasten påvirker ikke lagervalget
+206;TEK1210;M7;Lagere og føringer;Hva uttrykker et lagers dynamiske bæretall?;Lagerets kapasitet under roterende belastning;Hvor stor dynamisk last lageret tåler;Lagerets lastkapasitet i drift;Lagerets maksimale rotasjonshastighet
+207;TEK1210;M7;Lagere og føringer;Hva påvirker lagerets levetid sterkt?;Lastens størrelse;Lagerbelastningen;Belastning og drift;Bare akselens lengde
+208;TEK1210;M7;Lagere og føringer;Hva skjer normalt med lagerlevetiden når lasten øker?;Levetiden reduseres kraftig;Levetiden blir kortere;Lageret slites raskere;Levetiden øker
+209;TEK1210;M7;Lagere og føringer;Hvorfor smøres lagre?;For å redusere friksjon, slitasje og varme;For å redusere friksjon og slitasje;For å beskytte kontaktflatene;For å øke friksjonen
+210;TEK1210;M7;Lagere og føringer;Hva kan feil lagerinnretting føre til?;Ujevn belastning og redusert levetid;Økt slitasje;Dårlig lastfordeling;Alltid lengre levetid
+211;TEK1210;M7;Lagere og føringer;Hva er en lineær føring?;En komponent som styrer bevegelse langs en bane;En føring for lineær bevegelse;Et system som styrer translasjon;Et lager for fri rotasjon
+212;TEK1210;M7;Lagere og føringer;Hva er en lineær kuleføring?;En føring der kuler reduserer friksjonen;En lineær føring med kuler;En rullende lineær føring;En føring med ren glidekontakt
+213;TEK1210;M7;Lagere og føringer;Hva er en lineær rulleføring?;En lineær føring med ruller som lastbærere;En føring som bruker ruller;En føring for store laster;En lineær føring med bare glidning
+214;TEK1210;M7;Lagere og føringer;Hva er en glideføring?;En lineær føring basert på glidekontakt;To flater som glir mot hverandre;En enkel lineær føring;En føring som alltid bruker kuler
+215;TEK1210;M7;Lagere og føringer;Hva er en fordel med lineære kuleføringer?;Lav friksjon og god presisjon;Lett bevegelse og høy presisjon;Lav rullemotstand;De krever alltid stor drivkraft
+216;TEK1210;M7;Lagere og føringer;Hva er en fordel med lineære rulleføringer?;Høy stivhet og stor lastkapasitet;De tåler store laster;Stor kontaktflate gir høy kapasitet;De har alltid lavere kapasitet enn kuleføringer
+217;TEK1210;M7;Lagere og føringer;Hva er en fordel med glideføringer?;Enkel konstruksjon og god demping;De kan dempe vibrasjoner;De er robuste og enkle;De har ingen friksjon
+218;TEK1210;M7;Lagere og føringer;Hva styrer valg mellom kule-, rulle- og glideføring?;Last, hastighet, presisjon og miljø;Last og krav til bevegelse;Bruksforholdene;Bare fargen på føringen
+219;TEK1210;M7;Lagere og føringer;Hvorfor brukes føringer i maskiner?;For å begrense bevegelsen til ønsket retning;For å styre bevegelsesbanen;For å kontrollere bevegelsen;For å tillate tilfeldig bevegelse
+220;TEK1210;M7;Lagere og føringer;Hva bør vurderes ved valg av lager?;Lastretning, laststørrelse, hastighet og levetid;Last, hastighet og levetid;Driftsforhold og belastning;Bare akseldiameter
+221;TEK1210;M8;Fjærer;Hva er hovedoppgaven til en fjær?;Å lagre mekanisk energi gjennom elastisk deformasjon;Å lagre energi ved deformasjon;Å gi en elastisk kraft;Å produsere energi
+222;TEK1210;M8;Fjærer;Hva uttrykker Hookes lov for en lineær fjær?;F = kx;Kraft er fjærkonstant ganger deformasjon;Kraften øker med deformasjonen;F = k/x
+223;TEK1210;M8;Fjærer;Hva betyr k i F = kx?;Fjærkonstanten;Fjærens stivhet;Forholdet mellom kraft og deformasjon;Fjærens lengde
+224;TEK1210;M8;Fjærer;Hva betyr x i F = kx?;Fjærens deformasjon fra likevektslengden;Fjærens lengdeendring;Strekk eller sammentrykning;Fjærens totale lengde
+225;TEK1210;M8;Fjærer;Hva er enheten for fjærkonstant?;N/m;Newton per meter;Kraft per lengdeenhet;Nm
+226;TEK1210;M8;Fjærer;Hva betyr stor fjærkonstant?;Fjæren er stiv;Det kreves stor kraft for en gitt deformasjon;Fjæren deformeres lite;Fjæren er svært myk
+227;TEK1210;M8;Fjærer;Hva skjer med fjærkraften når deformasjonen dobles?;Den dobles for en lineær fjær;Kraften øker proporsjonalt;Kraften blir større;Kraften halveres
+228;TEK1210;M8;Fjærer;Hva er en trykkfjær?;En fjær konstruert for å belastes i kompresjon;En fjær som trykkes sammen;En fjær som motstår sammentrykning;En fjær som bare belastes i strekk
+229;TEK1210;M8;Fjærer;Hva er en strekkfjær?;En fjær konstruert for å belastes i strekk;En fjær som trekkes ut;En fjær som gir kraft ved forlengelse;En fjær som bare tåler trykk
+230;TEK1210;M8;Fjærer;Hva brukes endekrokene på en strekkfjær til?;Å overføre strekkraft til fjæren;Å feste fjæren til komponentene;Å påføre belastningen;Å redusere fjærens stivhet til null
+231;TEK1210;M8;Fjærer;Hva er en bladfjær?;En fjær der elastisk bøyning av et blad gir fjærvirkning;En fjær som arbeider i bøyning;Et elastisk blad;En spiralfjær med kroker
+232;TEK1210;M8;Fjærer;Hvor brukes bladfjærer typisk?;I oppheng og konstruksjoner med bøyebelastning;I kjøretøyoppheng;Der bøyning brukes som fjærvirkning;Bare i klokker
+233;TEK1210;M8;Fjærer;Hva er en torsjonsfjær?;En fjær som lagrer energi ved vridning;En fjær belastet med moment;En fjær som vrir seg;En fjær som bare strekkes aksialt
+234;TEK1210;M8;Fjærer;Hva er en klokkefjær?;En spiralformet fjær som lagrer energi ved opp- eller avrulling;En flat spiralfjær;En fjær som gir rotasjonsmoment;En vanlig trykkfjær
+235;TEK1210;M8;Fjærer;Hva er en volutefjær?;En konisk spiralformet fjær av båndmateriale;En konisk spiralfjær;En kompakt fjærtype;Et kulelager
+236;TEK1210;M8;Fjærer;Hva er en fordel med volutefjærer?;De kan ta stor last på liten sammenpresset høyde;De kan være kompakte ved stor last;De kan komprimeres mye;De brukes bare til strekk
+237;TEK1210;M8;Fjærer;Hva skjer med fjærkraften når en trykkfjær presses sammen?;Kraften øker med deformasjonen;Fjærkraften blir større;Fjæren motsetter seg kompresjonen;Kraften blir alltid null
+238;TEK1210;M8;Fjærer;Hvilken retning virker fjærkraften?;Mot deformasjonen;Mot forskyvningen fra likevekt;Fjæren forsøker å gå tilbake;Alltid nedover
+239;TEK1210;M8;Fjærer;Hva skjer med total stivhet når like fjærer kobles parallelt?;Den øker;Fjærkonstantene summeres;Systemet blir stivere;Den blir mindre enn én fjær
+240;TEK1210;M8;Fjærer;Hva er total fjærkonstant for parallelle fjærer?;kₜ = k₁ + k₂ + …;Fjærkonstantene legges sammen;Summen av stivhetene;kₜ = k₁k₂
+241;TEK1210;M8;Fjærer;Hva skjer med total stivhet når like fjærer kobles i serie?;Den reduseres;Systemet blir mykere;Total deformasjon blir større;Stivheten dobles
+242;TEK1210;M8;Fjærer;Hva er sammenhengen for fjærer i serie?;1/kₜ = 1/k₁ + 1/k₂ + …;Inversene av fjærkonstantene summeres;Seriekobling gir lavere stivhet;kₜ = k₁ + k₂
+243;TEK1210;M8;Fjærer;Har seriekoblede fjærer samme kraft?;Ja;Samme kraft går gjennom hver fjær;De belastes med samme kraft;Nei, kraften må alltid være forskjellig
+244;TEK1210;M8;Fjærer;Hvordan fordeles deformasjonen i seriekoblede fjærer?;Total deformasjon er summen av fjærenes deformasjoner;Deformasjonene summeres;Hver fjær bidrar til total lengdeendring;Bare én fjær deformeres
+245;TEK1210;M8;Fjærer;Har parallellkoblede fjærer samme deformasjon?;Ja;De får samme lengdeendring;Begge deformeres like langt geometrisk;Nei, én fjær står alltid stille
+246;TEK1210;M8;Fjærer;Hvordan fordeles kraften mellom parallelle fjærer?;Total kraft er summen av fjærkreftene;Kreftene i fjærene summeres;Fjærene deler belastningen;All kraft går alltid gjennom én fjær
+247;TEK1210;M8;Fjærer;Hva skjer hvis en fjær belastes over elastisk område?;Den kan få permanent deformasjon;Fjæren kan deformeres plastisk;Den kan miste opprinnelig form;Den blir alltid sterkere
+248;TEK1210;M8;Fjærer;Hva menes med fjærens arbeidslengde?;Området den kan deformeres under tiltenkt drift;Tillatt bevegelsesområde;Fjærens nyttige deformasjon;Trådens totale lengde
+249;TEK1210;M8;Fjærer;Hva lagres i en deformert fjær?;Elastisk potensiell energi;Mekanisk energi;Deformasjonsenergi;Masse
+250;TEK1210;M8;Fjærer;Hva må vurderes ved valg av fjær?;Kraft, deformasjon, stivhet, levetid og plass;Kraft, vandring og stivhet;Belastning og geometri;Bare fjærens farge
+251;TEK1210;M9;Tannhjul og transmisjoner;Hva er en mekanisk transmisjon?;Et system som overfører mekanisk effekt og bevegelse;Et system som overfører kraft og bevegelse;En forbindelse mellom drivende og drevet del;Et system som produserer energi
+252;TEK1210;M9;Tannhjul og transmisjoner;Hvilke tre vanlige transmisjonstyper bruker vi?;Tannhjul, rem og kjede;Gir, rem og kjede;Tre typer mekanisk kraftoverføring;Fjær, lager og skrue
+253;TEK1210;M9;Tannhjul og transmisjoner;Hva overfører et tannhjulspar?;Rotasjon og dreiemoment mellom aksler;Dreiemoment og rotasjon;Mekanisk effekt;Bare lineær bevegelse
+254;TEK1210;M9;Tannhjul og transmisjoner;Hva bestemmer utvekslingen i et tannhjulspar?;Forholdet mellom tanntallene;Forholdet mellom antall tenner;Størrelsesforholdet mellom hjulene;Tannhjulenes farge
+255;TEK1210;M9;Tannhjul og transmisjoner;Hva skjer med turtallet ved nedgiring?;Turtallet reduseres;Utgående aksel roterer saktere;Hastigheten reduseres;Turtallet øker
+256;TEK1210;M9;Tannhjul og transmisjoner;Hva skjer ideelt med dreiemomentet ved nedgiring?;Dreiemomentet øker;Utgående moment blir større;Momentet forsterkes;Dreiemomentet blir null
+257;TEK1210;M9;Tannhjul og transmisjoner;Hva skjer med turtallet ved oppgiring?;Turtallet øker;Utgående aksel roterer raskere;Rotasjonshastigheten øker;Turtallet reduseres
+258;TEK1210;M9;Tannhjul og transmisjoner;Hva skjer ideelt med dreiemomentet ved oppgiring?;Dreiemomentet reduseres;Momentet blir mindre;Hastighet byttes mot moment;Momentet øker
+259;TEK1210;M9;Tannhjul og transmisjoner;Endrer to utvendige tannhjul rotasjonsretningen?;Ja;Drevet hjul roterer motsatt vei;Retningen snus;Nei, de roterer alltid samme vei
+260;TEK1210;M9;Tannhjul og transmisjoner;Hva er et sylindrisk rettfortannet tannhjul?;Et tannhjul med rette tenner parallelt med akselen;Et tannhjul med rette tenner;Et vanlig tannhjul for parallelle aksler;Et tannhjul for remdrift
+261;TEK1210;M9;Tannhjul og transmisjoner;Hva er en fordel med skråfortannede tannhjul?;Jevnere og stillere inngrep;Flere tenner kan være i inngrep samtidig;De gir jevn kraftoverføring;De har aldri aksialkraft
+262;TEK1210;M9;Tannhjul og transmisjoner;Hva er en ulempe med skråfortanning?;Den skaper aksialkraft;Lageret kan få aksialbelastning;Det oppstår kraft langs akselen;Den kan ikke overføre moment
+263;TEK1210;M9;Tannhjul og transmisjoner;Hva brukes koniske tannhjul til?;Kraftoverføring mellom kryssende aksler;Å endre retningen mellom aksler;Overføring mellom vinklede aksler;Bare parallelle aksler
+264;TEK1210;M9;Tannhjul og transmisjoner;Hva brukes et snekkegear ofte til?;Stor utveksling mellom kryssende aksler;Stor reduksjon i ett trinn;Lavt turtall og høyt moment;Å gi utveksling 1:1 uten tap
+265;TEK1210;M9;Tannhjul og transmisjoner;Hva er modul for et tannhjul?;Et mål på tannstørrelsen;En parameter som bestemmer tannens størrelse;Forhold knyttet til delingsdiameter og tanntall;Antall tenner på tannhjulet
+266;TEK1210;M9;Tannhjul og transmisjoner;Hva må være likt for to standard tannhjul som skal gripe sammen?;Modul og trykkvinkel;De må ha samme modul;Tanngeometrien må passe;De må ha samme tanntall
+267;TEK1210;M9;Tannhjul og transmisjoner;Hva er en fordel med tannhjulsdrift?;Presis utveksling uten sluring;Fast hastighetsforhold;Positiv kraftoverføring;Stor elastisk sluring
+268;TEK1210;M9;Tannhjul og transmisjoner;Hva er en ulempe med tannhjulsdrift over stor akselavstand?;Det krever flere hjul eller annen transmisjon;Tannhjul passer dårlig ved stor avstand;Akslene bør normalt være relativt nær hverandre;Tannhjul kan ikke overføre moment
+269;TEK1210;M9;Tannhjul og transmisjoner;Hva er en fordel med remdrift?;Enkel og fleksibel overføring over relativt stor akselavstand;Remmer kan forbinde aksler langt fra hverandre;Enkel og rimelig kraftoverføring;Remdrift krever alltid akslene i kontakt
+270;TEK1210;M9;Tannhjul og transmisjoner;Kan en vanlig friksjonsrem slure?;Ja;Ja, ved utilstrekkelig friksjon eller stor last;Sluring kan forekomme;Nei, aldri
+271;TEK1210;M9;Tannhjul og transmisjoner;Hva er en fordel med tannrem?;Den gir synkron kraftoverføring uten normal sluring;Den gir fast utveksling;Tennene hindrer relativ glidning;Den fungerer bare ved sluring
+272;TEK1210;M9;Tannhjul og transmisjoner;Hva bestemmer utvekslingen i en remdrift uten sluring?;Forholdet mellom remskivenes effektive diametre;Forholdet mellom skivediametrene;Størrelsen på remskivene;Bare remmens lengde
+273;TEK1210;M9;Tannhjul og transmisjoner;Hva skjer når drevet remskive gjøres større?;Utgående turtall reduseres;Den drevne akselen går saktere;Utvekslingen øker;Utgående turtall øker
+274;TEK1210;M9;Tannhjul og transmisjoner;Hva er en fordel med kjededrift?;Positiv kraftoverføring uten sluring;Fast utveksling mellom kjedehjulene;Kjedet griper mekanisk i hjulene;Kjedet er helt vedlikeholdsfritt
+275;TEK1210;M9;Tannhjul og transmisjoner;Hva bestemmer utvekslingen i en kjededrift?;Forholdet mellom kjedehjulenes tanntall;Forholdet mellom antall tenner;Størrelsen på kjedehjulene;Kjedets masse
+276;TEK1210;M9;Tannhjul og transmisjoner;Hva trenger en kjededrift normalt for god levetid?;Riktig stramming, innretting og smøring;Smøring og korrekt kjedespenning;Vedlikehold og riktig montering;Mest mulig slakk i kjedet
+277;TEK1210;M9;Tannhjul og transmisjoner;Hva er virkningsgrad i en transmisjon?;Forholdet mellom utgående og inngående effekt;Utgående effekt delt på inngående effekt;Et mål på transmisjonens tap;Forholdet mellom turtallene
+278;TEK1210;M9;Tannhjul og transmisjoner;Hvor blir tapt effekt i en transmisjon hovedsakelig av?;Varme gjennom friksjon og andre tap;Friksjon omdanner energi til varme;Mekaniske tap;Ekstra nyttig utgående effekt
+279;TEK1210;M9;Tannhjul og transmisjoner;Når er kjede ofte bedre enn vanlig rem?;Når fast utveksling uten sluring er viktig;Når sluring ikke er ønskelig;Ved positiv kraftoverføring;Når stor sluring er ønskelig
+280;TEK1210;M9;Tannhjul og transmisjoner;Hva bør vurderes ved valg av transmisjon?;Effekt, moment, hastighet, avstand, presisjon og miljø;Belastning, hastighet og akselavstand;Kravene til kraftoverføringen;Bare innkjøpsprisen
+281;TEK1210;M10;Klassifisering av mekanismer;Hva er en mekanisme?;Et system av legemer og ledd som overfører eller omformer bevegelse;Et system som overfører bevegelse;Sammenkoblede bevegelige deler;En konstruksjon uten bevegelse
+282;TEK1210;M10;Klassifisering av mekanismer;Hva er et ledd i en mekanisme?;Et stivt legeme som inngår i mekanismen;En bevegelig komponent i mekanismen;En del mellom forbindelser;Bare et kulelager
+283;TEK1210;M10;Klassifisering av mekanismer;Hva er et kinematisk par?;To legemer koblet slik at relativ bevegelse er begrenset;En forbindelse mellom to bevegelige legemer;To deler som beveger seg relativt;To deler som alltid er fastlåst
+284;TEK1210;M10;Klassifisering av mekanismer;Hva bestemmer et kinematisk par?;Hvilke relative bevegelser som er tillatt mellom to ledd;Hvordan leddene kan bevege seg;Bevegelsesmuligheten mellom komponenter;Bare komponentenes materiale
+285;TEK1210;M10;Klassifisering av mekanismer;Hva kjennetegner et lavere kinematisk par?;Elementene har flate- eller linjekontakt over et område;Elementene har kontinuerlig kontakt;Kontakt skjer over en flate;Elementene har bare punktkontakt
+286;TEK1210;M10;Klassifisering av mekanismer;Hva kjennetegner et høyere kinematisk par?;Kontakten skjer hovedsakelig langs en linje eller i et punkt;Kontakten er lokal mellom elementene;Kontaktområdet er lite;Elementene har alltid stor flatekontakt
+287;TEK1210;M10;Klassifisering av mekanismer;Er et rotasjonsledd et lavere eller høyere par?;Lavere par;Lavere kinematisk par;Et par med flatekontakt;Høyere par
+288;TEK1210;M10;Klassifisering av mekanismer;Er et sleideledd et lavere eller høyere par?;Lavere par;Lavere kinematisk par;Et par med glidekontakt;Høyere par
+289;TEK1210;M10;Klassifisering av mekanismer;Er et skrueledd et lavere eller høyere par?;Lavere par;Lavere kinematisk par;Et par med sammenhengende kontakt;Høyere par
+290;TEK1210;M10;Klassifisering av mekanismer;Er kam og følger et lavere eller høyere par?;Høyere par;Høyere kinematisk par;Et par med lokal kontakt;Lavere par
+291;TEK1210;M10;Klassifisering av mekanismer;Er to tannhjul i inngrep et lavere eller høyere par?;Høyere par;Høyere kinematisk par;Tennene har lokal kontakt;Lavere par
+292;TEK1210;M10;Klassifisering av mekanismer;Er en rulle mot en skinne et lavere eller høyere par?;Høyere par;Høyere kinematisk par;Kontakten skjer lokalt;Lavere par
+293;TEK1210;M10;Klassifisering av mekanismer;Hva er et rotasjonsledd?;Et ledd som tillater rotasjon om en akse;Et ledd som tillater rotasjon;En forbindelse med én rotasjonsbevegelse;Et ledd som bare tillater translasjon
+294;TEK1210;M10;Klassifisering av mekanismer;Hva er et prismatisk ledd?;Et ledd som tillater lineær bevegelse langs en akse;Et ledd som tillater translasjon;Et sleideledd;Et ledd som bare tillater rotasjon
+295;TEK1210;M10;Klassifisering av mekanismer;Hva er et skrueledd?;Et ledd med koblet rotasjon og translasjon;Et ledd med skruebevegelse;Rotasjon gir lineær bevegelse;Et ledd med fri bevegelse i alle retninger
+296;TEK1210;M10;Klassifisering av mekanismer;Hva er en kinematisk kjede?;Flere ledd koblet sammen med kinematiske par;En kjede av sammenkoblede ledd;Flere bevegelige komponenter koblet sammen;En vanlig kraftoverføringskjede
+297;TEK1210;M10;Klassifisering av mekanismer;Når blir en kinematisk kjede en mekanisme?;Når ett ledd fastholdes og bevegelsen blir bestemt;Når ett ledd festes til fundamentet;Når kjeden får styrt bevegelse;Når alle ledd fjernes
+298;TEK1210;M10;Klassifisering av mekanismer;Hva menes med en plan mekanisme?;Alle vesentlige bevegelser skjer i parallelle plan;Bevegelsen skjer hovedsakelig i ett plan;Mekanismen har todimensjonal bevegelse;Alle ledd beveger seg fritt i 3D
+299;TEK1210;M10;Klassifisering av mekanismer;Hva er en romlig mekanisme?;En mekanisme med bevegelse i tre dimensjoner;En mekanisme med 3D-bevegelse;Ledd beveger seg i flere plan;En mekanisme som bare beveger seg i ett plan
+300;TEK1210;M10;Klassifisering av mekanismer;Hva betyr frihetsgrad?;Antall uavhengige bevegelser som kreves for å beskrive systemet;Antall uavhengige bevegelser;Hvor mange bevegelsesmuligheter systemet har;Antall deler i mekanismen
+301;TEK1210;M10;Klassifisering av mekanismer;Hvor mange frihetsgrader har et enkelt rotasjonsledd i en plan mekanisme?;Én;1 rotasjon;Én uavhengig bevegelse;Tre
+302;TEK1210;M10;Klassifisering av mekanismer;Hvor mange frihetsgrader har et enkelt sleideledd i en plan mekanisme?;Én;1 translasjon;Én uavhengig bevegelse;To
+303;TEK1210;M10;Klassifisering av mekanismer;Hva er en fireleddet mekanisme?;En lukket kinematisk kjede med fire ledd;En mekanisme med fire sammenkoblede ledd;Fire ledd danner en lukket kjede;En mekanisme med fire tannhjul
+304;TEK1210;M10;Klassifisering av mekanismer;Er en vanlig fireleddet mekanisme normalt plan eller romlig?;Plan;Vanligvis plan;Bevegelsen skjer i ett plan;Alltid romlig
+305;TEK1210;M10;Klassifisering av mekanismer;Er en veiv-sleide-mekanisme normalt plan eller romlig?;Plan;Vanligvis plan;Bevegelsen kan beskrives i ett plan;Alltid romlig
+306;TEK1210;M10;Klassifisering av mekanismer;Hvilken bevegelse kan en veiv-sleide omforme?;Rotasjon til fram- og tilbakegående lineær bevegelse;Rotasjon til lineær bevegelse;Roterende til resiprokerende bevegelse;Rotasjon til tilfeldig bevegelse
+307;TEK1210;M10;Klassifisering av mekanismer;Hvorfor regnes kam og følger som et høyere par?;Kontakten mellom kam og følger er lokal;De har punkt- eller linjekontakt;Kontaktflaten mellom delene er liten;Delene har full flatekontakt
+308;TEK1210;M10;Klassifisering av mekanismer;Hvorfor regnes et sleideledd som et lavere par?;De to leddene har kontakt over en flate;Det har kontinuerlig flatekontakt;Sleiden glir mot føringen;Delene har bare punktkontakt
+309;TEK1210;M10;Klassifisering av mekanismer;Hva er hovedforskjellen mellom lavere og høyere kinematiske par?;Lavere par har flatekontakt, høyere par har hovedsakelig punkt- eller linjekontakt;Forskjellen ligger i kontaktformen;De har ulik type kontakt mellom leddene;Høyere par har alltid større kontaktflate
+310;TEK1210;M10;Klassifisering av mekanismer;Hvorfor klassifiserer vi mekanismer og kinematiske par?;For å analysere og beskrive bevegelse og funksjon systematisk;For å forstå mekanismens bevegelse;For å kunne analysere konstruksjonen;Bare for å bestemme materialfargen
+311;TEK1210;M11;Analyse av mekanismer;Hva brukes Grashofs kriterium til?;Å vurdere mulig rotasjon i en firelenkemekanisme;Å finne hvilke lenker som kan rotere;Å klassifisere firelenkemekanismer;Å beregne materialstyrke
+312;TEK1210;M11;Analyse av mekanismer;Hva sier Grashofs kriterium?;s + l ≤ p + q gir minst én fullt roterende lenke;Korteste pluss lengste lenke sammenlignes med de to andre;Lengdene avgjør mulig rotasjon;Alle fire lenker må være like
+313;TEK1210;M11;Analyse av mekanismer;Hva betyr s i Grashofs kriterium?;Lengden på korteste lenke;Korteste lenke;En lenkelengde;Lengste lenke
+314;TEK1210;M11;Analyse av mekanismer;Hva betyr l i Grashofs kriterium?;Lengden på lengste lenke;Lengste lenke;En lenkelengde;Korteste lenke
+315;TEK1210;M11;Analyse av mekanismer;Hva kalles den faststående lenken?;Forankringen eller grunnlenken;Fast lenke;Rammen;Følgeren
+316;TEK1210;M11;Analyse av mekanismer;Hva er inngangslenken?;Lenken som tilføres bevegelse eller moment;Den drivende lenken;Lenken som settes i bevegelse;Den faste lenken
+317;TEK1210;M11;Analyse av mekanismer;Hva er utgangslenken?;Lenken som leverer ønsket utgående bevegelse;Den drevne lenken;Følgeren;Den faste lenken
+318;TEK1210;M11;Analyse av mekanismer;Hva er koblerlenken?;Lenken mellom inngangs- og utgangslenken;Den forbindende lenken;Mellomlenken;Den faste rammen
+319;TEK1210;M11;Analyse av mekanismer;Hva er en crank?;En lenke som kan rotere 360°;En fullt roterende lenke;En roterende inngangslenke;En lenke som bare vipper
+320;TEK1210;M11;Analyse av mekanismer;Hva er en rocker?;En lenke som oscillerer mellom to ytterstillinger;En vippende lenke;En lenke med begrenset rotasjon;En lenke som alltid roterer 360°
+321;TEK1210;M11;Analyse av mekanismer;Hva kjennetegner en crank-rocker?;Én lenke roterer fullt og én oscillerer;Rotasjon omformes til vipping;Den har crank og rocker;Ingen lenker beveger seg
+322;TEK1210;M11;Analyse av mekanismer;Hva kjennetegner en double-crank?;Begge lenkene ved forankringen kan rotere fullt;To lenker kan rotere 360°;Begge sidelenkene roterer;Ingen lenker kan rotere
+323;TEK1210;M11;Analyse av mekanismer;Hva kjennetegner en double-rocker?;Begge sidelenkene oscillerer;To lenker vipper;Ingen av sidelenkene roterer fullt;Begge roterer kontinuerlig
+324;TEK1210;M11;Analyse av mekanismer;Hva bestemmer oppførselen til en Grashof-firelenke?;Lenkelengdene og hvilken lenke som forankres;Lengdeforhold og forankring;Geometrien til mekanismen;Bare materialet
+325;TEK1210;M11;Analyse av mekanismer;Hva brukes Kutzbach-kriteriet til?;Å beregne mekanismens frihetsgrader;Å finne mobiliteten;Å bestemme antall uavhengige bevegelser;Å beregne spenning
+326;TEK1210;M11;Analyse av mekanismer;Hvor mange frihetsgrader har en vanlig firelenkemekanisme?;Én;1;Én uavhengig inngangsbevegelse;Fire
+327;TEK1210;M11;Analyse av mekanismer;Hva betyr én frihetsgrad for en mekanisme?;Én uavhengig bevegelse bestemmer hele mekanismen;Én inngangsbevegelse er nødvendig;Bevegelsen styres av én variabel;Alle ledd kan beveges uavhengig
+328;TEK1210;M11;Analyse av mekanismer;Hva skjer hvis grunnlenken i en firelenke endres?;Mekanismens bevegelsestype kan endres;Mekanismen kan få annen oppførsel;Inversjonen endres;Lenkelengdene forsvinner
+329;TEK1210;M11;Analyse av mekanismer;Hva menes med en mekanismeinversjon?;Samme kinematiske kjede med en annen lenke forankret;En annen lenke gjøres fast;Mekanismen får annen grunnlenke;Alle lenker byttes ut
+330;TEK1210;M11;Analyse av mekanismer;Hvorfor analyserer vi mekanismens geometri?;For å forutsi bevegelse, stillinger og funksjon;For å forstå mekanismens bevegelse;For å kontrollere ønsket funksjon;Bare for å velge farge
+331;TEK1210;M12;Styrke og stivhet i materialer;Hva menes med materialets styrke?;Evnen til å motstå belastning uten svikt;Evnen til å tåle belastning;Motstand mot brudd eller plastisk deformasjon;Evnen til å deformeres mest mulig
+332;TEK1210;M12;Styrke og stivhet i materialer;Hva menes med stivhet?;Motstand mot elastisk deformasjon;Motstand mot deformasjon;Hvor mye en komponent bøyer seg under last;Hvor stor masse materialet har
+333;TEK1210;M12;Styrke og stivhet i materialer;Er styrke og stivhet det samme?;Nei, de beskriver ulike materialegenskaper;Nei;Et sterkt materiale trenger ikke være svært stivt;Ja, alltid
+334;TEK1210;M12;Styrke og stivhet i materialer;Hva er elastisk deformasjon?;Deformasjon som forsvinner når lasten fjernes;Reversibel deformasjon;Materialet går tilbake til opprinnelig form;Permanent deformasjon
+335;TEK1210;M12;Styrke og stivhet i materialer;Hva er plastisk deformasjon?;Permanent deformasjon etter avlasting;Varig formendring;Deformasjonen forsvinner ikke helt;Fullstendig reversibel deformasjon
+336;TEK1210;M12;Styrke og stivhet i materialer;Hva beskriver elastisitetsmodulen E?;Materialets elastiske stivhet;Materialets stivhet;Forholdet mellom spenning og tøyning elastisk;Materialets tetthet
+337;TEK1210;M12;Styrke og stivhet i materialer;Hva betyr høy E-modul?;Materialet deformeres lite elastisk ved gitt spenning;Materialet er stivt;Stor motstand mot elastisk deformasjon;Materialet er alltid svært sterkt
+338;TEK1210;M12;Styrke og stivhet i materialer;Hva er normalspenning?;Kraft normalt på tverrsnitt dividert med arealet;Kraft per tverrsnittsareal;σ = F/A;Kraft multiplisert med areal
+339;TEK1210;M12;Styrke og stivhet i materialer;Hva er tøyning?;Relativ lengdeendring;Lengdeendring i forhold til opprinnelig lengde;ε = ΔL/L;Kraft per areal
+340;TEK1210;M12;Styrke og stivhet i materialer;Hva er Hookes lov for et lineært elastisk materiale?;σ = Eε;Spenning er E-modul ganger tøyning;Spenning og tøyning er proporsjonale;σ = ε/E²
+341;TEK1210;M12;Styrke og stivhet i materialer;Hva skjer ved belastning under elastisk grense?;Materialet går tilbake til opprinnelig form etter avlasting;Deformasjonen er reversibel;Ingen permanent deformasjon oppstår;Materialet brekker alltid
+342;TEK1210;M12;Styrke og stivhet i materialer;Hva kan skje når flytegrensen overskrides?;Permanent plastisk deformasjon kan oppstå;Materialet kan deformeres varig;Formen kan endres permanent;All deformasjon forsvinner
+343;TEK1210;M12;Styrke og stivhet i materialer;Kan en del være sterk nok, men for lite stiv?;Ja;Ja, deformasjonen kan bli for stor;Den kan tåle lasten uten å fungere riktig;Nei
+344;TEK1210;M12;Styrke og stivhet i materialer;Hvorfor er stivhet viktig i mekanismer?;Deformasjon kan endre posisjon, klaringer og bevegelse;For stor deformasjon kan påvirke funksjonen;Geometrien må opprettholdes;Stivhet påvirker bare fargen
+345;TEK1210;M12;Styrke og stivhet i materialer;Hva kan akselbøyning gjøre med et lager?;Gi feilinnretting og ujevn lagerbelastning;Belaste lageret skjevt;Endre lagerets innretting;Alltid forbedre lagerets levetid
+346;TEK1210;M12;Styrke og stivhet i materialer;Hva kan deformasjon av en ramme gjøre med en mekanisme?;Endre den geometriske plasseringen av leddene;Flytte leddenes posisjon;Endre mekanismens bevegelse;Ikke påvirke mekanismen
+347;TEK1210;M12;Styrke og stivhet i materialer;Hva kan for stor deformasjon gjøre med tannhjulsinngrep?;Gi feil inngrep og dårlig lastfordeling;Endre tannkontakten;Øke slitasje og støy;Alltid forbedre inngrepet
+348;TEK1210;M12;Styrke og stivhet i materialer;Hva kan deformasjon gjøre med en lineær føring?;Gi feilinnretting, økt friksjon eller fastkiling;Gjøre føringen skjev;Forstyrre lineær bevegelse;Alltid redusere friksjonen
+349;TEK1210;M12;Styrke og stivhet i materialer;Hva kan deformasjon gjøre med klaringen mellom bevegelige deler?;Endre klaringen;Gjøre klaringen større eller mindre;Påvirke bevegelsen mellom delene;Klaringen påvirkes aldri
+350;TEK1210;M12;Styrke og stivhet i materialer;Hva kan for liten klaring etter deformasjon føre til?;Kontakt, høy friksjon eller fastkiling;Delene kan komme i kontakt;Bevegelsen kan hindres;Bedre fri bevegelse
+351;TEK1210;M12;Styrke og stivhet i materialer;Hva kan for stor klaring føre til?;Slark og redusert presisjon;Unøyaktig bevegelse;Mer bevegelsesfrihet enn ønsket;Alltid høyere presisjon
+352;TEK1210;M12;Styrke og stivhet i materialer;Hvordan kan en bjelke gjøres stivere?;Øke E-modul eller tverrsnittets arealtreghetsmoment;Velge stivere materiale eller endre geometrien;Øke tverrsnittets høyde;Bare gjøre den lengre
+353;TEK1210;M12;Styrke og stivhet i materialer;Hvordan påvirker økt bjelkelengde normalt nedbøyningen?;Nedbøyningen øker;Lengre bjelke deformeres mer;Stivheten reduseres geometrisk;Nedbøyningen blir alltid mindre
+354;TEK1210;M12;Styrke og stivhet i materialer;Hvorfor er tverrsnittets form viktig for stivheten?;Den påvirker arealtreghetsmomentet;Geometrien påvirker bøyestivheten;Materialplasseringen påvirker deformasjonen;Bare tverrsnittsarealet har betydning
+355;TEK1210;M12;Styrke og stivhet i materialer;Hvorfor brukes profiler som I-bjelker?;Materialet plasseres effektivt for høy bøyestivhet;De gir høy stivhet med relativt lite materiale;Materiale ligger langt fra nøytralaksen;De er alltid massive
+356;TEK1210;M12;Styrke og stivhet i materialer;Kan elastisk deformasjon være et funksjonsproblem uten materialskade?;Ja;Ja, geometrien kan endres for mye;Produktet kan fungere dårlig selv uten brudd;Nei
+357;TEK1210;M12;Styrke og stivhet i materialer;Hva er et typisk stivhetskrav i en presisjonsmekanisme?;Deformasjonen må være liten nok til å opprettholde funksjon og presisjon;Små tillatte deformasjoner;Geometrien må holdes nøyaktig;Størst mulig deformasjon
+358;TEK1210;M12;Styrke og stivhet i materialer;Hvorfor må lagerinnfestinger være tilstrekkelig stive?;For å opprettholde lagerets posisjon og innretting;For å hindre skjevstilling;For å holde akselen riktig plassert;For å gjøre lageret mykere
+359;TEK1210;M12;Styrke og stivhet i materialer;Hva bør kontrolleres i tillegg til spenning ved dimensjonering?;Deformasjon og stivhet;Nedbøyning;Om delen beholder funksjonell geometri;Bare masse
+360;TEK1210;M12;Styrke og stivhet i materialer;Hvorfor analyseres både styrke og stivhet?;Delen må både tåle lasten og fungere med akseptabel deformasjon;Den må være sterk og tilstrekkelig stiv;Både svikt og deformasjon må vurderes;Bare brudd er relevant
+361;TEK1210;M13;Mekanismer i produkter;Hvorfor brukes mekanismer i produkter?;For å styre, overføre eller omforme bevegelse og kraft;For å skape ønsket bevegelse;For å overføre bevegelse;Bare som dekorasjon
+362;TEK1210;M13;Mekanismer i produkter;Hva gjør en hengselmekanisme?;Tillater kontrollert rotasjon mellom deler;Tillater rotasjon;Forbinder deler med en rotasjonsakse;Tillater bare lineær bevegelse
+363;TEK1210;M13;Mekanismer i produkter;Hva gjør en sleidemekanisme?;Styrer en del langs en lineær bane;Gir lineær bevegelse;Begrenser bevegelsen til en retning;Gir bare rotasjon
+364;TEK1210;M13;Mekanismer i produkter;Hva gjør en veiv-sleide i et produkt?;Omformer rotasjon og lineær fram-og-tilbake-bevegelse;Omformer rotasjon til translasjon;Kobler roterende og lineær bevegelse;Bare reduserer friksjon
+365;TEK1210;M13;Mekanismer i produkter;Hvor finner vi en veiv-sleide typisk?;I stempelmotorer og pumper;I motorer;Der rotasjon og stempelbevegelse kobles;Bare i dørhengsler
+366;TEK1210;M13;Mekanismer i produkter;Hva brukes en firelenkemekanisme til i produkter?;Å skape en kontrollert bevegelsesbane mellom komponenter;Å styre ønsket bevegelse;Å koble bevegelsen mellom ledd;Bare til å lagre energi
+367;TEK1210;M13;Mekanismer i produkter;Hvor finner vi firelenkemekanismer?;Blant annet i hengsler, oppheng og gripeinnretninger;I hengsler og oppheng;I mange bevegelige produkter;Bare i tannhjul
+368;TEK1210;M13;Mekanismer i produkter;Hva brukes en kam til i et produkt?;Å skape en bestemt følgerbevegelse fra en inngangsbevegelse;Å styre følgerens bevegelse;Å omforme rotasjon til ønsket bevegelse;Bare til å redusere masse
+369;TEK1210;M13;Mekanismer i produkter;Hva bestemmer kamprofilen?;Følgerens bevegelse som funksjon av kamstillingen;Hvordan følgeren beveger seg;Bevegelsesforløpet;Bare kamakselens materiale
+370;TEK1210;M13;Mekanismer i produkter;Hva gjør en sperremekanisme?;Tillater bevegelse trinnvis eller i én retning;Hindrer tilbakerotasjon;Gir retningsbestemt bevegelse;Gir helt fri rotasjon begge veier
+371;TEK1210;M13;Mekanismer i produkter;Hvor brukes skralle og sperre?;Der tilbakerotasjon skal hindres eller trinnbevegelse ønskes;I verktøy og låsemekanismer;Der bevegelsen skal være retningsbestemt;Bare i glidelager
+372;TEK1210;M13;Mekanismer i produkter;Hva gjør en Genève-mekanisme?;Omformer kontinuerlig rotasjon til periodisk trinnbevegelse;Lager trinnvis rotasjon;Gir periodisk bevegelse;Gir bare kontinuerlig rotasjon
+373;TEK1210;M13;Mekanismer i produkter;Når er en Genève-mekanisme nyttig?;Når en utgang skal flyttes mellom bestemte posisjoner trinnvis;Ved indeksering;Når periodisk posisjonering ønskes;Når helt tilfeldig bevegelse ønskes
+374;TEK1210;M13;Mekanismer i produkter;Hva er en toggle-mekanisme?;En lenkemekanisme som kan gi stor kraft nær en rettlinjet stilling;En mekanisme som forsterker kraft nær endestilling;En kneleddsmekanisme;En mekanisme uten lenker
+375;TEK1210;M13;Mekanismer i produkter;Hvor brukes toggle-mekanismer ofte?;I klemmer, presser og låsemekanismer;I klemmer og låser;Der stor sluttkraft ønskes;Bare i remdrift
+376;TEK1210;M13;Mekanismer i produkter;Hva kan et tannhjulssystem gjøre i et produkt?;Endre turtall, moment og rotasjonsretning;Endre hastighet og moment;Overføre rotasjon;Bare lage lineær bevegelse
+377;TEK1210;M13;Mekanismer i produkter;Hvorfor brukes tannrem i enkelte produkter?;For synkron overføring uten normal sluring;For nøyaktig overføring;For å holde komponenter synkronisert;For å skape tilfeldig sluring
+378;TEK1210;M13;Mekanismer i produkter;Hvorfor brukes kjededrift i produkter?;For robust positiv kraftoverføring over en viss akselavstand;For kraftoverføring uten sluring;For å forbinde kjedehjul;Bare for å dempe vibrasjoner
+379;TEK1210;M13;Mekanismer i produkter;Hva gjør en skrue som mekanisme?;Omformer rotasjon til lineær bevegelse og kraft;Omformer rotasjon til translasjon;Kan gi stor lineær kraft;Omformer lineær bevegelse til varme בלבד
+380;TEK1210;M13;Mekanismer i produkter;Hvorfor kan en skrue gi stor mekanisk fordel?;Liten stigning gir lang inngangsvei for kort utgangsbevegelse;Den bytter bevegelseslengde mot kraft;Den kan forsterke kraft;Den skaper energi
+381;TEK1210;M13;Mekanismer i produkter;Hva er mekanisk fordel?;Forholdet mellom utgående og inngående kraft;Kraftforsterkningen i mekanismen;Hvor mye mekanismen øker kraften;Forholdet mellom massene
+382;TEK1210;M13;Mekanismer i produkter;Hva må ofres når en ideell mekanisme forsterker kraft?;Bevegelsesvei eller hastighet;Utgangen må normalt bevege seg kortere eller saktere;Kraft vinnes på bekostning av bevegelse;Energi skapes gratis
+383;TEK1210;M13;Mekanismer i produkter;Hvorfor brukes fjærer sammen med mekanismer?;For å lagre energi, returnere deler eller opprettholde kraft;For retur og energilagring;For å gi elastisk kraft;Bare for å øke massen
+384;TEK1210;M13;Mekanismer i produkter;Hva kan et over-center-prinsipp brukes til?;Å holde en mekanisme stabilt i en endestilling;Til mekanisk låsing;Til å holde en stilling uten kontinuerlig kraft;Til fri bevegelse uten stopp
+385;TEK1210;M13;Mekanismer i produkter;Hvorfor brukes stoppere i mekanismer?;For å begrense bevegelsen til et sikkert område;For å definere endestillinger;For å hindre for stor bevegelse;For å øke frihetsgraden
+386;TEK1210;M13;Mekanismer i produkter;Hvorfor er klaring nødvendig mellom bevegelige deler?;For å tillate bevegelse uten uønsket kontakt eller fastkiling;For å hindre at delene binder;For å gi plass til relativ bevegelse;For å låse delene sammen
+387;TEK1210;M13;Mekanismer i produkter;Hva kan for stor klaring i en mekanisme føre til?;Slark, støy og redusert presisjon;Slark og unøyaktighet;Dårligere kontroll på bevegelsen;Alltid bedre presisjon
+388;TEK1210;M13;Mekanismer i produkter;Hvorfor er friksjon viktig ved produktdesign av mekanismer?;Den påvirker kraftbehov, slitasje, varme og virkningsgrad;Friksjon påvirker tap og slitasje;Den påvirker bevegelsen;Friksjon har ingen betydning
+389;TEK1210;M13;Mekanismer i produkter;Hvorfor bør en mekanisme ha færrest nødvendige deler?;Det kan redusere kostnad, slark, feil og kompleksitet;Enklere mekanismer kan bli mer robuste;Færre deler kan forenkle produktet;Flere deler gir alltid høyere kvalitet
+390;TEK1210;M13;Mekanismer i produkter;Hva er viktigst ved valg av mekanisme i et produkt?;At den gir ønsket funksjon pålitelig, sikkert og effektivt;At den gir riktig bevegelse og kraft;At mekanismen tilfredsstiller funksjonskravene;At den har flest mulig bevegelige deler
