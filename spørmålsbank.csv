@@ -1,0 +1,338 @@
+Indeks;Emne;Modul;Tema;Spørsmål;Riktig svar;Nesten riktig;Litt riktig;Feil svar
+1;TEK1210;M1;Krefter;Hva er normalkraft?;Kraft vinkelrett på kontaktflaten;Kraft fra underlaget som alltid peker oppover;Kraft som hindrer bevegelse;Kraft parallelt med kontaktflaten
+2;TEK1210;M1;Krefter;Hva er en kraft?;En påvirkning som kan endre bevegelse eller form;En påvirkning som endrer bevegelse;En påvirkning på et legeme;Energi som lagres i et legeme
+3;TEK1210;M1;Krefter;Hva sier aksjon–reaksjonsloven?;Krefter opptrer parvis, like store og motsatt rettet;Aksjon og reaksjon er like store;To krefter virker motsatt;Alle krefter er i likevekt
+4;TEK1210;M1;Krefter;Hva er en kraft–motkraft?;To like store, motsatt rettede krefter på ulike legemer;To motsatt rettede krefter;To krefter med samme størrelse;To krefter på samme legeme
+5;TEK1210;M1;Krefter;Virker kraft og motkraft på samme legeme?;Nei, de virker på hvert sitt legeme;Nei, men de virker i samme punkt;Vanligvis ikke;Ja, alltid
+6;TEK1210;M1;Krefter;Er kraft og motkraft like store?;Ja, alltid;Ja, når systemet er i ro;Ofte;Nei, motkraften er mindre
+7;TEK1210;M1;Krefter;Hva er en normalkraft?;Kontaktkraft vinkelrett på kontaktflaten;Kraft fra underlaget vinkelrett oppover;Kraft fra underlaget;Kraft parallelt med kontaktflaten
+8;TEK1210;M1;Krefter;Hvilken retning har normalkraften?;Vinkelrett på kontaktflaten;Opp fra kontaktflaten;Motsatt tyngdekraften;Parallelt med kontaktflaten
+9;TEK1210;M1;Krefter;Når oppstår normalkraft?;Når legemer er i kontakt;Når et legeme ligger på et underlag;Når et legeme står stille;Når et legeme faller fritt
+10;TEK1210;M1;Krefter;Er normalkraft alltid lik tyngden?;Nei, den avhenger av situasjonen;Nei, ikke på skråplan;Bare ved bevegelse;Ja, alltid
+11;TEK1210;M1;Krefter;Hva er gravitasjonskraft?;Tiltrekningskraft mellom masser;Jordas tiltrekning på et legeme;En kraft som virker nedover;Kraft fra underlaget
+12;TEK1210;M1;Krefter;Hva er tyngdekraft?;Jordas gravitasjonskraft på et legeme;Gravitasjonskraft nær jordoverflaten;En kraft som peker nedover;Legemets masse
+13;TEK1210;M1;Krefter;Hvilken retning har tyngdekraften?;Mot jordas sentrum;Vertikalt ned ved jordoverflaten;Alltid nedover;Vinkelrett på underlaget
+14;TEK1210;M1;Krefter;Hva bestemmer tyngdekraftens størrelse?;Masse og tyngdeakselerasjon;Legemets masse;Masse og hastighet;Legemets volum
+15;TEK1210;M1;Krefter;Hva er uttrykket for tyngdekraft?;F = mg;F = ma;F = m/g;F = mv
+16;TEK1210;M1;Krefter;Hva er g nær jordoverflaten?;Ca. 9,81 m/s²;Ca. 10 m/s²;Ca. 9,81 m/s;Ca. 1 m/s²
+17;TEK1210;M1;Krefter;Hva er snorkraft?;Strekkraft som virker langs en stram snor;Kraft som virker langs en snor;Kraft i en snor;Kraft vinkelrett på snora
+18;TEK1210;M1;Krefter;Hvilken retning har snorkraften?;Langs snora og bort fra legemet;Langs snora;Mot festepunktet;Vinkelrett på snora
+19;TEK1210;M1;Krefter;Kan en snor skyve et legeme?;Nei, en ideell snor kan bare trekke;Nei, en stram snor trekker;Vanligvis ikke;Ja, når snora er stram
+20;TEK1210;M1;Krefter;Når oppstår snorkraft?;Når en stram snor belastes;Når en snor trekkes;Når en snor er festet;Når snora er slakk
+21;TEK1210;M1;Krefter;Hva er friksjonskraft?;Kontaktkraft som motvirker relativ bevegelse;Kraft som motvirker bevegelse;Motstand mellom flater;Kraft som øker bevegelsen
+22;TEK1210;M1;Krefter;Hvilken retning har friksjonskraften?;Mot relativ bevegelse eller bevegelsestendens;Motsatt bevegelsesretningen;Langs kontaktflaten;Vinkelrett på kontaktflaten
+23;TEK1210;M1;Krefter;Hva påvirker friksjonskraften?;Normalkraft og friksjonskoeffisient;Normalkraft og overflatetype;Kontakt mellom flatene;Bare kontaktarealet
+24;TEK1210;M1;Krefter;Hva er friksjonskoeffisienten?;Forholdstall som beskriver friksjon mellom flater;Et mål på friksjon mellom flater;En materialegenskap;En kraft målt i newton
+25;TEK1210;M1;Krefter;Hva er fjærkraft?;Kraft fra en deformert fjær;Kraft fra en strukket fjær;Kraft i en fjær;Fjærens tyngdekraft
+26;TEK1210;M1;Krefter;Hva sier Hookes lov?;Fjærkraften er proporsjonal med deformasjonen;Fjærkraften øker med deformasjonen;En strukket fjær gir kraft;Fjærkraften er konstant
+27;TEK1210;M1;Krefter;Hva er uttrykket for fjærkraftens størrelse?;F = kx;F = ma;F = mg;F = k/x
+28;TEK1210;M1;Krefter;Hva beskriver fjærkonstanten k?;Fjærens stivhet;Hvor sterk fjæren er;Fjærens deformasjon;Fjærens lengde
+29;TEK1210;M1;Krefter;Hva er en påtrykt kraft?;En ytre kraft påført et legeme;En kraft fra en ytre påvirkning;En kraft på et legeme;En indre kraft i materialet
+30;TEK1210;M1;Krefter;Kan en påtrykt kraft trekke eller skyve?;Ja, den kan gjøre begge deler;Ja, avhengig av retningen;Den kan påvirke legemet;Nei, den kan bare skyve
+31;TEK1210;M1;Krefter;Hva er SI-enheten for kraft?;Newton (N);N;kg·m/s²;Joule (J)
+31;TEK1210;M3;Momenter;Hva er et kraftmoment?;En krafts dreievirkning om et punkt;En kraft som skaper rotasjon;Virkningen av en kraft på en arm;En kraft som flytter et legeme rett fram
+32;TEK1210;M3;Momenter;Hva bestemmer størrelsen på et moment?;Kraften og den vinkelrette momentarmen;Kraften og avstanden til dreiepunktet;Kraftens størrelse og arm;Bare kraftens størrelse
+33;TEK1210;M3;Momenter;Hva er uttrykket for moment ved vinkelrett kraft?;M = F · l;M = kraft ganger arm;Kraft multiplisert med avstand;M = F / l
+34;TEK1210;M3;Momenter;Hva er en momentarm?;Vinkelrett avstand fra dreiepunkt til kraftens virkelinje;Avstand fra dreiepunkt til kraften;Avstanden mellom kraft og dreiepunkt;Lengden på hele armen
+35;TEK1210;M3;Momenter;Hva er SI-enheten for moment?;Newtonmeter (Nm);N · m;Newton ganger meter;Newton (N)
+36;TEK1210;M3;Momenter;Hva skjer med momentet når kraften dobles?;Momentet dobles;Momentet øker tilsvarende;Momentet blir større;Momentet halveres
+37;TEK1210;M3;Momenter;Hva skjer når momentarmen dobles?;Momentet dobles;Dreievirkningen dobles;Momentet øker;Momentet er uendret
+38;TEK1210;M3;Momenter;Hvordan kan samme moment oppnås med mindre kraft?;Øk momentarmen;Bruk en lengre arm;Flytt kraften lenger fra dreiepunktet;Reduser momentarmen
+39;TEK1210;M3;Momenter;Hvor bør du gripe en fastnøkkel for størst moment?;Lengst mulig fra bolten;Ytterst på håndtaket;Et stykke fra bolten;Nærmest mulig bolten
+40;TEK1210;M3;Momenter;Hvorfor gjør en lang fastnøkkel arbeidet lettere?;Større momentarm gir mindre nødvendig kraft;Den lange armen øker momentet;Den gir større dreievirkning;Den gjør bolten lettere
+41;TEK1210;M3;Momenter;Hva er en hevarm?;En stiv arm som roterer om et dreiepunkt;En arm med et fast dreiepunkt;En arm som overfører kraft;En arm uten dreiepunkt
+42;TEK1210;M3;Momenter;Hva er prinsippet for en hevarm?;Momentene rundt dreiepunktet bestemmer kraftforholdet;Kraft og armlengde bestemmer virkningen;En lang arm kan forsterke kraft;Begge krefter må være like
+43;TEK1210;M3;Momenter;Hvordan kan en hevarm forsterke kraft?;Lang kraftarm og kort lastarm;Gjør kraftarmen lengre enn lastarmen;Øk avstanden til dreiepunktet;Gjør begge armene like lange
+44;TEK1210;M3;Momenter;Hva er mekanisk utveksling for en hevarm?;Forholdet mellom kraftarm og lastarm;Forholdet mellom de to armene;Forholdet mellom kreftene;Summen av armlengdene
+45;TEK1210;M3;Momenter;Hva ofres når en hevarm forsterker kraft?;Bevegelseslengde;Større vei på kraftsiden;Mer bevegelse;Masse
+46;TEK1210;M3;Momenter;Hvorfor må kraften beveges lengre ved kraftforsterkning?;Arbeid bevares ideelt: mindre kraft krever lengre vei;Mindre kraft krever større bevegelse;Hevarmen må beveges mer;Momentet forsvinner
+47;TEK1210;M3;Momenter;Hva skjer med kraften når bevegelsesveien økes i en ideell mekanisme?;Nødvendig kraft kan reduseres;Kraften blir mindre;Kraft og vei byttes mot hverandre;Kraften blir større
+48;TEK1210;M3;Momenter;Hvorfor sitter et dørhåndtak langt fra hengslene?;Stor momentarm gir stort moment med liten kraft;Det reduserer nødvendig kraft;Det gir større moment;For å øke dørens masse
+49;TEK1210;M3;Momenter;Hvorfor plasseres pedalen langt fra sykkelkrankens sentrum?;Større momentarm gir større dreiemoment;Lengre arm øker momentet;Det gir bedre kraftvirkning;Det øker pedalens hastighet
+50;TEK1210;M3;Momenter;Hva er hovedfordelen med en hevarm?;Den kan redusere nødvendig kraft ved å øke bevegelsesveien;Den kan forsterke kraft;Den gjør tung last lettere å flytte;Den reduserer nødvendig arbeid
+51;TEK1210;M2;Newtons lover;Hva sier Newtons 1. lov?;Et legeme beholder konstant fart når resultantkraften er null;Et legeme fortsetter med samme fart uten ytre kraft;Et legeme fortsetter å bevege seg;Et legeme stopper når kraften opphører
+52;TEK1210;M2;Newtons lover;Hva kalles Newtons 1. lov?;Treghetsloven;Loven om treghet;Likevektsloven;Kraftloven
+53;TEK1210;M2;Newtons lover;Hva er treghet?;Motstand mot endring av bevegelsestilstand;Motstand mot endring av fart;Et legemes motstand mot bevegelse;Motstand på grunn av friksjon
+54;TEK1210;M2;Newtons lover;Hva bestemmer et legemes treghet?;Massen;Mengden masse;Tyngden;Hastigheten
+55;TEK1210;M2;Newtons lover;Hva skjer med et legeme i ro når resultantkraften er null?;Det forblir i ro;Det beholder sin tilstand;Det beveger seg ikke;Det begynner å akselerere
+56;TEK1210;M2;Newtons lover;Hva skjer med et legeme i bevegelse når resultantkraften er null?;Det fortsetter med konstant hastighet;Det fortsetter med samme fart og retning;Det fortsetter å bevege seg;Det bremser gradvis ned
+57;TEK1210;M2;Newtons lover;Kreves det kraft for å opprettholde konstant fart uten motstand?;Nei;Nei, hvis resultantkraften er null;Bare en liten kraft;Ja, alltid
+58;TEK1210;M2;Newtons lover;Hvorfor stopper en ball som ruller på gulvet?;Friksjon og rullemotstand gir en resultantkraft;Friksjonen bremser ballen;Gulvet gir motstand;Kraften som startet ballen tar slutt
+59;TEK1210;M2;Newtons lover;Hva sier Newtons 2. lov?;Resultantkraften er lik masse ganger akselerasjon;Kraft er masse ganger akselerasjon;Kraft gir akselerasjon;Kraft er masse ganger fart
+60;TEK1210;M2;Newtons lover;Hva er formelen for Newtons 2. lov?;?F = ma;F = ma;F = m · a;F = mg
+61;TEK1210;M2;Newtons lover;Hva betyr ?F i Newtons 2. lov?;Summen av alle ytre krefter;Resultanten av kreftene;Alle krefter samlet;Den største kraften
+62;TEK1210;M2;Newtons lover;Hva skjer med akselerasjonen når resultantkraften øker?;Den øker proporsjonalt ved konstant masse;Akselerasjonen øker;Farten øker raskere;Massen øker
+63;TEK1210;M2;Newtons lover;Hva skjer med akselerasjonen når massen øker ved samme kraft?;Den reduseres;Akselerasjonen blir mindre;Legemet blir vanskeligere å akselerere;Akselerasjonen øker
+64;TEK1210;M2;Newtons lover;Hvilken retning har akselerasjonen?;Samme retning som resultantkraften;I resultantkraftens retning;I kraftens retning;Alltid i bevegelsesretningen
+65;TEK1210;M2;Newtons lover;Hva er SI-enheten for akselerasjon?;m/s²;Meter per sekund i sekundet;m/s per sekund;Newton
+66;TEK1210;M2;Newtons lover;Hva er SI-enheten for masse?;Kilogram (kg);kg;Kilogram;Newton
+67;TEK1210;M2;Newtons lover;Hva tilsvarer én newton?;1 kg·m/s²;Kraft som akselererer 1 kg med 1 m/s²;Masse ganger akselerasjon;1 kg·m/s
+68;TEK1210;M2;Newtons lover;Hva skjer når ?F = 0?;Akselerasjonen er null;Farten endres ikke;Legemet er i likevekt;Legemet må stå stille
+69;TEK1210;M2;Newtons lover;Kan et legeme bevege seg når ?F = 0?;Ja, med konstant hastighet;Ja, med konstant fart og retning;Ja, uten akselerasjon;Nei
+70;TEK1210;M2;Newtons lover;Kan et legeme akselerere med konstant fart?;Ja, dersom retningen endres;Ja, ved retningsendring;Ja, i en sving;Nei, akselerasjon krever økt fart
+71;TEK1210;M2;Newtons lover;Hva sier Newtons 3. lov?;To legemer påvirker hverandre med like store og motsatt rettede krefter;Kraft og motkraft er like store og motsatt rettet;Krefter opptrer parvis;Resultantkraften er alltid null
+72;TEK1210;M2;Newtons lover;Hva kalles Newtons 3. lov ofte?;Loven om kraft og motkraft;Aksjon–reaksjon;Loven om kraftpar;Treghetsloven
+73;TEK1210;M2;Newtons lover;Hvor virker kraft og motkraft?;På hvert sitt legeme;På to forskjellige legemer;På legemene som påvirker hverandre;På samme legeme
+74;TEK1210;M2;Newtons lover;Er kraft og motkraft like store?;Ja, alltid;Ja, og motsatt rettet;Ja;Bare når legemene er i ro
+75;TEK1210;M2;Newtons lover;Har kraft og motkraft motsatt retning?;Ja, alltid;Ja, langs samme virkelinje;Ja;Bare ved kontakt
+76;TEK1210;M2;Newtons lover;Hvorfor opphever ikke kraft og motkraft hverandre?;De virker på forskjellige legemer;De virker på hvert sitt legeme;De inngår i ulike kraftdiagrammer;De har forskjellig størrelse
+77;TEK1210;M2;Newtons lover;Hva skyver en bil framover ved akselerasjon?;Statisk friksjonskraft fra veien på hjulene;Veien skyver hjulene framover;Friksjonen mot veien;Motoren skyver bilen direkte framover
+78;TEK1210;M2;Newtons lover;Hvordan kan en rakett akselerere i verdensrommet?;Eksosgassen og raketten påvirker hverandre med motsatte krefter;Raketten skyver gass bakover og får motkraft framover;Gassen skyver raketten framover;Raketten skyver mot lufta
+79;TEK1210;M2;Newtons lover;Hvorfor beveger du deg bakover når du hopper fra en båt?;Du skyver båten én vei og båten skyver deg motsatt vei;Kraft og motkraft virker motsatt;Båten reagerer på kraften din;Vannet trekker deg bakover
+80;TEK1210;M2;Newtons lover;Hvilken Newton-lov brukes direkte i et kraftdiagram for å finne akselerasjon?;Newtons 2. lov;?F = ma;Loven om kraft og akselerasjon;Newtons 3. lov
+81;TEK1210;M3;FLD;Hva er et fritt-legeme-diagram (FLD)?;En skisse av et isolert legeme med alle ytre krefter;En skisse som viser kreftene på et legeme;En skisse av legemet og kreftene;En detaljert tegning av konstruksjonen
+82;TEK1210;M3;FLD;Hva gjør vi først når vi lager et FLD?;Isolerer legemet som skal analyseres;Velger legemet som skal analyseres;Tegner legemet;Beregner kreftene
+83;TEK1210;M3;FLD;Hvilke krefter skal vises i et FLD?;Alle ytre krefter på det isolerte legemet;Alle krefter som virker på legemet;Påførte krefter og reaksjonskrefter;Bare kjente krefter
+84;TEK1210;M3;FLD;Skal indre krefter vises i FLD for hele legemet?;Nei;Nei, bare ytre krefter;Normalt ikke;Ja, alltid
+85;TEK1210;M3;FLD;Hvordan tegnes en kraft i et FLD?;Som en pil med størrelse, retning og angrepspunkt;Som en pil med retning og navn;Som en kraftpil;Som en linje uten retning
+86;TEK1210;M3;FLD;Hva viser pilretningen i et FLD?;Kraftens antatte virkningsretning;Retningen kraften virker;Kraftens retning;Legemets bevegelsesretning
+87;TEK1210;M3;FLD;Hvordan representeres tyngdekraften?;Som en kraft nedover gjennom massesenteret;Som en pil vertikalt nedover;Som en nedoverrettet kraft;Som en kraft vinkelrett på underlaget
+88;TEK1210;M3;FLD;Hvor angriper tyngdekraften i en enkel modell?;I legemets massesenter;I tyngdepunktet;Omtrent midt i legemet;I kontaktpunktet med underlaget
+89;TEK1210;M3;FLD;Hvordan tegnes normalkraften?;Vinkelrett på kontaktflaten;Vinkelrett ut fra underlaget;Som en kontaktkraft;Alltid vertikalt opp
+90;TEK1210;M3;FLD;Hvordan tegnes friksjonskraften?;Langs kontaktflaten mot relativ bevegelse eller bevegelsestendens;Langs flaten mot bevegelsen;Parallelt med kontaktflaten;Vinkelrett på kontaktflaten
+91;TEK1210;M3;FLD;Hvordan tegnes snorkraften?;Langs snora og bort fra legemet;Langs snora mot festepunktet;I snoras retning;Vinkelrett på snora
+92;TEK1210;M3;FLD;Hva skjer med en kontakt når legemet isoleres?;Kontakten erstattes av reaksjonskraften;Kontakten erstattes av krefter;Støtten fjernes og kraften tegnes;Kontakten fjernes uten erstatning
+93;TEK1210;M3;FLD;Hva erstatter et glatt underlag i et FLD?;En normalkraft;En reaksjonskraft normalt på flaten;En kontaktkraft;En friksjonskraft
+94;TEK1210;M3;FLD;Hva kan et ru underlag gi i et FLD?;Normalkraft og friksjonskraft;En normal- og en tangentialkraft;To kontaktkrefter;Bare normalkraft
+95;TEK1210;M3;FLD;Skal kraft og motkraft tegnes i samme FLD?;Nei, hvis de virker på forskjellige legemer;Nei, de tilhører hvert sitt legeme;Vanligvis ikke;Ja, de må alltid tegnes sammen
+96;TEK1210;M3;FLD;Hvorfor velger vi et koordinatsystem i et FLD?;For å dele krefter i komponenter og sette opp ligninger;For å bestemme kraftkomponentene;For å angi retninger;For å bestemme legemets størrelse
+97;TEK1210;M3;FLD;Hvordan velges ofte akser på et skråplan?;Parallelt og vinkelrett på planet;Én akse langs planet og én normalt på det;Etter kontaktflaten;Alltid horisontalt og vertikalt
+98;TEK1210;M3;FLD;Hvorfor deles en skrå kraft i komponenter?;For å uttrykke kraften langs valgte koordinatakser;For å finne kraftens x- og y-bidrag;For å gjøre beregningen enklere;For å lage to nye krefter
+99;TEK1210;M3;FLD;Hva gjør vi etter at FLD er tegnet?;Setter opp bevegelses- eller likevektsligninger;Summerer kreftene i valgte retninger;Bruker Newtons lover;Måler lengden på kraftpilene
+100;TEK1210;M3;FLD;Hvorfor er FLD viktig i mekanikk?;Det gir grunnlaget for korrekt kraftanalyse;Det viser hvilke krefter som inngår i analysen;Det gjør kraftbildet tydelig;Det viser hvordan konstruksjonen skal produseres
+101;TEK1210;M4;Friksjon;Hva er friksjonskraft?;Kontaktkraft som motvirker relativ bevegelse eller bevegelsestendens;Kraft som motvirker relativ bevegelse;Motstand mellom kontaktflater;Kraft som alltid virker mot påført kraft
+102;TEK1210;M4;Friksjon;Når oppstår friksjonskraft?;Når kontaktflater har relativ bevegelse eller tendens til bevegelse;Når to flater berører og vil bevege seg relativt;Når to flater er i kontakt;Bare når flater glir
+103;TEK1210;M4;Friksjon;Hvilken retning har friksjonskraften?;Mot relativ bevegelse eller bevegelsestendens;Mot bevegelsesretningen;Langs kontaktflaten;Vinkelrett på kontaktflaten
+104;TEK1210;M4;Friksjon;Virker friksjon alltid mot legemets bevegelsesretning?;Nei, den virker mot relativ bevegelse i kontaktflaten;Nei, den virker mot glidningen;Vanligvis;Ja, alltid
+105;TEK1210;M4;Friksjon;Hvilken vei virker statisk friksjon?;Mot bevegelsen som ellers ville oppstått;Mot den forventede bevegelsen;Mot påført kraft;Alltid motsatt legemets fart
+106;TEK1210;M4;Friksjon;Hva er statisk friksjon?;Friksjon mellom kontaktflater uten relativ glidning;Friksjon før flatene begynner å gli;Friksjon på et stillestående legeme;Friksjon som alltid er konstant
+107;TEK1210;M4;Friksjon;Hva er glidende friksjon?;Friksjon mellom flater som glir relativt til hverandre;Friksjon når to flater glir;Friksjon under bevegelse;Friksjon uten kontakt
+108;TEK1210;M4;Friksjon;Er statisk friksjonskraft alltid maksimal?;Nei, den tilpasser seg opp til en maksimalverdi;Nei, den øker med behovet;Den varierer;Ja, den er alltid ?N
+109;TEK1210;M4;Friksjon;Hva er maksimal statisk friksjon?;F?,max = ??N;Friksjonskoeffisient ganger normalkraft;Største friksjon før glidning;F = mg
+110;TEK1210;M4;Friksjon;Hva skjer når påført kraft overstiger maksimal statisk friksjon?;Legemet begynner å gli;Statisk friksjon brytes og glidning starter;Legemet begynner å bevege seg;Friksjonskraften blir null
+111;TEK1210;M4;Friksjon;Hvordan beregnes glidende friksjon i enkel modell?;F? = ??N;Friksjonskoeffisient ganger normalkraft;? ganger normalkraft;F = ?mg i alle situasjoner
+112;TEK1210;M4;Friksjon;Hva er friksjonskoeffisienten?;Et dimensjonsløst mål på friksjon mellom to flater;Et mål på friksjonsegenskapene til kontaktparet;Et mål på hvor ru flatene er;En kraft målt i newton
+113;TEK1210;M4;Friksjon;Har friksjonskoeffisienten en enhet?;Nei, den er dimensjonsløs;Nei;Den er et forholdstall;Ja, newton
+114;TEK1210;M4;Friksjon;Hva symboliserer ???;Statisk friksjonskoeffisient;Friksjonskoeffisient før glidning;Statisk friksjon;Normalkraft
+115;TEK1210;M4;Friksjon;Hva symboliserer ???;Glidende friksjonskoeffisient;Friksjonskoeffisient under glidning;Glidende friksjon;Statisk friksjonskoeffisient
+116;TEK1210;M4;Friksjon;Hvilken er vanligvis størst, ?? eller ???;?? er vanligvis størst;Statisk friksjonskoeffisient;De kan være forskjellige;?? er alltid størst
+117;TEK1210;M4;Friksjon;Hva er normalkraftens betydning for friksjon?;Større normalkraft gir vanligvis større friksjonskapasitet;Friksjonen øker med normalkraften;Normalkraft påvirker friksjonen;Normalkraft har ingen betydning
+118;TEK1210;M4;Friksjon;Dobles glidende friksjon hvis normalkraften dobles?;Ja, i Coulombs enkle friksjonsmodell;Ja, når ? er konstant;Vanligvis øker friksjonen;Nei, friksjonen er uendret
+119;TEK1210;M4;Friksjon;Er normalkraft alltid lik tyngdekraften?;Nei, den bestemmes av kraftsituasjonen;Nei, ikke alltid;Bare på enkelte underlag;Ja, N = mg alltid
+120;TEK1210;M4;Friksjon;Hva påvirker friksjonskoeffisienten?;Materialer og tilstanden til kontaktflatene;Materialtype og overflate;Overflatens egenskaper;Bare legemets masse
+121;TEK1210;M4;Friksjon;Hvordan kan overflateruhet bidra til friksjon?;Ujevnheter kan gripe inn i hverandre;Ujevnheter motvirker glidning;Ru flater gir motstand;Ruhet fjerner kontakt mellom flatene
+122;TEK1210;M4;Friksjon;Hva betyr adhesjon ved friksjon?;Tiltrekning og mikroskopiske bindinger mellom kontaktflatene;Binding mellom kontaktflatene;Flatene kan feste seg lokalt;At flatene ikke berører hverandre
+123;TEK1210;M4;Friksjon;Skyldes tørrfriksjon bare overflateruhet?;Nei, både deformasjon og adhesjon kan bidra;Nei, adhesjon bidrar også;Flere overflateeffekter bidrar;Ja, bare ruheten bestemmer friksjonen
+124;TEK1210;M4;Friksjon;Hva skjer ofte med friksjonen ved smøring?;Friksjonen reduseres;Friksjonskoeffisienten reduseres;Flatene glir lettere;Normalkraften forsvinner
+125;TEK1210;M4;Friksjon;Påvirker kontaktarealet tørrfriksjonen i Coulombs enkle modell?;Nei, ikke direkte;Nei, ved samme normalkraft;Vanligvis lite;Ja, dobbelt areal gir dobbelt friksjon
+126;TEK1210;M4;Friksjon;Hvorfor kan et legeme stå i ro på et skråplan?;Statisk friksjon kan balansere kraften langs planet;Friksjon hindrer glidning nedover;Friksjon virker opp langs planet;Normalkraften virker opp langs planet
+127;TEK1210;M4;Friksjon;Hvilken vei virker friksjonen på et legeme som vil gli ned et skråplan?;Opp langs skråplanet;Mot den kommende glidningen;Oppover langs kontaktflaten;Vinkelrett ut fra planet
+128;TEK1210;M4;Friksjon;Kan friksjonskraft virke i samme retning som et legeme beveger seg?;Ja, dersom den motvirker relativ glidning i kontaktflaten;Ja, for eksempel ved rulling uten glidning;Ja, i enkelte situasjoner;Nei, aldri
+129;TEK1210;M4;Friksjon;Hva gjør friksjonen mellom bildekk og vei ved akselerasjon?;Statisk friksjon fra veien driver bilen framover;Veien gir en framoverrettet friksjonskraft;Friksjonen gir bilen framdrift;Friksjonen virker alltid bakover
+130;TEK1210;M4;Friksjon;Hvorfor er friksjon nødvendig for å gå?;Statisk friksjon fra bakken gir framoverrettet kraft;Bakken skyver foten fram via friksjon;Friksjon hindrer foten i å gli;Friksjonen trekker alltid foten bakover
+131;TEK1210;M5;Enkle mekanismer;Hva er en mekanisme?;Et system som overfører eller omformer bevegelse;Et system som overfører bevegelse;Sammenkoblede bevegelige deler;En maskin som alltid produserer arbeid
+132;TEK1210;M5;Enkle mekanismer;Hva skiller en maskin fra en mekanisme?;En maskin overfører energi og utfører arbeid;En maskin bruker mekanismer til å utføre arbeid;En maskin består av mekanismer;En mekanisme har alltid motor
+133;TEK1210;M5;Enkle mekanismer;Hva studerer kinematikk?;Bevegelse uten å betrakte kreftene som skaper den;Posisjon, hastighet og akselerasjon;Hvordan deler beveger seg;Kreftene som skaper bevegelsen
+134;TEK1210;M5;Enkle mekanismer;Hva studerer kinetikk?;Sammenhengen mellom krefter og bevegelse;Krefter som skaper eller endrer bevegelse;Krefter og akselerasjon;Bare mekanismens geometri
+135;TEK1210;M5;Enkle mekanismer;Hva er et knutepunkt i en mekanisme?;En forbindelse mellom to eller flere lenker;Et punkt der lenker forbindes;Et bevegelig forbindelsespunkt;Et fast punkt uten forbindelse
+136;TEK1210;M5;Enkle mekanismer;Hva er en lenke i en mekanisme?;Et stivt element som forbinder knutepunkter;Et element mellom to ledd;En bevegelig mekanismedel;Et fleksibelt tau
+137;TEK1210;M5;Enkle mekanismer;Hva er et kinematisk par?;To lenker med en definert relativ bevegelse;To sammenkoblede lenker som kan bevege seg;En forbindelse mellom to lenker;To lenker som ikke kan bevege seg
+138;TEK1210;M5;Enkle mekanismer;Hva er en kinematisk kjede?;Flere lenker koblet sammen med kinematiske par;En kjede av sammenkoblede bevegelige lenker;Flere lenker koblet sammen;En vanlig drivkjede
+139;TEK1210;M5;Enkle mekanismer;Når blir en kinematisk kjede en mekanisme?;Når én lenke fikseres og bevegelsen blir bestemt;Når én lenke festes til fundamentet;Når kjeden får styrt bevegelse;Når alle lenkene låses
+140;TEK1210;M5;Enkle mekanismer;Hva er en plan mekanisme?;En mekanisme der bevegelsen skjer i parallelle plan;En mekanisme med hovedsakelig todimensjonal bevegelse;En mekanisme som beveger seg i et plan;En mekanisme uten rotasjon
+141;TEK1210;M5;Enkle mekanismer;Hva kjennetegner en romlig 3D-mekanisme?;Bevegelsen foregår i tre dimensjoner;Lenkene beveger seg i ulike plan;Bevegelsen er romlig;Den har tre lenker
+142;TEK1210;M5;Enkle mekanismer;Hva er en sleidemekanisme?;En mekanisme med lineært glidende bevegelse;En mekanisme med en glidende sleide;En mekanisme som styrer lineær bevegelse;En mekanisme med bare rotasjon
+143;TEK1210;M5;Enkle mekanismer;Hva gjør en krank-sleidemekanisme?;Omformer rotasjon til lineær fram-og-tilbake-bevegelse eller omvendt;Omformer rotasjon til lineær bevegelse;Kobler rotasjon og translasjon;Omformer rotasjon til rotasjon
+144;TEK1210;M5;Enkle mekanismer;Hva er en krank?;En roterende lenke koblet til en aksel;En arm som roterer om et fast punkt;En roterende arm;En lineært bevegelig sleide
+145;TEK1210;M5;Enkle mekanismer;Hva betyr resiprokerende bevegelse?;Gjentatt fram-og-tilbake-bevegelse;Periodisk bevegelse fram og tilbake;Vekslende lineær bevegelse;Kontinuerlig rotasjon
+146;TEK1210;M5;Enkle mekanismer;Hvor brukes krank-sleidemekanismen typisk?;I stempelmotorer og kompressorer;I systemer med stempelbevegelse;I motorer;Bare i tannhjulsgir
+147;TEK1210;M5;Enkle mekanismer;Hva er en firelenkemekanisme?;Fire lenker koblet sammen i en lukket kinematisk kjede;Fire sammenkoblede lenker med bevegelige ledd;En mekanisme med fire lenker;Fire tannhjul koblet sammen
+148;TEK1210;M5;Enkle mekanismer;Hva kan en firelenkemekanisme brukes til?;Å styre og omforme bevegelsesbaner;Å overføre og endre bevegelse;Å styre bevegelse;Bare til å øke rotasjonshastighet
+149;TEK1210;M5;Enkle mekanismer;Hva er en kam?;Et profilert element som styrer en følgers bevegelse;En roterende profil som beveger en følger;Et element som gir styrt bevegelse;Et rundt tannhjul
+150;TEK1210;M5;Enkle mekanismer;Hva bestemmer bevegelsen til en kamfølger?;Kammens profil;Formen på kammen;Kamgeometrien;Bare kamakselens diameter
+151;TEK1210;M5;Enkle mekanismer;Hva gjør en sperremekanisme (ratchet)?;Tillater trinnvis bevegelse og hindrer tilbakerotasjon;Tillater bevegelse én vei og sperrer motsatt vei;Hindrer uønsket tilbakerotasjon;Tillater fri rotasjon begge veier
+152;TEK1210;M5;Enkle mekanismer;Hva brukes et genevahjul til?;Å omforme kontinuerlig rotasjon til trinnvis rotasjon;Å skape periodisk trinnvis bevegelse;Å stoppe og starte rotasjon;Å gi kontinuerlig høyere hastighet
+153;TEK1210;M5;Enkle mekanismer;Hva kjennetegner en stegvis mekanisme?;Utgangen beveger seg i adskilte trinn;Bevegelse og stopp veksler;Bevegelsen skjer trinnvis;Utgangen beveger seg kontinuerlig
+154;TEK1210;M5;Enkle mekanismer;Hva brukes tannhjul til?;Å overføre rotasjon og dreiemoment mellom aksler;Å overføre rotasjon med bestemt utveksling;Å overføre dreiemoment;Bare til å endre rotasjonsretning
+155;TEK1210;M5;Enkle mekanismer;Hva bestemmer utvekslingen mellom to tannhjul?;Forholdet mellom tannhjulenes tanntall;Forholdet mellom antall tenner;Størrelsesforholdet mellom hjulene;Tannhjulenes materiale
+156;TEK1210;M5;Enkle mekanismer;Hva er en fordel med kjededrift?;Positiv kraftoverføring uten sluring;Den gir fast utveksling uten sluring;Den overfører kraft mellom aksler;Kjedet kan alltid slure ved overbelastning
+157;TEK1210;M5;Enkle mekanismer;Hva er en fordel med remdrift?;Enkel og støtdempende kraftoverføring over avstand;Den kan overføre kraft mellom aksler med stor avstand;Den gir fleksibel kraftoverføring;Den kan aldri slure
+158;TEK1210;M5;Enkle mekanismer;Hva gjør en skrue som mekanisme?;Omformer rotasjon til lineær bevegelse og kraft;Omformer rotasjon til lineær bevegelse;Flytter en mutter eller skrue aksialt;Omformer lineær bevegelse til fri rotasjon
+159;TEK1210;M5;Enkle mekanismer;Hvordan kan en skrue forsterke kraft?;Liten stigning gir stor mekanisk utveksling;Liten stigning reduserer nødvendig drivkraft;Rotasjon fordeles over lang bevegelsesvei;Stor stigning gir alltid størst kraftforsterkning
+160;TEK1210;M5;Enkle mekanismer;Hva er hovedhensikten med en enkel mekanisme?;Å overføre eller omforme kraft og bevegelse;Å endre kraft, retning eller bevegelse;Å gjøre en ønsket bevegelse mulig;Å produsere energi
+161;TEK1210;M6;Festemidler;Hva er hovedoppgaven til et festemiddel?;Å forbinde to eller flere deler;Å holde deler sammen;Å lage en mekanisk forbindelse;Å redusere materialets styrke
+162;TEK1210;M6;Festemidler;Hva er en fordel med bolteforbindelser?;De kan demonteres uten å ødelegges;De kan demonteres og monteres igjen;De gir en løsbar forbindelse;De er alltid permanente
+163;TEK1210;M6;Festemidler;Hva er hovedoppgaven til en mutter?;Å skape klemkraft sammen med bolten;Å stramme en bolteforbindelse;Å holde bolten på plass;Å hindre korrosjon
+164;TEK1210;M6;Festemidler;Hva er hovedoppgaven til en skive under en bolt eller mutter?;Å fordele kontakttrykket over et større areal;Å fordele klemkraften mot underlaget;Å beskytte kontaktflaten;Å øke boltens diameter
+165;TEK1210;M6;Festemidler;Hvorfor forspennes en bolteforbindelse?;For å skape klemkraft mellom delene;For å holde delene fast sammen;For å stramme forbindelsen;For å gjøre bolten lengre
+166;TEK1210;M6;Festemidler;Hva kan føre til at en skrueforbindelse løsner?;Vibrasjon og varierende belastning;Vibrasjon og dynamiske krefter;Bevegelse i forbindelsen;Høy friksjon i gjengene
+167;TEK1210;M6;Festemidler;Hva er hensikten med gjengelåsing?;Å hindre uønsket rotasjon og løsning;Å hindre at skruen løsner;Å sikre gjengeforbindelsen;Å redusere skruens styrke
+168;TEK1210;M6;Festemidler;Hvordan virker kjemisk gjengelåsing?;Et lim herder mellom gjengeflatene;Låsemiddel binder gjengene sammen;Væske påføres gjengene;Gjengene smeltes sammen
+169;TEK1210;M6;Festemidler;Hva gjør en låsemutter?;Motvirker at mutteren roterer løs;Øker motstanden mot løsning;Sikrer mutteren mot vibrasjon;Gjør forbindelsen permanent sveiset
+170;TEK1210;M6;Festemidler;Hva er en treskrue tilpasset for?;Å danne eller gripe gjenger i tre;Å feste komponenter direkte i tre;Å gripe i trefibrene;Å lage maskingjenger i stål
+171;TEK1210;M6;Festemidler;Hvorfor forbores tre ofte før skruing?;For å redusere sprekkfare og styre skruen;For å unngå at treet sprekker;For å gjøre innskruingen lettere;For å gjøre skruen tykkere
+172;TEK1210;M6;Festemidler;Hva er en treplugg?;En plugg som posisjonerer og forbinder tredeler;En trestav som forbinder deler;Et forbindelseselement i tre;En metallskrue for tre
+173;TEK1210;M6;Festemidler;Hvorfor brukes lim sammen med treplugger?;Limet overfører last og låser forbindelsen;Limet styrker forbindelsen;Limet holder pluggen fast;Limet gjør trepluggen fleksibel
+174;TEK1210;M6;Festemidler;Hva er en dovetail-forbindelse?;En formtilpasset mekanisk låsing mellom deler;En geometrisk forbindelse som hindrer uttrekking;En mekanisk låsegeometri;En kjemisk limforbindelse
+175;TEK1210;M6;Festemidler;Hvordan holder en spiker deler sammen?;Friksjon og mekanisk inngrep mot materialet;Friksjon mellom spiker og materiale;Spikeren griper i materialet;Ved hjelp av maskingjenger
+176;TEK1210;M6;Festemidler;Hva er en blindnagle?;En nagle som monteres fra én side;En nagle for ensidig tilgang;En nagle som trekkes fast fra forsiden;En nagle som krever tilgang fra begge sider
+177;TEK1210;M6;Festemidler;Når er blindnagler spesielt nyttige?;Når bare én side av forbindelsen er tilgjengelig;Når baksiden ikke kan nås;Ved montering i lukkede profiler;Når begge sider må bearbeides samtidig
+178;TEK1210;M6;Festemidler;Hva er en klinknaglet forbindelse?;En permanent forbindelse der naglen deformeres ved montering;En nagle som formes for å låse delene;En permanent mekanisk forbindelse;En forbindelse som skrus fra hverandre
+179;TEK1210;M6;Festemidler;Er en klinknaglet forbindelse normalt demonterbar?;Nei, naglen må vanligvis ødelegges;Nei, naglen må bores eller fjernes;Den er normalt permanent;Ja, den skrus enkelt løs
+180;TEK1210;M6;Festemidler;Hva er en klipsforbindelse?;En forbindelse som låses ved elastisk deformasjon;En elastisk del som klikker på plass;En rask mekanisk låsing;En sveiset forbindelse
+181;TEK1210;M6;Festemidler;Hva er en fordel med klips i serieproduksjon?;Rask montering med få eller ingen verktøy;De kan monteres raskt;De forenkler monteringen;De krever alltid bolter
+182;TEK1210;M6;Festemidler;Hva er Torx?;Et sekstakket drivsystem for skruer;Et drivsystem med stjerneformet profil;En skrueprofil for momentoverføring;En type gjenge
+183;TEK1210;M6;Festemidler;Hva er en fordel med Torx sammenlignet med vanlig spor?;God momentoverføring med liten fare for utslipp;Bitsen får godt inngrep i skruen;Det tåler relativt høyt moment;Det er konstruert for å gli ut lett
+184;TEK1210;M6;Festemidler;Hva er en fordel med limforbindelser?;Last kan fordeles over et stort areal;Lim kan fordele belastningen jevnt;Store flater kan forbindes;Belastningen samles alltid i ett punkt
+185;TEK1210;M6;Festemidler;Hva må vurderes før materialer limes?;Materialtype, overflate, last og miljø;Overflatebehandling og limtype;Om limet passer materialene;Bare limets farge
+186;TEK1210;M6;Festemidler;Hvorfor er direkte skruegjenger i plast ofte problematiske?;Plast kan krype og redusere klemkraften over tid;Plast kan sige slik at forbindelsen løsner;Plast deformeres over tid;Plast er alltid hardere enn skruen
+187;TEK1210;M6;Festemidler;Hva betyr kryp eller siging i plast?;Tidsavhengig deformasjon under vedvarende belastning;Plast deformeres gradvis under last;Langsom permanent deformasjon;Plast deformeres bare ved slag
+188;TEK1210;M6;Festemidler;Hva kan brukes i plast i stedet for gjenger direkte i plasten?;En metallinnsats med gjenger;En gjenget metallhylse;En innsats som tar opp gjengekreftene;En større skrue direkte i plasten
+189;TEK1210;M6;Festemidler;Hvorfor brukes en metallhylse eller gjengeinnsats i plast?;Den gir slitesterke gjenger og bedre lastoverføring;Den reduserer belastningen på plastgjengene;Den gir en sterkere skrueforbindelse;Den gjør plasten mykere
+190;TEK1210;M6;Festemidler;Hva er viktig ved valg av festemetode?;Materiale, belastning, miljø, montering og demontering;Materiale og forventet belastning;Hvordan forbindelsen skal brukes;Bare festemiddelets pris
+192;;;;;;;;
+193;;;;;;;;
+194;;;;;;;;
+195;;;;;;;;
+196;;;;;;;;
+197;;;;;;;;
+198;;;;;;;;
+199;;;;;;;;
+200;;;;;;;;
+201;;;;;;;;
+202;;;;;;;;
+203;;;;;;;;
+204;;;;;;;;
+205;;;;;;;;
+206;;;;;;;;
+207;;;;;;;;
+208;;;;;;;;
+209;;;;;;;;
+210;;;;;;;;
+211;;;;;;;;
+212;;;;;;;;
+213;;;;;;;;
+214;;;;;;;;
+215;;;;;;;;
+216;;;;;;;;
+217;;;;;;;;
+218;;;;;;;;
+219;;;;;;;;
+220;;;;;;;;
+221;;;;;;;;
+222;;;;;;;;
+223;;;;;;;;
+224;;;;;;;;
+225;;;;;;;;
+226;;;;;;;;
+227;;;;;;;;
+228;;;;;;;;
+229;;;;;;;;
+230;;;;;;;;
+231;;;;;;;;
+232;;;;;;;;
+233;;;;;;;;
+234;;;;;;;;
+235;;;;;;;;
+236;;;;;;;;
+237;;;;;;;;
+238;;;;;;;;
+239;;;;;;;;
+240;;;;;;;;
+241;;;;;;;;
+242;;;;;;;;
+243;;;;;;;;
+244;;;;;;;;
+245;;;;;;;;
+246;;;;;;;;
+247;;;;;;;;
+248;;;;;;;;
+249;;;;;;;;
+250;;;;;;;;
+251;;;;;;;;
+252;;;;;;;;
+253;;;;;;;;
+254;;;;;;;;
+255;;;;;;;;
+256;;;;;;;;
+257;;;;;;;;
+258;;;;;;;;
+259;;;;;;;;
+260;;;;;;;;
+261;;;;;;;;
+262;;;;;;;;
+263;;;;;;;;
+264;;;;;;;;
+265;;;;;;;;
+266;;;;;;;;
+267;;;;;;;;
+268;;;;;;;;
+269;;;;;;;;
+270;;;;;;;;
+271;;;;;;;;
+272;;;;;;;;
+273;;;;;;;;
+274;;;;;;;;
+275;;;;;;;;
+276;;;;;;;;
+277;;;;;;;;
+278;;;;;;;;
+279;;;;;;;;
+280;;;;;;;;
+281;;;;;;;;
+282;;;;;;;;
+283;;;;;;;;
+284;;;;;;;;
+285;;;;;;;;
+286;;;;;;;;
+287;;;;;;;;
+288;;;;;;;;
+289;;;;;;;;
+290;;;;;;;;
+291;;;;;;;;
+292;;;;;;;;
+293;;;;;;;;
+294;;;;;;;;
+295;;;;;;;;
+296;;;;;;;;
+297;;;;;;;;
+298;;;;;;;;
+299;;;;;;;;
+300;;;;;;;;
+301;;;;;;;;
+302;;;;;;;;
+303;;;;;;;;
+304;;;;;;;;
+305;;;;;;;;
+306;;;;;;;;
+307;;;;;;;;
+308;;;;;;;;
+309;;;;;;;;
+310;;;;;;;;
+311;;;;;;;;
+312;;;;;;;;
+313;;;;;;;;
+314;;;;;;;;
+315;;;;;;;;
+316;;;;;;;;
+317;;;;;;;;
+318;;;;;;;;
+319;;;;;;;;
+320;;;;;;;;
+321;;;;;;;;
+322;;;;;;;;
+323;;;;;;;;
+324;;;;;;;;
+325;;;;;;;;
+326;;;;;;;;
+327;;;;;;;;
+328;;;;;;;;
+329;;;;;;;;
+330;;;;;;;;
+331;;;;;;;;
+332;;;;;;;;
+333;;;;;;;;
+334;;;;;;;;
+335;;;;;;;;
+336;;;;;;;;
+337;;;;;;;;
