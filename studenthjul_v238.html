@@ -1,1 +1,3482 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Het Potet V2.3.7</title>
+
+<style>
+
+:root{
+  --blue:#00509e;
+  --dark:#002d62;
+  --red:#a00000;
+  --green:#2f7d32;
+  --select:#d9ecff;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f2f5f8;
+  color:#111;
+}
+
+
+/* =============================================
+   TOPP
+============================================= */
+
+header{
+  background:linear-gradient(
+    135deg,
+    var(--blue),
+    var(--dark)
+  );
+
+  color:white;
+  text-align:center;
+
+  padding:16px 18px;
+}
+
+h1{
+  margin:0;
+  font-size:48px;
+  font-weight:700;
+  line-height:1.0;
+}
+
+
+/* =============================================
+   MENYRAD
+============================================= */
+
+.selectRow{
+  display:flex;
+  flex-wrap:wrap;
+
+  justify-content:center;
+  align-items:center;
+
+  gap:14px;
+
+  padding:10px 14px 4px;
+
+  background:white;
+}
+
+
+/* =============================================
+   KNAPPER
+============================================= */
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+
+  justify-content:center;
+  align-items:center;
+
+  gap:14px;
+
+  padding:4px 14px 8px;
+
+  background:white;
+
+  box-shadow:
+    0 2px 6px #0002;
+}
+
+button{
+  border:0;
+  border-radius:14px;
+
+  padding:13px 20px;
+
+  font-size:20px;
+
+  background:var(--blue);
+  color:white;
+
+  min-width:150px;
+
+  cursor:pointer;
+}
+
+button.green{
+  background:var(--green);
+}
+
+button.red{
+  background:var(--red);
+}
+
+button:disabled{
+  opacity:0.5;
+  cursor:not-allowed;
+}
+
+
+/* =============================================
+   NEDTREKKSMENYER
+
+   1 Studentgruppe
+   2 Emne
+   3 Modul / tema
+============================================= */
+
+select.bankSelect{
+  background:var(--select);
+  color:#002d62;
+
+  border:2px solid #7db8e8;
+  border-radius:14px;
+
+  padding:12px 16px;
+
+  font-size:20px;
+  font-weight:bold;
+
+  max-width:450px;
+}
+
+#classSelect{
+  min-width:310px;
+}
+
+#courseSelect{
+  min-width:210px;
+}
+
+#topicSelect{
+  min-width:410px;
+}
+
+
+/* =============================================
+   STATUS
+============================================= */
+
+.dataStatus{
+  display:none;
+}
+
+
+/* =============================================
+   HJULOMRÅDE
+============================================= */
+
+.stage{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:14px;
+
+  padding:
+    12px 12px 10px;
+}
+
+.panel{
+  background:white;
+
+  border-radius:18px;
+
+  padding:
+    12px 14px 10px;
+
+  box-shadow:
+    0 4px 14px #0002;
+
+  text-align:center;
+
+  margin:0;
+}
+
+.panel h2{
+  color:var(--dark);
+
+  font-size:28px;
+
+  margin:
+    0 0 6px;
+}
+
+
+/* =============================================
+   HJUL
+============================================= */
+
+.wheelwrap{
+  position:relative;
+
+  width:min(42vw,520px);
+  height:min(42vw,520px);
+
+  margin:auto;
+}
+
+canvas{
+  width:100%;
+  height:100%;
+
+  border-radius:50%;
+}
+
+
+/* =============================================
+   PEKER
+============================================= */
+
+.pointer{
+  position:absolute;
+
+  top:-2px;
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  width:0;
+  height:0;
+
+  border-left:
+    15px solid transparent;
+
+  border-right:
+    15px solid transparent;
+
+  border-top:
+    34px solid var(--red);
+
+  z-index:5;
+}
+
+
+/* =============================================
+   VALGT STUDENT / SPØRSMÅL
+============================================= */
+
+.result{
+  font-size:24px;
+  font-weight:bold;
+
+  color:var(--dark);
+
+  min-height:30px;
+
+  margin-top:5px;
+}
+
+
+/* =============================================
+   SPØRSMÅL OG SVAR
+============================================= */
+
+.box{
+  background:white;
+
+  border-radius:14px;
+
+  margin:
+    0 12px 10px;
+
+  padding:
+    12px 18px;
+
+  box-shadow:
+    0 3px 10px #0002;
+
+  font-size:28px;
+
+  font-weight:700;
+
+  line-height:1.25;
+}
+
+.answer{
+  background:#dff3df;
+
+  font-size:30px;
+
+  font-weight:800;
+}
+
+.hidden{
+  display:none;
+}
+
+
+/* =============================================
+   IPAD / MINDRE SKJERMER
+============================================= */
+
+@media(max-width:900px){
+
+  h1{
+    font-size:40px;
+  }
+
+  .stage{
+    grid-template-columns:1fr;
+
+    padding:10px;
+  }
+
+  .wheelwrap{
+    width:min(84vw,520px);
+    height:min(84vw,520px);
+  }
+
+  button{
+    font-size:18px;
+    min-width:130px;
+  }
+
+  select.bankSelect{
+    font-size:18px;
+
+    min-width:200px;
+    max-width:100%;
+  }
+
+  #classSelect{
+    min-width:250px;
+  }
+
+  #courseSelect{
+    min-width:180px;
+  }
+
+  #topicSelect{
+    min-width:280px;
+  }
+
+  .box{
+    font-size:23px;
+  }
+
+  .answer{
+    font-size:25px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <h1>
+    Het Potet
+  </h1>
+
+</header>
+
+
+<!-- =============================================
+     TRE MENYER
+============================================= -->
+
+<div class="selectRow">
+
+
+  <!-- 1 STUDENTGRUPPE -->
+
+  <select
+    id="classSelect"
+    class="bankSelect"
+    onchange="loadClass()">
+
+    <option>
+      Laster studentliste...
+    </option>
+
+  </select>
+
+
+  <!-- 2 EMNE -->
+
+  <select
+    id="courseSelect"
+    class="bankSelect"
+    onchange="loadCourse()">
+
+    <option>
+      Laster emner...
+    </option>
+
+  </select>
+
+
+  <!-- 3 MODUL / TEMA -->
+
+  <select
+    id="topicSelect"
+    class="bankSelect"
+    onchange="loadQuestions()">
+
+    <option>
+      Laster modul/tema...
+    </option>
+
+  </select>
+
+
+</div>
+
+
+<div class="buttons">
+
+  <button id="studentBtn">
+    Velg student
+  </button>
+
+  <button id="questionBtn">
+    Velg spørsmål
+  </button>
+
+  <button
+    id="answerBtn"
+    class="green">
+
+    Svar
+
+  </button>
+
+  <button
+    id="resetBtn"
+    class="red">
+
+    Resett økt
+
+  </button>
+
+</div>
+
+
+<div
+  id="studentStatus"
+  class="dataStatus">
+
+  Leser studenter.csv ...
+
+</div>
+
+
+<div
+  id="questionStatus"
+  class="dataStatus">
+
+  Leser sporsmalsbank.csv ...
+
+</div>
+
+
+<section class="stage">
+
+
+  <!-- STUDENTHJUL -->
+
+  <div class="panel">
+
+    <h2>
+      Studenthjul
+    </h2>
+
+    <div class="wheelwrap">
+
+      <div class="pointer">
+      </div>
+
+      <canvas
+        id="studentCanvas"
+        width="520"
+        height="520">
+      </canvas>
+
+    </div>
+
+    <div
+      id="studentResult"
+      class="result">
+    </div>
+
+  </div>
+
+
+  <!-- SPØRSMÅLSHJUL -->
+
+  <div class="panel">
+
+    <h2>
+      Spørsmålshjul
+    </h2>
+
+    <div class="wheelwrap">
+
+      <div class="pointer">
+      </div>
+
+      <canvas
+        id="questionCanvas"
+        width="520"
+        height="520">
+      </canvas>
+
+    </div>
+
+    <div
+      id="questionResult"
+      class="result">
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<div
+  id="questionText"
+  class="box hidden">
+</div>
+
+
+<div
+  id="answerText"
+  class="box answer hidden">
+</div>
+
+
+<script>
+
+(function(){
+
+"use strict";
+
+
+/* =============================================
+   MAKS ANTALL FELT I HJULET
+============================================= */
+
+var MAX = 30;
+
+
+/* =============================================
+   FILER PÅ GITHUB
+============================================= */
+
+var STUDENT_CSV_PATHS = [
+
+  "studenter.csv",
+  "data/studenter.csv"
+
+];
+
+
+var QUESTION_CSV_PATHS = [
+
+  "sporsmalsbank.csv",
+  "data/sporsmalsbank.csv"
+
+];
+
+
+/* =============================================
+   DATA
+============================================= */
+
+var classBanks = [];
+
+
+/*
+Her lagres ALLE spørsmålsbanker.
+
+Én bank defineres av:
+
+Emne + Modul + Tema
+*/
+
+var questionBanks = [];
+
+
+/*
+Unike emner:
+
+TEK1210
+MASG2103
+osv.
+*/
+
+var courses = [];
+
+
+/*
+Banker som tilhører
+valgt emne.
+*/
+
+var visibleQuestionBanks = [];
+
+
+/*
+Aktivt hjulinnhold.
+*/
+
+var names = [];
+
+var questions = [];
+
+var answers = [];
+
+var almostAnswers = [];
+
+var littleAnswers = [];
+
+var wrongAnswers = [];
+
+
+/*
+Brukte felt i økten.
+*/
+
+var usedStudents = [];
+
+var usedQuestions = [];
+
+
+var selectedQuestion = -1;
+
+var spinning = false;
+
+
+var studentAngle = 0;
+
+var questionAngle = 0;
+
+
+/* =============================================
+   CANVAS
+============================================= */
+
+var sc =
+  document.getElementById(
+    "studentCanvas"
+  );
+
+
+var qc =
+  document.getElementById(
+    "questionCanvas"
+  );
+
+
+var sctx =
+  sc.getContext("2d");
+
+
+var qctx =
+  qc.getContext("2d");
+
+
+function el(id){
+
+  return document.getElementById(id);
+
+}
+
+
+/* =============================================
+   TEKSTNORMALISERING
+============================================= */
+
+/*
+Brukes bare for sammenligning.
+
+Original tekst beholdes til visning.
+*/
+
+function normalizeValue(value){
+
+  return String(
+    value || ""
+  )
+  .replace(/\u00A0/g," ")
+  .trim()
+  .replace(/\s+/g," ");
+
+}
+
+
+/* =============================================
+   CSV-FUNKSJONER
+============================================= */
+
+function cleanText(text){
+
+  if(
+    text &&
+    text.charCodeAt(0) === 0xFEFF
+  ){
+
+    text =
+      text.slice(1);
+
+  }
+
+
+  return text;
+
+}
+
+
+function detectDelimiter(firstLine){
+
+  var semicolonCount =
+    (
+      firstLine.match(/;/g) || []
+    ).length;
+
+
+  var commaCount =
+    (
+      firstLine.match(/,/g) || []
+    ).length;
+
+
+  return semicolonCount >
+    commaCount ?
+    ";" :
+    ",";
+
+}
+
+
+function parseCSVLine(
+  line,
+  delimiter
+){
+
+  var result = [];
+
+  var current = "";
+
+  var inQuotes = false;
+
+
+  for(
+    var i=0;
+    i<line.length;
+    i++
+  ){
+
+    var ch =
+      line[i];
+
+
+    if(
+      ch === '"'
+    ){
+
+      if(
+        inQuotes &&
+        line[i+1] === '"'
+      ){
+
+        current += '"';
+
+        i++;
+
+      }
+      else{
+
+        inQuotes =
+          !inQuotes;
+
+      }
+
+    }
+
+    else if(
+      ch === delimiter &&
+      !inQuotes
+    ){
+
+      result.push(
+        current.trim()
+      );
+
+      current = "";
+
+    }
+
+    else{
+
+      current += ch;
+
+    }
+
+  }
+
+
+  result.push(
+    current.trim()
+  );
+
+
+  return result;
+
+}
+
+
+function normalizeHeader(text){
+
+  return String(
+    text || ""
+  )
+  .trim()
+  .toLowerCase()
+  .replace(/\s+/g,"");
+
+}
+
+
+/* =============================================
+   LES STUDENTER.CSV
+============================================= */
+
+function parseStudentCSV(text){
+
+  text =
+    cleanText(text);
+
+
+  var lines =
+    text
+    .split(/\r?\n/)
+    .filter(
+      function(line){
+
+        return line.trim() !== "";
+
+      }
+    );
+
+
+  if(
+    lines.length < 2
+  ){
+
+    throw new Error(
+      "CSV-filen inneholder ingen studentdata."
+    );
+
+  }
+
+
+  var delimiter =
+    detectDelimiter(
+      lines[0]
+    );
+
+
+  var headers =
+    parseCSVLine(
+      lines[0],
+      delimiter
+    )
+    .map(
+      normalizeHeader
+    );
+
+
+  var index = {};
+
+
+  headers.forEach(
+    function(header,i){
+
+      index[header] = i;
+
+    }
+  );
+
+
+  if(
+    index.fornavn === undefined
+  ){
+
+    throw new Error(
+      "Fant ikke kolonnen Fornavn."
+    );
+
+  }
+
+
+  var rows = [];
+
+
+  for(
+    var r=1;
+    r<lines.length;
+    r++
+  ){
+
+    var cells =
+      parseCSVLine(
+        lines[r],
+        delimiter
+      );
+
+
+    function value(column){
+
+      if(
+        index[column] === undefined
+      ){
+
+        return "";
+
+      }
+
+
+      return normalizeValue(
+        cells[
+          index[column]
+        ] || ""
+      );
+
+    }
+
+
+    var row = {
+
+      emne:
+        value("emne"),
+
+      studieprogram:
+        value("studieprogram"),
+
+      kull:
+        value("kull"),
+
+      gruppe:
+        value("gruppe"),
+
+      fornavn:
+        value("fornavn"),
+
+      etternavn:
+        value("etternavn")
+
+    };
+
+
+    if(
+      row.fornavn
+    ){
+
+      rows.push(
+        row
+      );
+
+    }
+
+  }
+
+
+  return rows;
+
+}
+
+
+/* =============================================
+   BYGG STUDENTBANKER
+============================================= */
+
+function buildClassBanks(rows){
+
+  var groups = {};
+
+
+  rows.forEach(
+    function(student){
+
+      var program =
+        student.studieprogram ||
+        "Klasse";
+
+
+      var kull =
+        student.kull ||
+        "";
+
+
+      var gruppe =
+        student.gruppe ||
+        "";
+
+
+      var key =
+        program +
+        "|" +
+        kull +
+        "|" +
+        gruppe;
+
+
+      if(
+        !groups[key]
+      ){
+
+        groups[key] = {
+
+          studieprogram:
+            program,
+
+          kull:
+            kull,
+
+          gruppe:
+            gruppe,
+
+          students:
+            []
+
+        };
+
+      }
+
+
+      groups[key].students.push({
+
+        first:
+          student.fornavn,
+
+        last:
+          student.etternavn
+
+      });
+
+    }
+  );
+
+
+  var banks = [];
+
+
+  Object.keys(
+    groups
+  ).forEach(
+    function(key){
+
+      var group =
+        groups[key];
+
+
+      var firstNameCount = {};
+
+
+      group.students.forEach(
+        function(student){
+
+          var n =
+            student.first.toLowerCase();
+
+
+          firstNameCount[n] =
+            (
+              firstNameCount[n] ||
+              0
+            ) + 1;
+
+        }
+      );
+
+
+      var studentNames =
+        group.students.map(
+          function(student){
+
+            var sameName =
+              firstNameCount[
+                student.first.toLowerCase()
+              ] > 1;
+
+
+            if(
+              sameName &&
+              student.last
+            ){
+
+              return student.first +
+                " " +
+                student.last.charAt(0) +
+                ".";
+
+            }
+
+
+            return student.first;
+
+          }
+        );
+
+
+      studentNames =
+        studentNames.filter(
+          function(
+            name,
+            index,
+            array
+          ){
+
+            return array.indexOf(
+              name
+            ) === index;
+
+          }
+        );
+
+
+      studentNames =
+        studentNames.slice(
+          0,
+          MAX
+        );
+
+
+      var displayKull =
+        String(
+          group.kull ||
+          ""
+        );
+
+
+      if(
+        displayKull.length === 4
+      ){
+
+        displayKull =
+          displayKull.slice(2);
+
+      }
+
+
+      var displayName =
+        [
+
+          group.studieprogram,
+
+          displayKull,
+
+          group.gruppe
+
+        ]
+        .filter(Boolean)
+        .join(" ");
+
+
+      banks.push({
+
+        name:
+          displayName,
+
+        students:
+          studentNames
+
+      });
+
+    }
+  );
+
+
+  banks.sort(
+    function(a,b){
+
+      return a.name.localeCompare(
+        b.name,
+        "no",
+        {
+          numeric:true
+        }
+      );
+
+    }
+  );
+
+
+  return banks;
+
+}
+
+
+/* =============================================
+   LAST STUDENTER.CSV
+============================================= */
+
+async function loadStudentCSV(){
+
+  var lastError =
+    null;
+
+
+  for(
+    var i=0;
+    i<STUDENT_CSV_PATHS.length;
+    i++
+  ){
+
+    var path =
+      STUDENT_CSV_PATHS[i];
+
+
+    try{
+
+      var url =
+        path +
+        "?v=" +
+        Date.now();
+
+
+      var response =
+        await fetch(
+          url,
+          {
+            cache:"no-store"
+          }
+        );
+
+
+      if(
+        !response.ok
+      ){
+
+        throw new Error(
+          "HTTP " +
+          response.status
+        );
+
+      }
+
+
+      var text =
+        await response.text();
+
+
+      var rows =
+        parseStudentCSV(
+          text
+        );
+
+
+      classBanks =
+        buildClassBanks(
+          rows
+        );
+
+
+      if(
+        classBanks.length === 0
+      ){
+
+        throw new Error(
+          "Ingen studentgrupper ble funnet."
+        );
+
+      }
+
+
+      refreshClassList();
+
+
+      el(
+        "studentStatus"
+      ).textContent =
+        "Studentliste lastet: " +
+        rows.length +
+        " studenter / " +
+        classBanks.length +
+        " grupper";
+
+
+      return;
+
+    }
+
+    catch(error){
+
+      lastError =
+        error;
+
+
+      console.log(
+        "Kunne ikke lese " +
+        path,
+        error
+      );
+
+    }
+
+  }
+
+
+  el(
+    "classSelect"
+  ).innerHTML =
+    "<option>Studentliste mangler</option>";
+
+
+  names = [];
+
+  drawAll();
+
+}
+
+
+/* =============================================
+   STUDENTGRUPPEMENY
+============================================= */
+
+function refreshClassList(){
+
+  var select =
+    el(
+      "classSelect"
+    );
+
+
+  select.innerHTML =
+    "";
+
+
+  classBanks.forEach(
+    function(
+      bank,
+      index
+    ){
+
+      var option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        index;
+
+
+      option.textContent =
+        bank.name;
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  if(
+    classBanks.length > 0
+  ){
+
+    select.value =
+      0;
+
+
+    loadClass();
+
+  }
+
+}
+
+
+/* =============================================
+   VELG STUDENTGRUPPE
+============================================= */
+
+window.loadClass =
+function(){
+
+  var index =
+    parseInt(
+      el(
+        "classSelect"
+      ).value,
+      10
+    );
+
+
+  var bank =
+    classBanks[
+      index
+    ];
+
+
+  if(
+    !bank
+  ){
+
+    names = [];
+
+    drawAll();
+
+    return;
+
+  }
+
+
+  names =
+    bank.students ||
+    [];
+
+
+  resetSession();
+
+};
+
+
+/*
+=================================================
+SLUTT DEL 1 AV 3
+=================================================
+*//* =============================================
+   LES SPORSMALSBANK.CSV
+============================================= */
+
+function parseQuestionCSV(text){
+
+  text = cleanText(text);
+
+  var lines = text
+    .split(/\r?\n/)
+    .filter(function(line){
+      return line.trim() !== "";
+    });
+
+
+  if(lines.length < 2){
+
+    throw new Error(
+      "CSV-filen inneholder ingen spørsmål."
+    );
+
+  }
+
+
+  var delimiter =
+    detectDelimiter(lines[0]);
+
+
+  var headers =
+    parseCSVLine(
+      lines[0],
+      delimiter
+    ).map(normalizeHeader);
+
+
+  var index = {};
+
+
+  headers.forEach(function(header,i){
+
+    index[header] = i;
+
+  });
+
+
+  /*
+    Vi godtar noen alternative skrivemåter
+    på kolonneoverskriftene.
+  */
+
+  function findColumn(possibleNames){
+
+    for(var i=0;i<possibleNames.length;i++){
+
+      if(
+        index[possibleNames[i]] !== undefined
+      ){
+
+        return index[possibleNames[i]];
+
+      }
+
+    }
+
+    return -1;
+
+  }
+
+
+  var colIndex =
+    findColumn([
+      "indeks",
+      "index"
+    ]);
+
+
+  var colCourse =
+    findColumn([
+      "emne"
+    ]);
+
+
+  var colModule =
+    findColumn([
+      "modul"
+    ]);
+
+
+  var colTopic =
+    findColumn([
+      "tema"
+    ]);
+
+
+  var colQuestion =
+    findColumn([
+      "spørsmål",
+      "sporsmal"
+    ]);
+
+
+  var colCorrect =
+    findColumn([
+      "riktigsvar",
+      "riktig"
+    ]);
+
+
+  var colAlmost =
+    findColumn([
+      "nestenriktig",
+      "nestensvar"
+    ]);
+
+
+  var colLittle =
+    findColumn([
+      "littriktig",
+      "littsvar"
+    ]);
+
+
+  var colWrong =
+    findColumn([
+      "feilsvar",
+      "feil"
+    ]);
+
+
+  if(colCourse < 0){
+
+    throw new Error(
+      "Fant ikke kolonnen Emne."
+    );
+
+  }
+
+
+  if(colModule < 0){
+
+    throw new Error(
+      "Fant ikke kolonnen Modul."
+    );
+
+  }
+
+
+  if(colTopic < 0){
+
+    throw new Error(
+      "Fant ikke kolonnen Tema."
+    );
+
+  }
+
+
+  if(colQuestion < 0){
+
+    throw new Error(
+      "Fant ikke kolonnen Spørsmål."
+    );
+
+  }
+
+
+  if(colCorrect < 0){
+
+    throw new Error(
+      "Fant ikke kolonnen Riktig svar."
+    );
+
+  }
+
+
+  var rows = [];
+
+
+  for(var r=1;r<lines.length;r++){
+
+    var cells =
+      parseCSVLine(
+        lines[r],
+        delimiter
+      );
+
+
+    function cell(column){
+
+      if(
+        column === undefined ||
+        column < 0
+      ){
+
+        return "";
+
+      }
+
+
+      return normalizeValue(
+        cells[column] || ""
+      );
+
+    }
+
+
+    var row = {
+
+      index:
+        cell(colIndex),
+
+      course:
+        cell(colCourse),
+
+      module:
+        cell(colModule),
+
+      topic:
+        cell(colTopic),
+
+      question:
+        cell(colQuestion),
+
+      correct:
+        cell(colCorrect),
+
+      almost:
+        cell(colAlmost),
+
+      little:
+        cell(colLittle),
+
+      wrong:
+        cell(colWrong)
+
+    };
+
+
+    /*
+      Bare rader som faktisk har
+      emne + spørsmål tas med.
+    */
+
+    if(
+      row.course &&
+      row.question
+    ){
+
+      rows.push(row);
+
+    }
+
+  }
+
+
+  return rows;
+
+}
+
+
+/* =============================================
+   BYGG SPORSMALSBANKER
+
+   VIKTIG ENDRING I V2.3.8:
+
+   Banken grupperes eksplisitt etter
+
+   EMNE + MODUL + TEMA
+
+   Dermed vil nye moduler som M2
+   automatisk bli med.
+============================================= */
+
+function buildQuestionBanks(rows){
+
+  var groups = {};
+
+
+  rows.forEach(function(row){
+
+    var course =
+      normalizeValue(row.course);
+
+
+    var module =
+      normalizeValue(row.module);
+
+
+    var topic =
+      normalizeValue(row.topic);
+
+
+    if(!course){
+
+      return;
+
+    }
+
+
+    /*
+      Dersom modul eller tema mangler,
+      bruker vi en tom tekst.
+
+      Dermed krasjer ikke banken.
+    */
+
+    var key =
+      course +
+      "||" +
+      module +
+      "||" +
+      topic;
+
+
+    if(!groups[key]){
+
+      groups[key] = {
+
+        course:
+          course,
+
+        module:
+          module,
+
+        topic:
+          topic,
+
+        questions:
+          []
+
+      };
+
+    }
+
+
+    groups[key].questions.push({
+
+      index:
+        row.index,
+
+      question:
+        row.question,
+
+      correct:
+        row.correct,
+
+      almost:
+        row.almost,
+
+      little:
+        row.little,
+
+      wrong:
+        row.wrong
+
+    });
+
+  });
+
+
+  var banks = [];
+
+
+  Object.keys(groups).forEach(
+    function(key){
+
+      var group =
+        groups[key];
+
+
+      /*
+        Maks 30 spørsmål per hjul.
+      */
+
+      group.questions =
+        group.questions.slice(
+          0,
+          MAX
+        );
+
+
+      /*
+        Teksten som skal vises
+        i tredje meny.
+
+        Eksempel:
+
+        M2 Skjærforbindelser 2_1
+      */
+
+      var displayName =
+        [
+          group.module,
+          group.topic
+        ]
+        .filter(Boolean)
+        .join(" ");
+
+
+      banks.push({
+
+        course:
+          group.course,
+
+        module:
+          group.module,
+
+        topic:
+          group.topic,
+
+        name:
+          displayName,
+
+        questions:
+          group.questions
+
+      });
+
+    }
+  );
+
+
+  /*
+    Sortering:
+
+    Først emne,
+    deretter modul,
+    deretter tema.
+  */
+
+  banks.sort(function(a,b){
+
+    var courseCompare =
+      a.course.localeCompare(
+        b.course,
+        "no",
+        {
+          numeric:true
+        }
+      );
+
+
+    if(courseCompare !== 0){
+
+      return courseCompare;
+
+    }
+
+
+    var moduleCompare =
+      a.module.localeCompare(
+        b.module,
+        "no",
+        {
+          numeric:true
+        }
+      );
+
+
+    if(moduleCompare !== 0){
+
+      return moduleCompare;
+
+    }
+
+
+    return a.topic.localeCompare(
+      b.topic,
+      "no",
+      {
+        numeric:true
+      }
+    );
+
+  });
+
+
+  return banks;
+
+}
+
+
+/* =============================================
+   BYGG LISTE OVER EMNER
+============================================= */
+
+function buildCourseList(){
+
+  var found = {};
+
+
+  questionBanks.forEach(
+    function(bank){
+
+      var course =
+        normalizeValue(
+          bank.course
+        );
+
+
+      if(course){
+
+        found[course] = true;
+
+      }
+
+    }
+  );
+
+
+  courses =
+    Object.keys(found);
+
+
+  courses.sort(
+    function(a,b){
+
+      return a.localeCompare(
+        b,
+        "no",
+        {
+          numeric:true
+        }
+      );
+
+    }
+  );
+
+}
+
+
+/* =============================================
+   LAST SPORSMALSBANK FRA GITHUB
+============================================= */
+
+async function loadQuestionCSV(){
+
+  var lastError = null;
+
+
+  for(
+    var i=0;
+    i<QUESTION_CSV_PATHS.length;
+    i++
+  ){
+
+    var path =
+      QUESTION_CSV_PATHS[i];
+
+
+    try{
+
+      /*
+        ?v=Date.now() hindrer nettleseren
+        i å bruke en gammel cached CSV.
+      */
+
+      var url =
+        path +
+        "?v=" +
+        Date.now();
+
+
+      var response =
+        await fetch(
+          url,
+          {
+            cache:"no-store"
+          }
+        );
+
+
+      if(!response.ok){
+
+        throw new Error(
+          "HTTP " +
+          response.status
+        );
+
+      }
+
+
+      var text =
+        await response.text();
+
+
+      var rows =
+        parseQuestionCSV(text);
+
+
+      questionBanks =
+        buildQuestionBanks(rows);
+
+
+      if(
+        questionBanks.length === 0
+      ){
+
+        throw new Error(
+          "Ingen spørsmålsbanker ble funnet."
+        );
+
+      }
+
+
+      /*
+        Bygg emnelisten ETTER at
+        alle banker er lest.
+      */
+
+      buildCourseList();
+
+
+      /*
+        Deretter bygges menyene.
+      */
+
+      refreshCourseList();
+
+
+      el(
+        "questionStatus"
+      ).textContent =
+        "Spørsmålsbank lastet: " +
+        rows.length +
+        " spørsmål / " +
+        questionBanks.length +
+        " banker";
+
+
+      console.log(
+        "Spørsmålsbank lastet:",
+        rows.length,
+        "spørsmål"
+      );
+
+
+      console.log(
+        "Emner:",
+        courses
+      );
+
+
+      console.log(
+        "Banker:",
+        questionBanks
+      );
+
+
+      return;
+
+    }
+
+    catch(error){
+
+      lastError =
+        error;
+
+
+      console.log(
+        "Kunne ikke lese " +
+        path,
+        error
+      );
+
+    }
+
+  }
+
+
+  el(
+    "courseSelect"
+  ).innerHTML =
+    "<option>Spørsmålsbank mangler</option>";
+
+
+  el(
+    "topicSelect"
+  ).innerHTML =
+    "<option>Ingen tema</option>";
+
+
+  questions = [];
+
+  answers = [];
+
+  drawAll();
+
+
+  console.error(
+    "Spørsmålsbanken kunne ikke lastes.",
+    lastError
+  );
+
+}
+
+
+/* =============================================
+   MENY 2:
+   EMNE
+============================================= */
+
+function refreshCourseList(){
+
+  var select =
+    el(
+      "courseSelect"
+    );
+
+
+  select.innerHTML = "";
+
+
+  courses.forEach(
+    function(course){
+
+      var option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        course;
+
+
+      option.textContent =
+        course;
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  if(courses.length > 0){
+
+    select.value =
+      courses[0];
+
+
+    loadCourse();
+
+  }
+
+}
+
+
+/* =============================================
+   VELG EMNE
+
+   Her ligger den viktige rettingen.
+
+   Vi filtrerer ALLE banker på
+   eksakt valgt emne.
+
+   Vi begrenser ikke modulene til
+   en forhåndsdefinert liste.
+============================================= */
+
+window.loadCourse =
+function(){
+
+  var selectedCourse =
+    normalizeValue(
+      el(
+        "courseSelect"
+      ).value
+    );
+
+
+  visibleQuestionBanks =
+    questionBanks.filter(
+      function(bank){
+
+        return normalizeValue(
+          bank.course
+        ) === selectedCourse;
+
+      }
+    );
+
+
+  /*
+    Sorter banker innen valgt emne.
+  */
+
+  visibleQuestionBanks.sort(
+    function(a,b){
+
+      var moduleCompare =
+        normalizeValue(
+          a.module
+        ).localeCompare(
+          normalizeValue(
+            b.module
+          ),
+          "no",
+          {
+            numeric:true
+          }
+        );
+
+
+      if(moduleCompare !== 0){
+
+        return moduleCompare;
+
+      }
+
+
+      return normalizeValue(
+        a.topic
+      ).localeCompare(
+        normalizeValue(
+          b.topic
+        ),
+        "no",
+        {
+          numeric:true
+        }
+      );
+
+    }
+  );
+
+
+  refreshTopicList();
+
+};
+
+
+/* =============================================
+   MENY 3:
+   MODUL + TEMA
+============================================= */
+
+function refreshTopicList(){
+
+  var select =
+    el(
+      "topicSelect"
+    );
+
+
+  select.innerHTML = "";
+
+
+  visibleQuestionBanks.forEach(
+    function(bank,index){
+
+      var option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        index;
+
+
+      option.textContent =
+        bank.name;
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  if(
+    visibleQuestionBanks.length > 0
+  ){
+
+    select.value = 0;
+
+    loadQuestions();
+
+  }
+
+  else{
+
+    select.innerHTML =
+      "<option>Ingen tema i emnet</option>";
+
+
+    questions = [];
+
+    answers = [];
+
+    almostAnswers = [];
+
+    littleAnswers = [];
+
+    wrongAnswers = [];
+
+
+    resetQuestionSession();
+
+  }
+
+}
+
+
+/* =============================================
+   LAST VALGT SPORSMALSBANK
+============================================= */
+
+window.loadQuestions =
+function(){
+
+  var bankIndex =
+    parseInt(
+      el(
+        "topicSelect"
+      ).value,
+      10
+    );
+
+
+  var bank =
+    visibleQuestionBanks[
+      bankIndex
+    ];
+
+
+  if(!bank){
+
+    questions = [];
+
+    answers = [];
+
+    almostAnswers = [];
+
+    littleAnswers = [];
+
+    wrongAnswers = [];
+
+
+    resetQuestionSession();
+
+    return;
+
+  }
+
+
+  questions =
+    bank.questions.map(
+      function(item){
+
+        return item.question;
+
+      }
+    );
+
+
+  answers =
+    bank.questions.map(
+      function(item){
+
+        return item.correct;
+
+      }
+    );
+
+
+  almostAnswers =
+    bank.questions.map(
+      function(item){
+
+        return item.almost;
+
+      }
+    );
+
+
+  littleAnswers =
+    bank.questions.map(
+      function(item){
+
+        return item.little;
+
+      }
+    );
+
+
+  wrongAnswers =
+    bank.questions.map(
+      function(item){
+
+        return item.wrong;
+
+      }
+    );
+
+
+  /*
+    Start en ny spørsmålsrunde når
+    brukeren bytter modul/tema.
+  */
+
+  resetQuestionSession();
+
+};
+
+
+/* =============================================
+   NULLSTILL BARE SPORSMAL
+============================================= */
+
+function resetQuestionSession(){
+
+  usedQuestions = [];
+
+  selectedQuestion = -1;
+
+  questionAngle = 0;
+
+
+  el(
+    "questionResult"
+  ).textContent = "";
+
+
+  el(
+    "questionText"
+  ).textContent = "";
+
+
+  el(
+    "answerText"
+  ).textContent = "";
+
+
+  el(
+    "questionText"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  el(
+    "answerText"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  drawQuestionWheel();
+
+}
+
+
+/* =============================================
+   HJELPEFUNKSJON:
+   FINN LEDIG FELT
+============================================= */
+
+function getAvailableIndex(
+  count,
+  used
+){
+
+  if(count <= 0){
+
+    return -1;
+
+  }
+
+
+  var available = [];
+
+
+  for(
+    var i=0;
+    i<count;
+    i++
+  ){
+
+    if(
+      used.indexOf(i) === -1
+    ){
+
+      available.push(i);
+
+    }
+
+  }
+
+
+  /*
+    Alle er brukt:
+    start ny gjennomkjøring.
+  */
+
+  if(
+    available.length === 0
+  ){
+
+    used.length = 0;
+
+
+    for(
+      var j=0;
+      j<count;
+      j++
+    ){
+
+      available.push(j);
+
+    }
+
+  }
+
+
+  return available[
+    Math.floor(
+      Math.random() *
+      available.length
+    )
+  ];
+
+}
+
+
+/* =============================================
+   TEGN HJUL
+============================================= */
+
+function drawWheel(
+  ctx,
+  canvas,
+  labels,
+  used,
+  angle
+){
+
+  var width =
+    canvas.width;
+
+
+  var height =
+    canvas.height;
+
+
+  var cx =
+    width / 2;
+
+
+  var cy =
+    height / 2;
+
+
+  var radius =
+    Math.min(
+      width,
+      height
+    ) / 2 - 8;
+
+
+  ctx.clearRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+
+  if(
+    !labels ||
+    labels.length === 0
+  ){
+
+    ctx.beginPath();
+
+    ctx.arc(
+      cx,
+      cy,
+      radius,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fillStyle =
+      "#dddddd";
+
+    ctx.fill();
+
+    return;
+
+  }
+
+
+  var count =
+    labels.length;
+
+
+  var slice =
+    Math.PI * 2 /
+    count;
+
+
+  for(
+    var i=0;
+    i<count;
+    i++
+  ){
+
+    var start =
+      angle +
+      i * slice -
+      Math.PI / 2;
+
+
+    var end =
+      start +
+      slice;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      cx,
+      cy
+    );
+
+
+    ctx.arc(
+      cx,
+      cy,
+      radius,
+      start,
+      end
+    );
+
+
+    ctx.closePath();
+
+
+    /*
+      Grå = allerede brukt.
+    */
+
+    if(
+      used.indexOf(i) !== -1
+    ){
+
+      ctx.fillStyle =
+        "#b7b7b7";
+
+    }
+
+    else{
+
+      ctx.fillStyle =
+        i % 2 === 0
+        ?
+        "#78b7e5"
+        :
+        "#d5eaff";
+
+    }
+
+
+    ctx.fill();
+
+
+    ctx.strokeStyle =
+      "#ffffff";
+
+    ctx.lineWidth =
+      2;
+
+    ctx.stroke();
+
+
+    /*
+      Tekst i feltet.
+    */
+
+    ctx.save();
+
+
+    ctx.translate(
+      cx,
+      cy
+    );
+
+
+    ctx.rotate(
+      start +
+      slice / 2
+    );
+
+
+    ctx.textAlign =
+      "right";
+
+
+    ctx.textBaseline =
+      "middle";
+
+
+    ctx.fillStyle =
+      "#111";
+
+
+    var fontSize =
+      count > 24
+      ?
+      13
+      :
+      15;
+
+
+    ctx.font =
+      fontSize +
+      "px Arial";
+
+
+    var label =
+      String(
+        labels[i] || ""
+      );
+
+
+    ctx.fillText(
+      label,
+      radius - 18,
+      0
+    );
+
+
+    ctx.restore();
+
+  }
+
+
+  /*
+    Hvit sirkel i sentrum.
+  */
+
+  ctx.beginPath();
+
+  ctx.arc(
+    cx,
+    cy,
+    24,
+    0,
+    Math.PI * 2
+  );
+
+
+  ctx.fillStyle =
+    "#ffffff";
+
+  ctx.fill();
+
+
+  ctx.strokeStyle =
+    "#333333";
+
+  ctx.lineWidth =
+    2;
+
+  ctx.stroke();
+
+}
+
+
+/* =============================================
+   TEGN STUDENTHJUL
+============================================= */
+
+function drawStudentWheel(){
+
+  drawWheel(
+    sctx,
+    sc,
+    names,
+    usedStudents,
+    studentAngle
+  );
+
+}
+
+
+/* =============================================
+   TEGN SPORSMALSHJUL
+
+   Hjulet viser nummer 1,2,3...
+   i stedet for hele spørsmålet.
+============================================= */
+
+function drawQuestionWheel(){
+
+  var labels = [];
+
+
+  for(
+    var i=0;
+    i<questions.length;
+    i++
+  ){
+
+    labels.push(
+      String(i + 1)
+    );
+
+  }
+
+
+  drawWheel(
+    qctx,
+    qc,
+    labels,
+    usedQuestions,
+    questionAngle
+  );
+
+}
+
+
+/* =============================================
+   TEGN BEGGE HJUL
+============================================= */
+
+function drawAll(){
+
+  drawStudentWheel();
+
+  drawQuestionWheel();
+
+}
+
+
+/*
+=================================================
+SLUTT DEL 2 AV 3
+=================================================
+*//* =============================================
+   SPINN STUDENTHJUL
+============================================= */
+
+function spinStudent(){
+
+  if(spinning){
+
+    return;
+
+  }
+
+
+  if(
+    !names ||
+    names.length === 0
+  ){
+
+    alert(
+      "Ingen studentgruppe er lastet."
+    );
+
+    return;
+
+  }
+
+
+  var chosen =
+    getAvailableIndex(
+      names.length,
+      usedStudents
+    );
+
+
+  if(chosen < 0){
+
+    return;
+
+  }
+
+
+  spinning = true;
+
+
+  var startAngle =
+    studentAngle;
+
+
+  var count =
+    names.length;
+
+
+  var slice =
+    Math.PI * 2 /
+    count;
+
+
+  /*
+    Pekeren står øverst.
+
+    Vi roterer valgt felt til
+    pekerens posisjon.
+  */
+
+  var targetPosition =
+    -(
+      chosen *
+      slice +
+      slice / 2
+    );
+
+
+  /*
+    Flere hele rotasjoner
+    før stopp.
+  */
+
+  var rotations =
+    Math.PI *
+    2 *
+    7;
+
+
+  var finalAngle =
+    targetPosition +
+    rotations;
+
+
+  var duration =
+    2500;
+
+
+  var startTime =
+    null;
+
+
+  function animate(time){
+
+    if(startTime === null){
+
+      startTime = time;
+
+    }
+
+
+    var progress =
+      Math.min(
+        (
+          time -
+          startTime
+        ) /
+        duration,
+        1
+      );
+
+
+    /*
+      Ease-out.
+    */
+
+    var eased =
+      1 -
+      Math.pow(
+        1 -
+        progress,
+        3
+      );
+
+
+    studentAngle =
+      startAngle +
+      (
+        finalAngle -
+        startAngle
+      ) *
+      eased;
+
+
+    drawStudentWheel();
+
+
+    if(progress < 1){
+
+      requestAnimationFrame(
+        animate
+      );
+
+    }
+
+    else{
+
+      usedStudents.push(
+        chosen
+      );
+
+
+      el(
+        "studentResult"
+      ).textContent =
+        "Valgt student: " +
+        names[
+          chosen
+        ];
+
+
+      spinning = false;
+
+
+      drawStudentWheel();
+
+    }
+
+  }
+
+
+  requestAnimationFrame(
+    animate
+  );
+
+}
+
+
+/* =============================================
+   SPINN SPORSMALSHJUL
+============================================= */
+
+function spinQuestion(){
+
+  if(spinning){
+
+    return;
+
+  }
+
+
+  if(
+    !questions ||
+    questions.length === 0
+  ){
+
+    alert(
+      "Ingen spørsmålsbank er valgt."
+    );
+
+    return;
+
+  }
+
+
+  var chosen =
+    getAvailableIndex(
+      questions.length,
+      usedQuestions
+    );
+
+
+  if(chosen < 0){
+
+    return;
+
+  }
+
+
+  spinning = true;
+
+
+  /*
+    Skjul gammelt svar straks
+    nytt spørsmål trekkes.
+  */
+
+  el(
+    "answerText"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  var startAngle =
+    questionAngle;
+
+
+  var count =
+    questions.length;
+
+
+  var slice =
+    Math.PI * 2 /
+    count;
+
+
+  var targetPosition =
+    -(
+      chosen *
+      slice +
+      slice / 2
+    );
+
+
+  var rotations =
+    Math.PI *
+    2 *
+    7;
+
+
+  var finalAngle =
+    targetPosition +
+    rotations;
+
+
+  var duration =
+    2500;
+
+
+  var startTime =
+    null;
+
+
+  function animate(time){
+
+    if(startTime === null){
+
+      startTime = time;
+
+    }
+
+
+    var progress =
+      Math.min(
+        (
+          time -
+          startTime
+        ) /
+        duration,
+        1
+      );
+
+
+    var eased =
+      1 -
+      Math.pow(
+        1 -
+        progress,
+        3
+      );
+
+
+    questionAngle =
+      startAngle +
+      (
+        finalAngle -
+        startAngle
+      ) *
+      eased;
+
+
+    drawQuestionWheel();
+
+
+    if(progress < 1){
+
+      requestAnimationFrame(
+        animate
+      );
+
+    }
+
+    else{
+
+      usedQuestions.push(
+        chosen
+      );
+
+
+      selectedQuestion =
+        chosen;
+
+
+      el(
+        "questionResult"
+      ).textContent =
+        "Valgt spørsmål: " +
+        (
+          chosen +
+          1
+        );
+
+
+      el(
+        "questionText"
+      ).textContent =
+        questions[
+          chosen
+        ];
+
+
+      el(
+        "questionText"
+      ).classList.remove(
+        "hidden"
+      );
+
+
+      el(
+        "answerText"
+      ).textContent =
+        "";
+
+
+      el(
+        "answerText"
+      ).classList.add(
+        "hidden"
+      );
+
+
+      spinning = false;
+
+
+      drawQuestionWheel();
+
+    }
+
+  }
+
+
+  requestAnimationFrame(
+    animate
+  );
+
+}
+
+
+/* =============================================
+   VIS RIKTIG SVAR
+============================================= */
+
+function showAnswer(){
+
+  if(
+    selectedQuestion < 0
+  ){
+
+    alert(
+      "Velg spørsmål først."
+    );
+
+    return;
+
+  }
+
+
+  var answer =
+    answers[
+      selectedQuestion
+    ] || "";
+
+
+  if(!answer){
+
+    /*
+      Dette gjør at åpne spørsmål
+      også kan brukes.
+    */
+
+    answer =
+      "Åpent spørsmål – ingen fasit registrert.";
+
+  }
+
+
+  el(
+    "answerText"
+  ).textContent =
+    answer;
+
+
+  el(
+    "answerText"
+  ).classList.remove(
+    "hidden"
+  );
+
+}
+
+
+/* =============================================
+   RESETT HELE OKTEN
+============================================= */
+
+function resetSession(){
+
+  usedStudents = [];
+
+  usedQuestions = [];
+
+
+  selectedQuestion = -1;
+
+
+  studentAngle = 0;
+
+  questionAngle = 0;
+
+
+  el(
+    "studentResult"
+  ).textContent = "";
+
+
+  el(
+    "questionResult"
+  ).textContent = "";
+
+
+  el(
+    "questionText"
+  ).textContent = "";
+
+
+  el(
+    "answerText"
+  ).textContent = "";
+
+
+  el(
+    "questionText"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  el(
+    "answerText"
+  ).classList.add(
+    "hidden"
+  );
+
+
+  drawAll();
+
+}
+
+
+/* =============================================
+   KNAPPER
+============================================= */
+
+el(
+  "studentBtn"
+).addEventListener(
+  "click",
+  function(){
+
+    spinStudent();
+
+  }
+);
+
+
+el(
+  "questionBtn"
+).addEventListener(
+  "click",
+  function(){
+
+    spinQuestion();
+
+  }
+);
+
+
+el(
+  "answerBtn"
+).addEventListener(
+  "click",
+  function(){
+
+    showAnswer();
+
+  }
+);
+
+
+el(
+  "resetBtn"
+).addEventListener(
+  "click",
+  function(){
+
+    resetSession();
+
+  }
+);
+
+
+/* =============================================
+   STARTPROGRAM
+
+   Først tegnes tomme hjul.
+
+   Deretter leses:
+   1. studenter.csv
+   2. sporsmalsbank.csv
+============================================= */
+
+drawAll();
+
+
+loadStudentCSV();
+
+
+loadQuestionCSV();
+
+
+})();   // slutt på hovedfunksjonen
+
+</script>
+
+</body>
+
+</html>
